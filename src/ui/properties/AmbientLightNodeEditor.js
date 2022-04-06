@@ -14,7 +14,7 @@ export default class AmbientLightNodeEditor extends Component {
 
   static iconComponent = Sun;
 
-  static description = "A light which illuminates all objects in your scene.";
+  static description = "Una llum que il·lumina tots els objectes de la teva escena";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -33,7 +33,7 @@ export default class AmbientLightNodeEditor extends Component {
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Intensity"
+          name="Intensitat"
           min={0}
           smallStep={0.001}
           mediumStep={0.01}
