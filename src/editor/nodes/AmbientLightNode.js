@@ -4,7 +4,7 @@ import EditorNodeMixin from "./EditorNodeMixin";
 export default class AmbientLightNode extends EditorNodeMixin(AmbientLight) {
   static componentName = "ambient-light";
 
-  static nodeName = "Ambient Light";
+  static nodeName = "Llum d'Ambient";
 
   static disableTransform = true;
 
