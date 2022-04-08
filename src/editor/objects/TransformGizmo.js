@@ -25,7 +25,7 @@ export default class TransformGizmo extends Object3D {
     this.name = "TransformGizmo";
 
     if (!gizmoGltf) {
-      throw new Error("TransformGizmo ha d'estar carregat abans de poder-lo utilitzar. Espera TransformGizmo.load()");
+      throw new Error("TransformGizmo must be loaded before it can be used. Await TransformGizmo.load()");
     }
 
     this.model = cloneObject3D(gizmoGltf.scene);

@@ -21,7 +21,7 @@ export default class LoginDialog extends Component {
   };
 
   static defaultProps = {
-    title: "Iniciar Sessió"
+    title: "Login"
   };
 
   state = {

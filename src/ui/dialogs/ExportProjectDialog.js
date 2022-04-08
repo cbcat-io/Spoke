@@ -49,7 +49,7 @@ export default function ExportProjectDialog({ defaultOptions, onConfirm, onCance
       title="Export Project"
       onConfirm={onConfirmCallback}
       onCancel={onCancelCallback}
-      confirmLabel="Exportar Projecte"
+      confirmLabel="Export Project"
     >
       <FormContainer>
         <FormField>

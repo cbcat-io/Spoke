@@ -320,7 +320,7 @@ export default class InputManager {
         const value = defaultValue !== undefined ? defaultValue : transform(this, computedProp, null, null);
 
         if (action === undefined) {
-          throw new Error(`L'acció no està definida per ${computedProp}`);
+          throw new Error(`Action is undefined for ${computedProp}`);
         }
 
         initialState[action] = value;

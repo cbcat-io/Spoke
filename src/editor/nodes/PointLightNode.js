@@ -5,7 +5,7 @@ import SpokePointLightHelper from "../helpers/SpokePointLightHelper";
 export default class PointLightNode extends EditorNodeMixin(PhysicalPointLight) {
   static componentName = "point-light";
 
-  static nodeName = "Focus de Llum";
+  static nodeName = "Point Light";
 
   static async deserialize(editor, json) {
     const node = await super.deserialize(editor, json);

@@ -14,7 +14,7 @@ export default class GroundPlaneNodeEditor extends Component {
 
   static iconComponent = SquareFull;
 
-  static description = "Un pla de terra que s'estén en la distància.";
+  static description = "A flat ground plane that extends into the distance.";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -36,10 +36,10 @@ export default class GroundPlaneNodeEditor extends Component {
         <InputGroup name="Color">
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
-        <InputGroup name="Rebre Ombres">
+        <InputGroup name="Receive Shadow">
           <BooleanInput value={node.receiveShadow} onChange={this.onChangeReceiveShadow} />
         </InputGroup>
-        <InputGroup name="Caminable">
+        <InputGroup name="Walkable">
           <BooleanInput value={this.props.node.walkable} onChange={this.onChangeWalkable} />
         </InputGroup>
       </NodeEditor>

@@ -363,7 +363,7 @@ export default class SpokeControls extends EventEmitter {
 
       if (!constraint) {
         console.warn(
-          `La restricció de l'eix no està definida. transformAxis era ${this.transformAxis} transformMode era ${this.transformMode} arrossegant era ${this.dragging}`
+          `Axis Constraint is undefined. transformAxis was ${this.transformAxis} transformMode was ${this.transformMode} dragging was ${this.dragging}`
         );
       }
 
@@ -476,9 +476,9 @@ export default class SpokeControls extends EventEmitter {
         if (this.transformSpace === TransformSpace.World) {
           if (!selectedAxisInfo.rotationTarget) {
             throw new Error(
-              `No s'ha pogut girar l'objecte a causa d'un error desconegut. L'eix seleccionat és ${
+              `Couldn't rotate object due to an unknown error. The selected axis is ${
                 this.transformGizmo.selectedAxis.name
-              } La informació de l'eix seleccionada és: ${JSON.stringify(selectedAxisInfo)}`
+              } The selected axis info is: ${JSON.stringify(selectedAxisInfo)}`
             );
           }
 

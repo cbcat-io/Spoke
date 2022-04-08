@@ -18,7 +18,7 @@ export default class KitPackager {
   }
 
   async package(kitName, url, onProgress) {
-    onProgress("Carregant glb...");
+    onProgress("Loading glb...");
 
     const loader = new GLTFLoader(url, undefined, { revokeObjectURLs: false, addUnknownExtensionsToUserData: true });
 
@@ -75,7 +75,7 @@ export default class KitPackager {
 
       const component = getComponent(piece, "kit-piece");
 
-      onProgress(`Generant miniatura per "${component.name}" ${i} de ${pieces.length}`);
+      onProgress(`Generating thumbnail for "${component.name}" ${i} out of ${pieces.length}`);
 
       // Wait for 5ms so we don't lock up the UI thread
       await new Promise(resolve => setTimeout(resolve, 5));
@@ -159,7 +159,7 @@ export default class KitPackager {
 
     const zipBlob = await zip.generateAsync({ type: "blob" }, ({ percent, currentFile }) => {
       if (currentFile) {
-        onProgress(`Comprimint "${currentFile}" ${percent.toFixed(2)}% completat`);
+        onProgress(`Zipping "${currentFile}" ${percent.toFixed(2)}% complete`);
       }
     });
 

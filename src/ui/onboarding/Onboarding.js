@@ -36,7 +36,7 @@ class CreateModelPopover extends Component {
   render() {
     return (
       <OnboardingPopover target="#assets-panel" {...this.props} disableNext>
-        Afegeix un model a la teva escena fent-hi clic.
+        Add a model to your scene by clicking on it.
       </OnboardingPopover>
     );
   }
@@ -60,14 +60,14 @@ class SaveProjectDialog extends Component {
   render() {
     return (
       <OnboardingDialog {...this.props} disableNext>
-        <h2>Desant i Publicant</h2>
-        <h1>Desant el Teu Projecte</h1>
+        <h2>Saving and Publishing</h2>
+        <h1>Saving Your Project</h1>
         <p>
-          Abans de sortir de la p&agrave;gina, voldreu desar el vostre treball. Podeu fer-ho obrint el men&uacute; i
-          fent clic a Desar Projecte o prement {cmdOrCtrlString} + S.
+          Before you navigate away from the page you&#39;ll want to save your work. You can do this by opening the menu
+          and clicking Save Project or by pressing {cmdOrCtrlString} + S.
         </p>
         <Well>
-          <HotkeyDescription action="Desar Projecte">
+          <HotkeyDescription action="Save Project">
             <div>{cmdOrCtrlString}</div>
             <div>S</div>
           </HotkeyDescription>
@@ -95,9 +95,9 @@ class SaveProjectPopover extends Component {
   render() {
     return (
       <OnboardingPopover target="#viewport-panel .toolbar" {...this.props} position="bottom" disablePrev disableNext>
-        Pressiona {cmdOrCtrlString} + S per desar el teu projecte.
+        Press {cmdOrCtrlString} + S to save your project.
         <Well>
-          <HotkeyDescription action="Desar Projecte">
+          <HotkeyDescription action="Save Project">
             <div>{cmdOrCtrlString}</div>
             <div>S</div>
           </HotkeyDescription>
@@ -125,7 +125,7 @@ class PublishScenePopover extends Component {
   render() {
     return (
       <OnboardingPopover target="#publish-button" {...this.props} position="bottom" disablePrev disableNext>
-        Fes clic per publicar la teva escena.
+        Click to publish your scene.
       </OnboardingPopover>
     );
   }
@@ -138,9 +138,9 @@ const steps = [
     render(props) {
       return (
         <OnboardingDialog {...props}>
-          <h2>Presentaci&oacute;</h2>
-          <h1>Benvinguts{configs.isMoz() ? " a Spoke" : ""}</h1>
-          <p>En aquest tutorial veurem com crear i publicar una escena.</p>
+          <h2>Introduction</h2>
+          <h1>Welcome{configs.isMoz() ? " to Spoke" : ""}</h1>
+          <p>In this tutorial we&#39;ll go over how to create and publish a scene.</p>
         </OnboardingDialog>
       );
     }
@@ -149,22 +149,17 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#viewport-panel .toolbar" {...props} position="bottom">
-          <p>
-            Podeu orbitar per l&#39;escena mantenint premut el bot&oacute; esquerre del ratol&iacute; i arrossegant.
-          </p>
-          <p>
-            Tamb&eacute; podeu volar per l&#39;escena mantenint premut el bot&oacute; dret del ratol&iacute; i
-            utilitzant les tecles WASD.
-          </p>
+          <p>You can orbit around the scene by holding the left mouse button and dragging.</p>
+          <p>You can also fly around the scene by holding the right mouse button and using the WASD keys.</p>
           <Well>
-            <HotkeyDescription action="Orbitar">
+            <HotkeyDescription action="Orbit">
               <Icon src={lmbIcon} />
             </HotkeyDescription>
-            <HotkeyDescription action="Volar">
+            <HotkeyDescription action="Fly">
               <Icon src={rmbIcon} />
               <Icon src={wasdIcon} />
             </HotkeyDescription>
-            <HotkeyDescription action="Impulsar">
+            <HotkeyDescription action="Boost">
               <Icon src={rmbIcon} />
               <Icon src={wasdIcon} />
               <div>Shift</div>
@@ -181,17 +176,17 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#assets-panel" {...props} position="top" disablePrev>
-          <p>Mentre el model estigui carregant, veureu un indicador de c&agrave;rrega.</p>
-          <p>Premeu Q per girar l&#39;objecte cap a l&#39;esquerra i E per girar l&#39;objecte cap a la dreta.</p>
-          <p>Feu clic per col&#183;locar l&#39;objecte i premeu ESC per deixar de col&#183;locar objectes.</p>
+          <p>While the model is loading you&#39;ll see the loading indicator.</p>
+          <p>Press Q to rotate the object to the left and E to rotate the object to the right.</p>
+          <p>Click to place the object and press ESC to stop placing objects.</p>
           <Well>
-            <HotkeyDescription action="Girar a l'Esquerra">
+            <HotkeyDescription action="Rotate Left">
               <div>Q</div>
             </HotkeyDescription>
-            <HotkeyDescription action="Girar a la Dreta">
+            <HotkeyDescription action="Rotate Right">
               <div>E</div>
             </HotkeyDescription>
-            <HotkeyDescription action="Cancel·lar Col·locació">
+            <HotkeyDescription action="Cancel Placement">
               <div>Esc</div>
             </HotkeyDescription>
           </Well>
@@ -203,18 +198,18 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#assets-panel" {...props} position="top" disablePrev>
-          <p>Podeu seleccionar objectes fent clic sobre ells.</p>
-          <p>Manteniu premuda la tecla maj&uacute;scules per seleccionar diversos objectes.</p>
-          <p>Premeu ESC per deseleccionar tots els objectes.</p>
+          <p>You can select objects by clicking on them.</p>
+          <p>Hold shift to select multiple objects.</p>
+          <p>Press ESC to deselect all objects.</p>
           <Well>
-            <HotkeyDescription action="Seleccionar">
+            <HotkeyDescription action="Select">
               <Icon src={lmbIcon} />
             </HotkeyDescription>
-            <HotkeyDescription action="Afegir a la Selecció">
+            <HotkeyDescription action="Add to Selection">
               <Icon src={lmbIcon} />
               <div>Shift</div>
             </HotkeyDescription>
-            <HotkeyDescription action="Desseleccionar-ho Tot">
+            <HotkeyDescription action="Deselect All">
               <div>ESC</div>
             </HotkeyDescription>
           </Well>
@@ -226,10 +221,10 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#hierarchy-panel" {...props} position="left">
-          Els objectes que afegiu a l&#39;escena es mostren al tauler de jerarquia. Feu doble clic a l&#39;objecte que
-          heu afegit per enfocar-lo. Tamb&eacute; podeu pr&eacute;mer la tecla F per enfocar l&#39;objecte seleccionat.
+          Objects you add to the scene show up in the hierarchy panel. Double click the object you added to focus it.
+          You can also press the F key to focus the selected object.
           <Well>
-            <HotkeyDescription action="Enfocar l'Objecte Seleccionat">
+            <HotkeyDescription action="Focus Selected Object">
               <div>F</div>
             </HotkeyDescription>
           </Well>
@@ -242,12 +237,12 @@ const steps = [
       return (
         <OnboardingPopover target="#translate-button" {...props} position="bottom-left">
           <p>
-            Podeu moure objectes per l&#39;escena utilitzant el gizmo de translaci&oacute; seleccionant un objecte i
-            prement T per entrar en mode de translaci&oacute;.
+            You can move objects around the scene using the translation gizmo by selecting an object and pressing T to
+            enter translation mode.
           </p>
-          <p>Arrossegueu les fletxes del gadget per moure l&#39;objecte als eixos X, Y o Z.</p>
+          <p>Drag the arrows of the gizmo to move the object along the X, Y, or Z axis.</p>
           <Well>
-            <HotkeyDescription action="Mode de Translació">
+            <HotkeyDescription action="Translation Mode">
               <div>T</div>
             </HotkeyDescription>
           </Well>
@@ -260,12 +255,12 @@ const steps = [
       return (
         <OnboardingPopover target="#rotate-button" {...props} position="bottom-left">
           <p>
-            Podeu girar objectes amb el gadget de rotaci&oacute; seleccionant un objecte i prement R per entrar al mode
-            de rotaci&oacute;.
+            You can rotate objects using the rotation gizmo by selecting an object and pressing R to enter rotation
+            mode.
           </p>
-          <p>Arrossegueu els anells del gadget per rotar l&#39;objecte als eixos X, Y o Z.</p>
+          <p>Drag the rings of the gizmo to rotate the object along the X, Y, or Z axis.</p>
           <Well>
-            <HotkeyDescription action="Mode de Rotació">
+            <HotkeyDescription action="Rotation Mode">
               <div>R</div>
             </HotkeyDescription>
           </Well>
@@ -277,13 +272,10 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#scale-button" {...props} position="bottom-left">
-          <p>
-            Podeu escalar objectes utilitzant el gadget d&#39;escala seleccionant un objecte i prement Y per entrar al
-            mode d&#39;escala.
-          </p>
-          <p>Arrossegueu el cub central del gadget per escalar l&#39;objecte cap amunt o cap avall.</p>
+          <p>You can scale objects using the scale gizmo by selecting an object and pressing Y to enter scale mode.</p>
+          <p>Drag the center cube of the gizmo to scale the object up or down.</p>
           <Well>
-            <HotkeyDescription action="Mode d'Escala">
+            <HotkeyDescription action="Scale Mode">
               <div>Y</div>
             </HotkeyDescription>
           </Well>
@@ -296,16 +288,15 @@ const steps = [
       return (
         <OnboardingPopover target="#translate-button" {...props} position="bottom-left">
           <p>
-            Tamb&eacute; podeu moure objectes amb l&#39;eina de captura. Mentre es seleccionen objectes, premeu G per
-            agafar la selecci&oacute;. Moveu el ratol&iacute; i feu clic per col&#183;locar l&#39;objecte a
-            l&#39;escena.
+            You can also move objects around using the grab tool. While objects are selected press G to grab the
+            selection. Move your mouse and click to place the onject in the scene.
           </p>
-          <p>Premeu Esc o premeu G de nou per cancel&#183;lar la captura actual</p>
+          <p>Press Esc or press G again to cancel the current grab operation.</p>
           <Well>
-            <HotkeyDescription action="Caputar Objecte">
+            <HotkeyDescription action="Grab Object">
               <div>G</div>
             </HotkeyDescription>
-            <HotkeyDescription action="Cancel·lar Captura">
+            <HotkeyDescription action="Cancel Grab">
               <div>Esc / G</div>
             </HotkeyDescription>
           </Well>
@@ -319,12 +310,11 @@ const steps = [
       return (
         <OnboardingPopover target="#transform-pivot" {...props} position="bottom-left">
           <p>
-            A vegades, col&#183;locar un objecte pot ser dif&iacute;cil si el punt de pivot del model est&agrave;
-            configurat incorrectament. Pots canviar com es calcula el pivot en aquest men&uacute; desplegable. El mode
-            pivot es pot canviar prement X.
+            Sometimes placing an object can be tough if the model&apos;s pivot point is set incorrectly. You can change
+            how the pivot is calculated in this dropdown menu. The pivot mode can be changed by pressing X.
           </p>
           <Well>
-            <HotkeyDescription action="Canviar Mode de Pivot">
+            <HotkeyDescription action="Change Pivot Mode">
               <div>X</div>
             </HotkeyDescription>
           </Well>
@@ -338,12 +328,12 @@ const steps = [
       return (
         <OnboardingPopover target="#transform-snap" {...props} position="bottom-left">
           <p>
-            &Eacute;s possible que vulgueu moure un objecte amb una posici&oacute; o rotaci&oacute; precisa. Per fer-ho,
-            activeu el mode d&#39;encaixament fent clic a la icona de l&#39;imant. Podeu establir la configuraci&oacute;
-            de l&#39;ajustament de la translaci&oacute; i la rotaci&oacute; utilitzant els men&uacute;s desplegables.
+            Sometimes you may want to move an object with a precise position or rotation. To do this toggle the snapping
+            mode by clicking on the magnet icon. You can set the translation and rotation snap settings by using the
+            dropdown menus above.
           </p>
           <Well>
-            <HotkeyDescription action="Alternar Mode d'Encaixar">
+            <HotkeyDescription action="Toggle Snap Mode">
               <div>C</div>
             </HotkeyDescription>
           </Well>
@@ -357,15 +347,14 @@ const steps = [
       return (
         <OnboardingPopover target="#transform-grid" {...props} position="bottom-left">
           <p>
-            En el mode de col&#183;locaci&oacute;, els objectes es poden col&#183;locar a sobre d&#39;altres objectes o
-            de la quadr&iacute;cula. Quan es construeix verticalment, pot ser &uacute;til canviar l&#39;alçada de la
-            quadr&iacute;cula.
+            In placement mode, objects can be placed on top of other objects or the grid. When building vertically, it
+            can be useful to change the grid height.
           </p>
           <Well>
-            <HotkeyDescription action="Augmentar Altura de la Quadrícula">
+            <HotkeyDescription action="Increase Grid Height">
               <div>=</div>
             </HotkeyDescription>
-            <HotkeyDescription action="Disminuir Altura de la Quadrícula">
+            <HotkeyDescription action="Decrease Grid Height">
               <div>-</div>
             </HotkeyDescription>
           </Well>
@@ -378,8 +367,8 @@ const steps = [
     render(props) {
       return (
         <OnboardingPopover target="#properties-panel" {...props} position="left">
-          Es poden establir propietats addicionals de l&#39;objecte al tauler de propietats. Aix&ograve; inclou coses
-          com ara ombres, color de la llum i molt m&eacute;s.
+          Additional object properties can be set in the properties panel. This includes things like shadows, light
+          color, and more.
         </OnboardingPopover>
       );
     }
@@ -394,11 +383,11 @@ const steps = [
     render(props) {
       return (
         <OnboardingDialog {...props} disablePrev>
-          <h2>Desar i Publicar</h2>
-          <h1>Publicar Projecte</h1>
+          <h2>Saving and Publishing</h2>
+          <h1>Publishing Your Project</h1>
           <p>
-            Un cop el vostre projecte estigui llest, podeu publicar-lo {configs.isMoz() && " a Hubs"} i convidar els
-            vostres amics amb el clic d&#39;un bot&oacute;.
+            Once your project is ready, you can publish it{configs.isMoz() && " to Hubs"} and invite your friends with
+            the click of a button.
           </p>
         </OnboardingDialog>
       );
@@ -411,15 +400,15 @@ const steps = [
     render(props) {
       return (
         <OnboardingDialog {...props} disablePrev disableSkip>
-          <h2>Desar i Publicar</h2>
-          <h1>Bona Feina!</h1>
+          <h2>Saving and Publishing</h2>
+          <h1>Great Job!</h1>
           <p>
-            Bona feina! Has tocat tots els conceptes b&agrave;sics {configs.isMoz() && "de Spoke "}i has publicat una
-            escena {configs.isMoz() && "a Hubs"}! Per comen&ccedil;ar amb la vostra pr&ograve;pia escena, consulteu la
-            vostra p&agrave;gina de projectes. O feu clic a Finalitzar per continuar treballant en aquesta escena.
+            Great job! You&#39;ve touched all the basics {configs.isMoz() && "of Spoke "}and published a scene{" "}
+            {configs.isMoz() && "to Hubs"}! To get started on your own scene check out your projects page. Or click
+            finish to continue working on this scene.
           </p>
           <Button as={Link} onClick={() => props.onFinish("Navigate to Projects Page")} to="/projects">
-            Els Meus Projectes
+            My Projects
           </Button>
         </OnboardingDialog>
       );

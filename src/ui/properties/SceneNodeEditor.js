@@ -15,7 +15,7 @@ import useOptionalParam from "./useOptionalParam";
 
 const FogTypeOptions = [
   {
-    label: "Deshabilitada",
+    label: "Disabled",
     value: FogType.Disabled
   },
   {
@@ -23,7 +23,7 @@ const FogTypeOptions = [
     value: FogType.Linear
   },
   {
-    label: "Exponencial",
+    label: "Exponential",
     value: FogType.Exponential
   }
 ];
@@ -124,21 +124,21 @@ export default function SceneNodeEditor(props) {
 
   return (
     <NodeEditor {...props} description={SceneNodeEditor.description}>
-      <InputGroup name="Color del Fons">
+      <InputGroup name="Background Color">
         <ColorInput value={node.background} onChange={onChangeBackground} />
       </InputGroup>
-      <InputGroup name="Tipus de Boira">
+      <InputGroup name="Fog Type">
         <SelectInput options={FogTypeOptions} value={node.fogType} onChange={onChangeFogType} />
       </InputGroup>
       {node.fogType !== FogType.Disabled && (
-        <InputGroup name="Color de la Boira">
+        <InputGroup name="Fog Color">
           <ColorInput value={node.fogColor} onChange={onChangeFogColor} />
         </InputGroup>
       )}
       {node.fogType === FogType.Linear && (
         <>
           <NumericInputGroup
-            name="Distància de la Boira Propera"
+            name="Fog Near Distance"
             smallStep={0.1}
             mediumStep={1}
             largeStep={10}
@@ -147,7 +147,7 @@ export default function SceneNodeEditor(props) {
             onChange={onChangeFogNearDistance}
           />
           <NumericInputGroup
-            name="Distància de la Boira Llunyana"
+            name="Fog Far Distance"
             smallStep={1}
             mediumStep={100}
             largeStep={1000}
@@ -159,7 +159,7 @@ export default function SceneNodeEditor(props) {
       )}
       {node.fogType === FogType.Exponential && (
         <NumericInputGroup
-          name="Densitat de la Boira"
+          name="Fog Density"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}
@@ -168,14 +168,14 @@ export default function SceneNodeEditor(props) {
           onChange={onChangeFogDensity}
         />
       )}
-      <InputGroup name="Substituir les Configuracions d'Àudio">
+      <InputGroup name="Override Audio Settings">
         <BooleanInput value={node.overrideAudioSettings} onChange={onChangeOverrideAudioSettings} />
       </InputGroup>
       {node.overrideAudioSettings && (
         <>
           <InputGroup
-            name="Model de Distància d'Avatar"
-            info="L'algoritme calcula la pèrdua d'àudio."
+            name="Avatar Distance Model"
+            info="The algorithim used to calculate audio rolloff."
             {...avatarParamProps.distanceModel}
           >
             <SelectInput
@@ -187,8 +187,8 @@ export default function SceneNodeEditor(props) {
 
           {node.avatarDistanceModel === DistanceModelType.linear ? (
             <InputGroup
-              name="Factor de Descàrrega de l'Avatar"
-              info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. El valor va de 0 a 1"
+              name="Avatar Rolloff Factor"
+              info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to 1"
               {...avatarParamProps.rolloffFactor}
             >
               <CompoundNumericInput
@@ -203,8 +203,8 @@ export default function SceneNodeEditor(props) {
             </InputGroup>
           ) : (
             <NumericInputGroup
-              name="Factor de Descàrrega de l'Avatar"
-              info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. El valor va de 0 a l'infinit"
+              name="Avatar Rolloff Factor"
+              info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to Infinity"
               min={0}
               smallStep={0.1}
               mediumStep={1}
@@ -215,8 +215,8 @@ export default function SceneNodeEditor(props) {
             />
           )}
           <NumericInputGroup
-            name="Distància de Referència de l'Avatar"
-            info="Un valor doble que representa la distància de referència per reduir el volum a mesura que la font d'àudio s'allunya de l'oient."
+            name="Avatar Ref Distance"
+            info="A double value representing the reference distance for reducing volume as the audio source moves further from the listener."
             min={0}
             smallStep={0.1}
             mediumStep={1}
@@ -227,8 +227,8 @@ export default function SceneNodeEditor(props) {
             {...avatarParamProps.refDistance}
           />
           <NumericInputGroup
-            name="Distància Màxima de l'Avatar"
-            info="Un valor doble que representa la distància màxima entre la font d'àudio i l'oient, després de la qual el volum no es redueix més."
+            name="Avatar Max Distance"
+            info="A double value representing the maximum distance between the audio source and the listener, after which the volume is not reduced any further."
             min={0}
             smallStep={0.1}
             mediumStep={1}
@@ -238,12 +238,12 @@ export default function SceneNodeEditor(props) {
             onChange={avatarParamProps.maxDistance.onChange}
             {...avatarParamProps.maxDistance}
           />
-          <InputGroup name="Volum Multimèdia" {...mediaParamProps.gain}>
+          <InputGroup name="Media Volume" {...mediaParamProps.gain}>
             <CompoundNumericInput value={node.mediaVolume} onChange={mediaParamProps.gain.onChange} />
           </InputGroup>
           <InputGroup
-            name="Distància de Multimèdia del Model"
-            info="L'algoritme calcula la pèrdua d'àudio."
+            name="Media Distance Model"
+            info="The algorithim used to calculate audio rolloff."
             {...mediaParamProps.distanceModel}
           >
             <SelectInput
@@ -255,8 +255,8 @@ export default function SceneNodeEditor(props) {
 
           {node.mediaDistanceModel === DistanceModelType.linear ? (
             <InputGroup
-              name="Factor de Pèrdua de Multimèdia"
-              info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. El valor va de 0 a 1"
+              name="Media Rolloff Factor"
+              info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to 1"
               {...mediaParamProps.rolloffFactor}
             >
               <CompoundNumericInput
@@ -271,8 +271,8 @@ export default function SceneNodeEditor(props) {
             </InputGroup>
           ) : (
             <NumericInputGroup
-              name="Factor de Pèrdua de Multimèdia"
-              info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. El valor va de 0 a l'infinit"
+              name="Media Rolloff Factor"
+              info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to Infinity"
               min={0}
               smallStep={0.1}
               mediumStep={1}
@@ -283,8 +283,8 @@ export default function SceneNodeEditor(props) {
             />
           )}
           <NumericInputGroup
-            name="Distància de Referència de Multimèdia"
-            info="Un valor doble que representa la distància de referència per reduir el volum a mesura que la font d'àudio s'allunya de l'oient."
+            name="Media Ref Distance"
+            info="A double value representing the reference distance for reducing volume as the audio source moves further from the listener."
             min={0}
             smallStep={0.1}
             mediumStep={1}
@@ -295,8 +295,8 @@ export default function SceneNodeEditor(props) {
             {...mediaParamProps.refDistance}
           />
           <NumericInputGroup
-            name="Distància Màxima de Multimèdia"
-            info="Un valor doble que representa la distància màxima entre la font d'àudio i l'oient, després de la qual el volum no es redueix més."
+            name="Media Max Distance"
+            info="A double value representing the maximum distance between the audio source and the listener, after which the volume is not reduced any further."
             min={0}
             smallStep={0.1}
             mediumStep={1}
@@ -307,8 +307,8 @@ export default function SceneNodeEditor(props) {
             {...mediaParamProps.maxDistance}
           />
           <NumericInputGroup
-            name="Angle Interior del Con de Mitjans"
-            info="Un valor doble que descriu l'angle, en graus, d'un con dins del qual no hi haurà reducció de volum."
+            name="Media Cone Inner Angle"
+            info="A double value describing the angle, in degrees, of a cone inside of which there will be no volume reduction."
             min={0}
             max={360}
             smallStep={0.1}
@@ -320,8 +320,8 @@ export default function SceneNodeEditor(props) {
             {...mediaParamProps.coneInnerAngle}
           />
           <NumericInputGroup
-            name="Angle Exterior del Con de Mitjans"
-            info="Un valor doble que descriu l'angle, en graus, d'un con fora del qual el volum es reduirà en un valor constant, definit per l'atribut de guany."
+            name="Media Cone Outer Angle"
+            info="A double value describing the angle, in degrees, of a cone outside of which the volume will be reduced by a constant value, defined by the coneOuterGain attribute."
             min={0}
             max={360}
             smallStep={0.1}
@@ -333,8 +333,8 @@ export default function SceneNodeEditor(props) {
             {...mediaParamProps.coneOuterAngle}
           />
           <InputGroup
-            name="Guany Exterior del Con de Mitjans"
-            info="Un valor doble que descriu la quantitat de reducció de volum fora del con definit per l'atribut de guany. El seu valor per defecte és 0, el que significa que no es pot escoltar cap so."
+            name="Media Cone Outer Gain"
+            info="A double value describing the amount of volume reduction outside the cone defined by the coneOuterGain attribute. Its default value is 0, meaning that no sound can be heard."
             {...mediaParamProps.coneOuterGain}
           >
             <CompoundNumericInput
@@ -358,4 +358,4 @@ SceneNodeEditor.propTypes = {
 
 SceneNodeEditor.iconComponent = Globe;
 
-SceneNodeEditor.description = "L'objecte arrel de l'escena.";
+SceneNodeEditor.description = "The root object of the scene.";

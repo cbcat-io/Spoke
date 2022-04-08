@@ -19,7 +19,7 @@ export const FogType = {
 const JSON_VERSION = 9;
 
 export default class SceneNode extends EditorNodeMixin(Scene) {
-  static nodeName = "Escena";
+  static nodeName = "Scene";
 
   static disableTransform = true;
 
@@ -61,7 +61,7 @@ export default class SceneNode extends EditorNodeMixin(Scene) {
       }
 
       if (!EntityNodeConstructor) {
-        throw new Error(`No s'ha trobat cap node constructor per l'entitat "${entity.name}"`);
+        throw new Error(`No node constructor found for entity "${entity.name}"`);
       }
 
       const node = await EntityNodeConstructor.deserialize(editor, entity, loadAsync, onError);
@@ -72,7 +72,7 @@ export default class SceneNode extends EditorNodeMixin(Scene) {
 
         if (!parent) {
           throw new Error(
-            `El node "${entity.name}" amb uuid "${entity.uuid}" especifica arrel "${entity.parent}", però no s'ha trobat.`
+            `Node "${entity.name}" with uuid "${entity.uuid}" specifies parent "${entity.parent}", but was not found.`
           );
         }
 
@@ -84,7 +84,7 @@ export default class SceneNode extends EditorNodeMixin(Scene) {
         // Needed so that editor.scene is set correctly when used in nodes deserialize methods.
         editor.scene = scene;
       } else {
-        throw new Error(`El node "${entity.name}" amb uuid "${entity.uuid}" no especifica arrel.`);
+        throw new Error(`Node "${entity.name}" with uuid "${entity.uuid}" does not specify a parent.`);
       }
 
       node.onChange();

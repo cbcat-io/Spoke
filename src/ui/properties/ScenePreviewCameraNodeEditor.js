@@ -13,7 +13,7 @@ export default class ScenePreviewCameraNodeEditor extends Component {
   static iconComponent = Camera;
 
   static description =
-    "La càmera genera la miniatura de la teva escena i la posició inicial de la càmera de vista prèvia a Hubs.";
+    "The camera used to generate the thumbnail for your scene and the starting position for the preview camera in Hubs.";
 
   onSetFromViewport = () => {
     this.props.node.setFromViewport();
@@ -22,7 +22,7 @@ export default class ScenePreviewCameraNodeEditor extends Component {
   render() {
     return (
       <NodeEditor {...this.props} description={ScenePreviewCameraNodeEditor.description}>
-        <PropertiesPanelButton onClick={this.onSetFromViewport}>Establir Des Del Panell</PropertiesPanelButton>
+        <PropertiesPanelButton onClick={this.onSetFromViewport}>Set From Viewport</PropertiesPanelButton>
       </NodeEditor>
     );
   }

@@ -8,7 +8,7 @@ export default class SkyboxNode extends EditorNodeMixin(Sky) {
 
   static ignoreRaycast = true;
 
-  static nodeName = "Cel de Fons";
+  static nodeName = "Skybox";
 
   static canAddNode(editor) {
     return editor.scene.findNodeByType(SkyboxNode) === null;

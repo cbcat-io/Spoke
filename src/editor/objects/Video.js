@@ -67,7 +67,7 @@ export default class Video extends AudioSource {
 
       const onError = error => {
         cleanup();
-        reject(new RethrownError(`Error carregant el vídeo "${this.el.src}"`, error));
+        reject(new RethrownError(`Error loading video "${this.el.src}"`, error));
       };
 
       cleanup = () => {

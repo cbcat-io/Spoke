@@ -8,7 +8,7 @@ export default class HeightfieldClient {
 
   async buildHeightfield(geometry, params, signal) {
     if (this.working) {
-      throw new Error("Ja s'està construint un camp d'alçada");
+      throw new Error("Already building heightfield");
     }
 
     this.working = true;
@@ -38,7 +38,7 @@ export default class HeightfieldClient {
       onAbort = () => {
         this.worker.terminate();
         this.worker = new HeightfieldWorker();
-        const error = new Error("S'ha cancel·lat la generació del camp d'alçada");
+        const error = new Error("Canceled heightfield generation.");
         error.aborted = true;
         reject(error);
         cleanUp();

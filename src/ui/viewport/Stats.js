@@ -48,25 +48,25 @@ export default function Stats({ editor }) {
 
   return (
     <StatsContainer>
-      <h3>Estad&iacute;stiques:</h3>
+      <h3>Stats:</h3>
       {info && (
         <ul>
           <li>
-            Mem&ograve;ria:
+            Memory:
             <ul>
               <li>Geometries: {info.geometries}</li>
               <li>Textures: {info.textures}</li>
             </ul>
           </li>
           <li>
-            Visualitzaci&oacute;:
+            Render:
             <ul>
               <li>FPS: {Math.round(info.fps)}</li>
-              <li>Temps de Fotograma: {Math.round(info.frameTime)}ms</li>
-              <li>Crides: {info.calls}</li>
+              <li>Frame Time: {Math.round(info.frameTime)}ms</li>
+              <li>Calls: {info.calls}</li>
               <li>Triangles: {info.triangles}</li>
-              <li>Punts: {info.points}</li>
-              <li>L&iacute;nies: {info.lines}</li>
+              <li>Points: {info.points}</li>
+              <li>Lines: {info.lines}</li>
             </ul>
           </li>
         </ul>

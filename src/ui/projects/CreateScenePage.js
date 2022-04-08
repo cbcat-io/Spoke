@@ -268,22 +268,18 @@ function CreateScenePage({ match, api }) {
   ) : (
     <>
       <SceneUploadHeader>
-        <h1>{isNew ? "Publicar Escena Des De Blender" : "Actualitzar Escena De Blender"}</h1>
+        <h1>{isNew ? "Publish Scene From Blender" : "Update Blender Scene"}</h1>
 
         {sceneUrl && (
           <Button disabled={isUploading} onClick={openScene}>
-            {configs.isMoz() ? "Obrir a Hubs" : "Obrir Escena"}
+            {configs.isMoz() ? "Open in Hubs" : "Open Scene"}
           </Button>
         )}
       </SceneUploadHeader>
       <SceneUploadFormContainer>
         <LeftContent>
           <label htmlFor="screenshotFile">
-            {thumbnailUrl ? (
-              <img src={thumbnailUrl} />
-            ) : (
-              <div>Clic per seleccionar la miniatura de l&#39;escena (16:9 .png)</div>
-            )}
+            {thumbnailUrl ? <img src={thumbnailUrl} /> : <div>Click to select scene thumbnail (16:9 .png)</div>}
           </label>
           <input
             id="screenshotFile"
@@ -296,18 +292,18 @@ function CreateScenePage({ match, api }) {
 
         <RightContent>
           <FormField>
-            <label htmlFor="sceneName">Nom de l&#39;Escena</label>
+            <label htmlFor="sceneName">Scene Name</label>
             <StringInput
               id="sceneName"
               required
               pattern={"[A-Za-z0-9-':\"!@#$%^&*(),.?~ ]{4,64}"}
-              title="El nom ha de tenir entre 4 i 64 caràcters i no pot contenir guions baixos"
+              title="Name must be between 4 and 64 characters and cannot contain underscores"
               value={sceneInfo.name}
               onChange={onChangeName}
             />
           </FormField>
           <FormField>
-            <label htmlFor="creatorAttribution">La teva Atribuci&oacute; (opcional):</label>
+            <label htmlFor="creatorAttribution">Your Attribution (optional):</label>
             <StringInput
               id="creatorAttribution"
               value={sceneInfo.creatorAttribution}
@@ -317,13 +313,13 @@ function CreateScenePage({ match, api }) {
           <FormField>
             <FormField inline>
               <label htmlFor="allowRemixing">
-                Permetre{" "}
+                Allow{" "}
                 <a
                   href="https://github.com/mozilla/Spoke/blob/master/REMIXING.md"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Remescla
+                  Remixing
                 </a>
                 &nbsp;with
                 <br />
@@ -336,7 +332,7 @@ function CreateScenePage({ match, api }) {
             </FormField>
             <FormField inline>
               <label htmlFor="allowPromotion">
-                Permetre {configs.isMoz() ? "Mozilla a " : ""}
+                Allow {configs.isMoz() ? "Mozilla to " : ""}
                 <a
                   href="https://github.com/mozilla/Spoke/blob/master/PROMOTION.md"
                   target="_blank"
@@ -344,7 +340,7 @@ function CreateScenePage({ match, api }) {
                 >
                   {configs.isMoz() ? "promote" : "promotion"}
                 </a>{" "}
-                {configs.isMoz() ? "" : "of "}la meva escena
+                {configs.isMoz() ? "" : "of "}my scene
               </label>
               <BooleanInput id="allowPromotion" value={sceneInfo.allowPromotion} onChange={onChangeAllowPromotion} />
             </FormField>
@@ -352,9 +348,9 @@ function CreateScenePage({ match, api }) {
 
           <FormField>
             <FileInput
-              label={`${
-                isNew ? "Seleccionar arxiu del model de l'escena" : "Substituir arxiu del model de l'escena"
-              } (max ${api.maxUploadSize}mb .glb)`}
+              label={`${isNew ? "Select scene model file" : "Replace scene model file"} (max ${
+                api.maxUploadSize
+              }mb .glb)`}
               id="glbFile"
               type="file"
               required={isNew}
@@ -363,12 +359,12 @@ function CreateScenePage({ match, api }) {
               onChange={onChangeGlbFile}
             />
           </FormField>
-          {isUploading ? <ProgressBar /> : <Button type="submit">{isNew ? "Publicar" : "Actualitzar"}</Button>}
+          {isUploading ? <ProgressBar /> : <Button type="submit">{isNew ? "Publish" : "Update"}</Button>}
           {error && <ErrorMessage>{error}</ErrorMessage>}
         </RightContent>
       </SceneUploadFormContainer>
       <InfoBox>
-        Per obtenir m&eacute;s informaci&oacute; sobre com crear escenes a Blender, consulteu el{" "}
+        For more info on creating scenes in Blender, check out the{" "}
         <a href="https://github.com/mozillareality/hubs-blender-exporter">Hubs Blender Exporter</a>
       </InfoBox>
     </>

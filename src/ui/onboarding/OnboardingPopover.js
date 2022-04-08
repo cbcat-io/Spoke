@@ -273,12 +273,12 @@ export default class OnboardingPopover extends Component {
                     skip();
                   }}
                 >
-                  Saltar Tutorial
+                  Skip Tutorial
                 </a>
               )}
-              {!disablePrev && curStepIdx > 0 && <SecondaryButton onClick={prevStep}>Enrere</SecondaryButton>}
-              {!disableNext && curStepIdx < steps.length - 1 && <Button onClick={nextStep}>Seg&#252;ent</Button>}
-              {!disableNext && curStepIdx === steps.length - 1 && <Button onClick={nextStep}>Finalitzar</Button>}
+              {!disablePrev && curStepIdx > 0 && <SecondaryButton onClick={prevStep}>Back</SecondaryButton>}
+              {!disableNext && curStepIdx < steps.length - 1 && <Button onClick={nextStep}>Next</Button>}
+              {!disableNext && curStepIdx === steps.length - 1 && <Button onClick={nextStep}>Finish</Button>}
             </PopoverNav>
           </Popover>
         </TransformContainer>

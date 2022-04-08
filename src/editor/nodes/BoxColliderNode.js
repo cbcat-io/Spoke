@@ -4,7 +4,7 @@ import EditorNodeMixin from "./EditorNodeMixin";
 export default class BoxColliderNode extends EditorNodeMixin(Object3D) {
   static componentName = "box-collider";
 
-  static nodeName = "Col·lisionador";
+  static nodeName = "Box Collider";
 
   static _geometry = new BoxBufferGeometry();
 

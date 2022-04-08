@@ -22,7 +22,7 @@ const defaultStats = {
 export default class SpawnerNode extends EditorNodeMixin(Model) {
   static componentName = "spawner";
 
-  static nodeName = "Generador";
+  static nodeName = "Spawner";
 
   static initialElementProps = {
     initialScale: "fit",
@@ -189,7 +189,7 @@ export default class SpawnerNode extends EditorNodeMixin(Model) {
     } catch (error) {
       this.showErrorIcon();
 
-      const spawnerError = new RethrownError(`Error carregant el model generador "${this._canonicalUrl}"`, error);
+      const spawnerError = new RethrownError(`Error loading spawner model "${this._canonicalUrl}"`, error);
 
       if (onError) {
         onError(this, spawnerError);
@@ -197,7 +197,7 @@ export default class SpawnerNode extends EditorNodeMixin(Model) {
 
       console.error(spawnerError);
 
-      this.issues.push({ severity: "error", message: "Error carregant el model." });
+      this.issues.push({ severity: "error", message: "Error loading model." });
     }
 
     this.editor.emit("objectsChanged", [this]);

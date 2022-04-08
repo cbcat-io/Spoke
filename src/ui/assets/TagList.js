@@ -185,7 +185,7 @@ export default function TagList({
 
   return (
     <StyledTagList>
-      <TagListHeader>Etiquetes</TagListHeader>
+      <TagListHeader>Tags</TagListHeader>
       <TagListContainer ref={tagListContainerRef}>
         <TagChildrenList>
           <TagListItem
@@ -194,7 +194,7 @@ export default function TagList({
             onToggleExpanded={onToggleExpanded}
             expanded={expanded}
             selectedTags={selectedTags}
-            tag={{ label: "Tot", value: "All" }}
+            tag={{ label: "All", value: "All" }}
           />
           {tags.map(tag => (
             <TagListItem

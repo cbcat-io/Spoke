@@ -101,6 +101,7 @@ export function createEditor(api, settings) {
   editor.registerNode(TroikaTextNode, TroikaTextNodeEditor);
   editor.registerNode(MirrorNode, MirrorNodeEditor);
 
+
   editor.registerSource(new ElementsSource(editor));
   editor.registerSource(new MyAssetsSource(editor));
   editor.registerSource(new ArchitectureKitSource(api));

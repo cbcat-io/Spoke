@@ -25,7 +25,7 @@ export default class ErrorIcon extends Mesh {
 
   constructor() {
     if (!errorTexture) {
-      throw new Error("ErrorIcon ha d'estar carregat abans de poder-lo utilitzar. Espera ErrorIcon.load()");
+      throw new Error("ErrorIcon must be loaded before it can be used. Await ErrorIcon.load()");
     }
 
     const geometry = new PlaneBufferGeometry();
