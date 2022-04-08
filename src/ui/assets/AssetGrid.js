@@ -191,16 +191,16 @@ export default function AssetGrid({ isLoading, selectedItems, items, onSelect, o
                 onClick={onSelect}
               />
             ))}
-            {isLoading && <LoadingItem>Loading...</LoadingItem>}
+            {isLoading && <LoadingItem>Carregant...</LoadingItem>}
           </MediaGrid>
         </InfiniteScroll>
       </VerticalScrollContainer>
       <ContextMenu id={uniqueId.current}>
-        <MenuItem onClick={placeObject}>Place Object</MenuItem>
-        <MenuItem onClick={placeObjectAtOrigin}>Place Object at Origin</MenuItem>
-        {!source.disableUrl && <MenuItem onClick={copyURL}>Copy URL</MenuItem>}
-        {!source.disableUrl && <MenuItem onClick={openURL}>Open URL in New Tab</MenuItem>}
-        {source.delete && <MenuItem onClick={onDelete}>Delete Asset</MenuItem>}
+        <MenuItem onClick={placeObject}>Col&#183;locar l&#39;Objecte</MenuItem>
+        <MenuItem onClick={placeObjectAtOrigin}> Col&#183;locar l&#39;Objecte a l&#39;Origen</MenuItem>
+        {!source.disableUrl && <MenuItem onClick={copyURL}>Copiar URL</MenuItem>}
+        {!source.disableUrl && <MenuItem onClick={openURL}>Obrir URL en una Nova Pestanya</MenuItem>}
+        {source.delete && <MenuItem onClick={onDelete}>El&#183;liminar Objecte</MenuItem>}
       </ContextMenu>
     </>
   );

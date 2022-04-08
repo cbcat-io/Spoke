@@ -70,7 +70,7 @@ export default class App extends Component {
           <ThemeProvider theme={theme}>
             <Router basename={process.env.ROUTER_BASE_PATH}>
               <GlobalStyle />
-              <Column as={Suspense} fallback={<Loading message="Loading..." fullScreen />}>
+              <Column as={Suspense} fallback={<Loading message="Carregant..." fullScreen />}>
                 <Switch>
                   {configs.isMoz() && <Route path="/" exact component={LandingPage} />}
                   {!configs.isMoz() && <RedirectRoute path="/" exact to="/projects" />}
@@ -84,7 +84,7 @@ export default class App extends Component {
                   <Route path="/projects/:projectId" component={EditorContainer} />
                   <Route path="/kits/package" component={PackageKitPage} />
                   <Route path="/scenes/:sceneId" component={CreateScenePage} />
-                  <Route render={() => <Error message="Page not found." />} />
+                  <Route render={() => <Error message="Pàgina no trobada." />} />
                 </Switch>
               </Column>
               <Telemetry />

@@ -31,7 +31,7 @@ const LegalContainer = styled.div`
 export default function AssetSearchInput({ legal, privacyPolicyUrl, onChange, ...rest }) {
   return (
     <SearchInputContainer>
-      <input placeholder="Search..." onChange={onChange} {...rest} />
+      <input placeholder="Cerca..." onChange={onChange} {...rest} />
       {legal && (
         <LegalContainer>
           {legal}
@@ -39,7 +39,7 @@ export default function AssetSearchInput({ legal, privacyPolicyUrl, onChange, ..
             <>
               <span>|</span>
               <a rel="noopener noreferrer" target="_blank" href={privacyPolicyUrl}>
-                Privacy Policy
+                Av&iacute;s de Privacitat
               </a>
             </>
           )}
