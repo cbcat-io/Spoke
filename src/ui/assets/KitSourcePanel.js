@@ -7,7 +7,7 @@ export default function KitSourcePanel(props) {
     <MediaSourcePanel
       {...props}
       multiselectTags
-      searchPlaceholder={props.source.searchPlaceholder || "Search pieces..."}
+      searchPlaceholder={props.source.searchPlaceholder || "Cerca peces..."}
     />
   );
 }

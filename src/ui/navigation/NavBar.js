@@ -74,20 +74,17 @@ class NavBar extends Component {
           <nav>
             <NavList>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/whats-new">What&apos;s New</Link>
+                <Link to="/whats-new">Novetats</Link>
               </li>
               <li>
                 <a href="https://github.com/mozilla/Spoke" rel="noopener noreferrer">
-                  Source
+                  Font
                 </a>
               </li>
               {configs.isMoz() && (
                 <li>
                   <a href="https://discord.gg/wHmY4nd" rel="noopener noreferrer">
-                    Community
+                    Comunitat
                   </a>
                 </li>
               )}
@@ -106,15 +103,15 @@ class NavBar extends Component {
             {this.props.isAuthenticated ? (
               <>
                 <li>
-                  <Link to="/projects">Projects</Link>
+                  <Link to="/projects">Projectes</Link>
                 </li>
                 <li>
-                  <Link to="/logout">Logout</Link>
+                  <Link to="/logout">Tancar Sessi&oacute;</Link>
                 </li>
               </>
             ) : (
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/login">Iniciar Sessi&oacute;</Link>
               </li>
             )}
           </NavList>

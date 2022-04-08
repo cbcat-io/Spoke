@@ -157,9 +157,9 @@ export const INTERPOLATION = {
 };
 
 export const ALPHA_MODES = {
-  OPAQUE: "OPAQUE",
-  MASK: "MASK",
-  BLEND: "BLEND"
+  OPAQUE: "OPAC",
+  MASK: "MÀSCARA",
+  BLEND: "BARREJA"
 };
 
 export const MIME_TYPE_FORMATS = {
@@ -416,9 +416,9 @@ class GLTFLoader {
           };
 
           if (header.magic !== GLB_HEADER_MAGIC) {
-            throw new Error("THREE.GLTFLoader: Unsupported glTF-Binary header.");
+            throw new Error("THREE.GLTFLoader: Capçalera glTF-Binary no compatible.");
           } else if (header.version < 2.0) {
-            throw new Error("THREE.GLTFLoader: Legacy binary file detected. Use LegacyGLTFLoader instead.");
+            throw new Error("THREE.GLTFLoader: S'ha detectat un fitxer binari heretat. Utilitzeu LegacyGLTFLoader.");
           }
 
           const chunkView = new DataView(data, GLB_HEADER_LENGTH);
@@ -445,7 +445,7 @@ class GLTFLoader {
           }
 
           if (content === null) {
-            throw new Error("THREE.GLTFLoader: JSON content not found.");
+            throw new Error("THREE.GLTFLoader: Contingut JSON no trobat.");
           }
         } else {
           content = LoaderUtils.decodeText(new Uint8Array(data));
@@ -458,7 +458,7 @@ class GLTFLoader {
 
       if (json.asset === undefined || json.asset.version[0] < 2) {
         throw new Error(
-          "THREE.GLTFLoader: Unsupported asset. glTF versions >=2.0 are supported. Use LegacyGLTFLoader instead."
+          "THREE.GLTFLoader: Asset incompatible. glTF versions >=2.0 són compatibles. Utilitzeu LegacyGLTFLoader."
         );
       }
 
@@ -478,7 +478,7 @@ class GLTFLoader {
     } catch (error) {
       this.manager.itemError(this.url);
       this.manager.itemEnd(this.url);
-      throw new RethrownError(`Error loading glTF root`, error);
+      throw new RethrownError(`Error carregant l'arrel glTF`, error);
     }
 
     return { json, glbBuffer };
@@ -650,7 +650,7 @@ class GLTFLoader {
 
       return { scene, json, stats };
     } catch (error) {
-      throw new RethrownError(`Error loading glTF "${this.url}"`, error);
+      throw new RethrownError(`Error carregant glTF "${this.url}"`, error);
     }
   }
 
@@ -983,7 +983,7 @@ class GLTFLoader {
         } else if (outputArray.constructor === Uint16Array) {
           scale = 1 / 65535;
         } else {
-          throw new Error("THREE.GLTFLoader: Unsupported output accessor component type.");
+          throw new Error("THREE.GLTFLoader: tipus de component d'accessor de sortida no compatible.");
         }
 
         const scaled = new Float32Array(outputArray.length);
@@ -1059,7 +1059,7 @@ class GLTFLoader {
     const params = cameraDef[cameraDef.type];
 
     if (!params) {
-      console.warn("THREE.GLTFLoader: Missing camera parameters.");
+      console.warn("THREE.GLTFLoader: Falten parametres de camera.");
       return;
     }
 
@@ -1149,7 +1149,7 @@ class GLTFLoader {
         } else if (primitive.mode === WEBGL_CONSTANTS.POINTS) {
           mesh = new Points(geometry, material);
         } else {
-          throw new Error("THREE.GLTFLoader: Primitive mode unsupported: " + primitive.mode);
+          throw new Error("THREE.GLTFLoader: Mode primitives incompatible: " + primitive.mode);
         }
       }
 
@@ -1437,7 +1437,7 @@ class GLTFLoader {
           mesh.morphTargetDictionary[targetNames[i]] = i;
         }
       } else {
-        console.warn("THREE.GLTFLoader: Invalid extras.targetNames length. Ignoring names.");
+        console.warn("THREE.GLTFLoader: longitud extras.targetNames no vàlida. S'ignoren els noms.");
       }
     }
   }
@@ -1886,7 +1886,7 @@ class GLTFLoader {
         if (itemSize >= 2) bufferAttribute.setY(index, sparseValues[i * itemSize + 1]);
         if (itemSize >= 3) bufferAttribute.setZ(index, sparseValues[i * itemSize + 2]);
         if (itemSize >= 4) bufferAttribute.setW(index, sparseValues[i * itemSize + 3]);
-        if (itemSize >= 5) throw new Error("THREE.GLTFLoader: Unsupported itemSize in sparse BufferAttribute.");
+        if (itemSize >= 5) throw new Error("THREE.GLTFLoader: ItemSize no compatible amb BufferAttribute escàs.");
       }
     }
 
@@ -2005,7 +2005,7 @@ class GLTFLoader {
                   });
                 } else {
                   console.warn(
-                    `Spoke currently only supports "node" component references. This component ${componentName} is using a ${type} ref for ${propName}`
+                    `Spoke actualment només admet referències de components "node". Aquest component ${componentName} utilitza una referència ${type} per a ${propName}`
                   );
                 }
               } else if (
@@ -2036,7 +2036,7 @@ class GLTFLoader {
       if (typeof gltfDef.extras === "object") {
         Object.assign(object.userData, gltfDef.extras);
       } else {
-        console.warn("THREE.GLTFLoader: Ignoring primitive type .extras, " + gltfDef.extras);
+        console.warn("THREE.GLTFLoader: Ignorant primitiva tipus .extras, " + gltfDef.extras);
       }
     }
   }

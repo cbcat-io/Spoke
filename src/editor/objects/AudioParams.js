@@ -11,14 +11,14 @@ export const SourceType = Object.freeze({
 });
 
 export const AudioType = {
-  Stereo: "stereo",
-  PannerNode: "pannernode"
+  Stereo: "estèreo",
+  PannerNode: "panoràmica"
 };
 
 export const DistanceModelType = {
   Linear: "linear",
-  Inverse: "inverse",
-  Exponential: "exponential"
+  Inverse: "invers",
+  Exponential: "exponencial"
 };
 
 export const AvatarAudioDefaults = Object.freeze({

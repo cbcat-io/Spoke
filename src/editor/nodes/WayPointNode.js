@@ -8,7 +8,7 @@ let wayPointHelperModel = null;
 export default class WayPointNode extends EditorNodeMixin(Object3D) {
   static componentName = "waypoint";
 
-  static nodeName = "Way Point";
+  static nodeName = "Punt de Camí";
 
   static async load() {
     const { scene } = await new GLTFLoader(wayPointModelUrl).loadGLTF();
@@ -36,7 +36,7 @@ export default class WayPointNode extends EditorNodeMixin(Object3D) {
       this.helper = wayPointHelperModel.clone();
       this.add(this.helper);
     } else {
-      console.warn("WayPointNode: helper model was not loaded before creating a new WayPointNode");
+      console.warn("WayPointNode: el model d'ajuda no s'ha carregat abans de crear un nou node de Punt de Camí");
       this.helper = null;
     }
   }

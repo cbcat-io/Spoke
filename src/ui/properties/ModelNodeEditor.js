@@ -18,7 +18,7 @@ export default class ModelNodeEditor extends Component {
 
   static iconComponent = Cube;
 
-  static description = "A 3D model in your scene, loaded from a GLTF URL or file.";
+  static description = "Un model 3D a la teva escena, carregat des d'un fitxer o URL GLTF.";
 
   onChangeSrc = (src, initialProps) => {
     this.props.editor.setPropertiesSelected({ ...initialProps, src });
@@ -67,10 +67,10 @@ export default class ModelNodeEditor extends Component {
 
     return (
       <NodeEditor description={ModelNodeEditor.description} {...this.props}>
-        <InputGroup name="Model Url">
+        <InputGroup name="Url del Model">
           <ModelInput value={node.src} onChange={this.onChangeSrc} />
         </InputGroup>
-        <InputGroup name="Loop Animation">
+        <InputGroup name="Animació en Bucle">
           <SelectInput
             disabled={this.isAnimationPropertyDisabled()}
             options={node.getClipOptions()}
@@ -81,26 +81,29 @@ export default class ModelNodeEditor extends Component {
             isMulti
           />
         </InputGroup>
-        <InputGroup name="Collidable">
+        <InputGroup name="Col·lidable">
           <BooleanInput value={node.collidable} onChange={this.onChangeCollidable} />
         </InputGroup>
-        <InputGroup name="Walkable">
+        <InputGroup name="Caminable">
           <BooleanInput value={node.walkable} onChange={this.onChangeWalkable} />
         </InputGroup>
-        <InputGroup name="Cast Shadow">
+        <InputGroup name="Emetre Ombra">
           <BooleanInput value={node.castShadow} onChange={this.onChangeCastShadow} />
         </InputGroup>
-        <InputGroup name="Receive Shadow">
+        <InputGroup name="Rebre Ombra">
           <BooleanInput value={node.receiveShadow} onChange={this.onChangeReceiveShadow} />
         </InputGroup>
-        <InputGroup name="Combine">
+        <InputGroup name="Combinar">
           <BooleanInput value={node.combine} onChange={this.onChangeCombine} />
         </InputGroup>
-        <InputGroup name="Billboard" info="Model always faces user in Hubs. Does not billboard in Spoke.">
+        <InputGroup
+          name="Mostrar Frontalment"
+          info="El model sempre es mostra frontalment a l'usauri a Hubs. No es mostra a Spoke."
+        >
           <BooleanInput value={node.billboard} onChange={this.onChangeBillboard} />
         </InputGroup>
         {node.model && <GLTFInfo node={node} />}
-        <AttributionNodeEditor name="Attribution" {...this.props} />
+        <AttributionNodeEditor name="Atribució" {...this.props} />
       </NodeEditor>
     );
   }

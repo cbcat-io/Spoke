@@ -22,7 +22,7 @@ export const MediaType = {
 export default class MediaFrameNode extends EditorNodeMixin(Object3D) {
   static componentName = "media-frame";
 
-  static nodeName = "Media Frame";
+  static nodeName = "Marc Multimèdia";
 
   static _geometry = new BoxBufferGeometry();
 

@@ -28,37 +28,34 @@ export default function ImageNodeEditor(props) {
 
   return (
     <NodeEditor description={ImageNodeEditor.description} {...props}>
-      <InputGroup name="Image Url">
+      <InputGroup name="Url de la Imatge">
         <ImageInput value={node.src} onChange={onChangeSrc} />
       </InputGroup>
-      <InputGroup
-        name="Controls"
-        info="Toggle the visibility of the media controls in Hubs. Does not billboard in Spoke."
-      >
+      <InputGroup name="Controls" info="Canvia la visibilitat dels controls multimèdia a Hubs. No es mostra a Spoke.">
         <BooleanInput value={node.controls} onChange={onChangeControls} />
       </InputGroup>
-      <InputGroup name="Billboard" info="Image always faces user in Hubs.">
+      <InputGroup name="Mostrar Frontalment" info="La imatge sempre es mostra frontalment a l'usauri a Hubs.">
         <BooleanInput value={node.billboard} onChange={onChangeBillboard} />
       </InputGroup>
       {node.projection === ImageProjection.Flat && (
-        <InputGroup name="Link Href" info="Allows the image to function as a link for the given url.">
+        <InputGroup name="Enllaç" info="Permet a la imatge funcionar com un enllaç amb la url donada.">
           <StringInput value={node.href} onChange={onChangeHref} />
         </InputGroup>
       )}
       <InputGroup
-        name="Transparency Mode"
-        info={`How to apply transparency:
-'opaque' = no transparency
-'blend' = use the images alpha channel
-'mask' = Use a specified cutoff value for on/off transparency (more performant)
+        name="Mode de Transparència"
+        info={`Com aplicar la transparència:
+        'opac' = sense transparència
+'barreja' = fa servir el canal alpha de les imatges
+'màscara' = Utilitza un valor de tall especificat per activar/desactivar la transparència (més rendiment)
 `}
       >
         <SelectInput options={imageTransparencyOptions} value={node.alphaMode} onChange={onChangeTransparencyMode} />
       </InputGroup>
       {node.alphaMode === ImageAlphaMode.Mask && (
         <NumericInputGroup
-          name="Alpha Cutoff"
-          info="Pixels with alpha values lower than this will be transparent"
+          name="Valor de tall Alpha"
+          info="Els píxels amb valor alpha menor que aquest seran transparents"
           min={0}
           max={1}
           smallStep={0.01}
@@ -68,10 +65,10 @@ export default function ImageNodeEditor(props) {
           onChange={onChangeAlphaCutoff}
         />
       )}
-      <InputGroup name="Projection">
+      <InputGroup name="Projecció">
         <SelectInput options={imageProjectionOptions} value={node.projection} onChange={onChangeProjection} />
       </InputGroup>
-      <AttributionNodeEditor name="Attribution" {...props} />
+      <AttributionNodeEditor name="Atribució" {...props} />
     </NodeEditor>
   );
 }
@@ -84,4 +81,4 @@ ImageNodeEditor.propTypes = {
 
 ImageNodeEditor.iconComponent = Image;
 
-ImageNodeEditor.description = "Dynamically loads an image.";
+ImageNodeEditor.description = "Carrega dinàmicament una imatge.";

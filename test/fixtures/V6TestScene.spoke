@@ -67,7 +67,7 @@
       ]
     },
     "E8D3129B-68BF-473F-92B9-6DAEC83514BB": {
-      "name": "Skybox",
+      "name": "Cel de Fons",
       "components": [
         {
           "name": "transform",
@@ -172,7 +172,7 @@
       "index": 1
     },
     "633CD01A-BC2A-4584-99E2-2A3CFE2C8AD9": {
-      "name": "Spawn Point",
+      "name": "Punt de Generació",
       "components": [
         {
           "name": "transform",
@@ -215,7 +215,7 @@
       "index": 2
     },
     "2D490729-384D-49AF-A755-9D6F70D56325": {
-      "name": "Floor Plan",
+      "name": "Quadrícula de Navegació",
       "components": [
         {
           "name": "transform",
@@ -269,7 +269,7 @@
       "index": 3
     },
     "852FDF0C-744F-480C-87D3-8C3E682247FC": {
-      "name": "Terrain_Crater1.glb",
+      "name": "Crater.glb",
       "components": [
         {
           "name": "transform",

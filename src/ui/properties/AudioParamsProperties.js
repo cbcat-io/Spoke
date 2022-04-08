@@ -65,22 +65,22 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
 
   return (
     <>
-      <InputGroup name="Override Audio Settings">
+      <InputGroup name="Substituir les Configuracions d'Àudio">
         <BooleanInput value={node.overrideAudioSettings} onChange={onChangeOverrideAudioSettings} />
       </InputGroup>
       {node.overrideAudioSettings && (
         <>
-          <InputGroup name="Audio Type" optional={isOptional} {...paramProps.audioType}>
+          <InputGroup name="Tipus d'Àudio" optional={isOptional} {...paramProps.audioType}>
             <SelectInput options={AudioTypeOptions} value={node.audioType} onChange={paramProps.audioType.onChange} />
           </InputGroup>
-          <InputGroup name="Volume" optional={isOptional} {...paramProps.gain}>
+          <InputGroup name="Volum" optional={isOptional} {...paramProps.gain}>
             <CompoundNumericInput value={node.gain} onChange={paramProps.gain.onChange} />
           </InputGroup>
           {!multiEdit && node.audioType === AudioType.PannerNode && (
             <>
               <InputGroup
-                name="Distance Model"
-                info="The algorithim used to calculate audio rolloff."
+                name="Distància del Model"
+                info="L'algoritme que s'utilitza per calcular la pèrdua d'àudio."
                 optional={isOptional}
                 {...paramProps.distanceModel}
               >
@@ -93,8 +93,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
 
               {node.distanceModel === DistanceModelType.linear ? (
                 <InputGroup
-                  name="Rolloff Factor"
-                  info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to 1"
+                  name="Factor Pèrdua"
+                  info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. Valors de 0 a 1"
                   optional={isOptional}
                   {...paramProps.rolloffFactor}
                 >
@@ -110,8 +110,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
                 </InputGroup>
               ) : (
                 <NumericInputGroup
-                  name="Rolloff Factor"
-                  info="A double value describing how quickly the volume is reduced as the source moves away from the listener. 0 to 1"
+                  name="Factor Pèrdua"
+                  info="Un valor doble que descriu la rapidesa amb què es redueix el volum a mesura que la font s'allunya de l'oient. Valors de 0 a 1"
                   min={0}
                   smallStep={0.1}
                   mediumStep={1}
@@ -124,7 +124,7 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
               )}
               <NumericInputGroup
                 name="Ref Distance"
-                info="A double value representing the reference distance for reducing volume as the audio source moves further from the listener."
+                info="Un valor doble que representa la distància de referència per reduir el volum a mesura que la font d'àudio s'allunya de l'oient."
                 min={0}
                 smallStep={0.1}
                 mediumStep={1}
@@ -136,8 +136,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
                 {...paramProps.refDistance}
               />
               <NumericInputGroup
-                name="Max Distance"
-                info="A double value representing the maximum distance between the audio source and the listener, after which the volume is not reduced any further."
+                name="Distància Màxima"
+                info="Un valor doble que representa la distància màxima entre la font d'àudio i l'oient, després de la qual el volum no es redueix més."
                 min={0.00001}
                 smallStep={0.1}
                 mediumStep={1}
@@ -149,8 +149,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
                 {...paramProps.maxDistance}
               />
               <NumericInputGroup
-                name="Cone Inner Angle"
-                info="A double value describing the angle, in degrees, of a cone inside of which there will be no volume reduction."
+                name="Angle Interior del Con"
+                info="Un valor doble que descriu l'angle, en graus, d'un con dins del qual no hi haurà reducció de volum."
                 min={0}
                 max={360}
                 smallStep={0.1}
@@ -164,8 +164,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
                 {...paramProps.coneInnerAngle}
               />
               <NumericInputGroup
-                name="Cone Outer Angle"
-                info="A double value describing the angle, in degrees, of a cone outside of which the volume will be reduced by a constant value, defined by the coneOuterGain attribute."
+                name="Angle Exterior del Con"
+                info="Un valor doble que descriu l'angle, en graus, d'un con fora del qual el volum es reduirà en un valor constant, definit per l'atribut de guany."
                 min={0}
                 max={360}
                 smallStep={0.1}
@@ -179,8 +179,8 @@ export default function AudioParamsProperties({ node, editor, multiEdit, sourceT
                 {...paramProps.coneOuterAngle}
               />
               <InputGroup
-                name="Cone Outer Gain"
-                info="A double value describing the amount of volume reduction outside the cone defined by the coneOuterAngle attribute. Its default value is 0, meaning that no sound can be heard."
+                name="Guany Exterior del Con"
+                info="Un valor doble que descriu la quantitat de reducció de volum fora del con definit per l'atribut de l'angle. El seu valor per defecte és 0, el que significa que no es pot escoltar cap so."
                 optional={isOptional}
                 {...paramProps.coneOuterGain}
               >

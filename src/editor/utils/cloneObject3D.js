@@ -27,7 +27,7 @@ function cloneKeyframeTrack(sourceKeyframeTrack, cloneUUIDLookup) {
     const clonedUUID = cloneUUIDLookup.get(uuid);
 
     if (clonedUUID === undefined) {
-      throw new Error(`Error cloning model. Could not find KeyframeTrack target with uuid: "${uuid}"`);
+      throw new Error(`Error clonant el model. No s'ha trobat cap KeyframeTrack amb la uuid: "${uuid}"`);
     }
 
     path += clonedUUID;
@@ -77,7 +77,7 @@ export default function cloneObject3D(source, preserveUUIDs) {
 
     if (!clonedNode) {
       throw new Error(
-        `Couldn't find the cloned node for ${sourceNode.nodeName || sourceNode.type} "${sourceNode.name}"`
+        `No s'ha trobat el node clonat per ${sourceNode.nodeName || sourceNode.type} "${sourceNode.name}"`
       );
     }
 
@@ -113,7 +113,7 @@ export default function cloneObject3D(source, preserveUUIDs) {
 
     clonedNode.skeleton.bones = sourceBones.map(sourceBone => {
       if (!cloneLookup.has(sourceBone)) {
-        throw new Error("Required bones are not descendants of the given object.");
+        throw new Error("Els ossos necessaris no són descendents de l'objecte donat.");
       }
 
       return cloneLookup.get(sourceBone);

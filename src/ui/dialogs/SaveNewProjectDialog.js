@@ -33,18 +33,18 @@ export default function SaveNewProjectDialog({ thumbnailUrl, initialName, onConf
   return (
     <PreviewDialog
       imageSrc={thumbnailUrl}
-      title="Save Project"
+      title="Desar Projecte"
       onConfirm={onConfirmCallback}
       onCancel={onCancelCallback}
-      confirmLabel="Save Project"
+      confirmLabel="Desar Projecte"
     >
       <FormField>
-        <label htmlFor="name">Project Name</label>
+        <label htmlFor="name">Nom del Projecte</label>
         <StringInput
           id="name"
           required
           pattern={"[A-Za-z0-9-':\"!@#$%^&*(),.?~ ]{4,64}"}
-          title="Name must be between 4 and 64 characters and cannot contain underscores"
+          title="El nom ha de tenir entre 4 i 64 caràcters i no pot contenir guions baixos"
           value={name}
           onChange={onChangeName}
         />

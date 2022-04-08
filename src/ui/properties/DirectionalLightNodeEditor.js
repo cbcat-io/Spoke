@@ -15,7 +15,7 @@ export default class DirectionalLightNodeEditor extends Component {
 
   static iconComponent = Bolt;
 
-  static description = "A light which illuminates the entire scene, but emits along a single direction.";
+  static description = "Una llum que il·lumina tota l'escena, però que emet en una sola direcció.";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -34,7 +34,7 @@ export default class DirectionalLightNodeEditor extends Component {
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Intensity"
+          name="Intensitat"
           min={0}
           smallStep={0.001}
           mediumStep={0.01}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MediaSourcePanel from "./MediaSourcePanel";
 
 export default function UploadSourcePanel(props) {
-  return <MediaSourcePanel {...props} searchPlaceholder={props.source.searchPlaceholder || "Search assets..."} />;
+  return <MediaSourcePanel {...props} searchPlaceholder={props.source.searchPlaceholder || "Cerca recursos..."} />;
 }
 
 UploadSourcePanel.propTypes = {

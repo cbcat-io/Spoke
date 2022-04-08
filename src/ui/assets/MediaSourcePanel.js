@@ -124,7 +124,7 @@ MediaSourcePanel.propTypes = {
 };
 
 MediaSourcePanel.defaultProps = {
-  searchPlaceholder: "Search...",
+  searchPlaceholder: "Cerca...",
   initialSearchParams: {
     query: "",
     tags: []

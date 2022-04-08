@@ -65,7 +65,9 @@ export function maybeAddLargeFileIssue(type, fileSize, issues) {
   if (fileSize > suggestedMaxFileSize) {
     issues.push({
       severity: "warning",
-      message: `Large file (${bytesToSize(fileSize)}). Suggested ${type} max file size is ${suggestedMaxFileSize}.`
+      message: `Fitxer gran (${bytesToSize(
+        fileSize
+      )}). La mida màxima suggerida dels fitxers ${type} és ${suggestedMaxFileSize}.`
     });
   }
 }
@@ -153,24 +155,24 @@ export function getObjectPerfIssues(object, traverse = true) {
   }
 
   if (polygons > 10000) {
-    issues.push({ severity: "warning", message: `This object contains ${polygons.toLocaleString()} polygons.` });
+    issues.push({ severity: "warning", message: `Aquest objecte conté ${polygons.toLocaleString()} polígons.` });
   }
 
   if (uniqueMaterials > 10) {
-    issues.push({ severity: "warning", message: `This object contains ${uniqueMaterials.size} unique materials.` });
+    issues.push({ severity: "warning", message: `Aquest objecte conté ${uniqueMaterials.size} materials únics.` });
   }
 
   if (largeTextures > 0) {
     issues.push({
       severity: "warning",
-      message: `This object contains ${largeTextures} texture${largeTextures > 1 ? "s" : ""} larger than 2048 x 2048.`
+      message: `Aquest objecte conté ${largeTextures} textur${largeTextures > 1 ? "es" : "a"} més gran de 2048 x 2048.`
     });
   }
 
   if (totalVRAM > 67108860) {
     issues.push({
       severity: "warning",
-      message: `This object's textures use ~${bytesToSize(totalVRAM)} of video RAM.`
+      message: `Les textures d'aquest objecte utilitzen ~${bytesToSize(totalVRAM)} de RAM de vídeo.`
     });
   }
 

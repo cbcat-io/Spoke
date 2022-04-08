@@ -33,7 +33,7 @@ export default class TriggerVolumeNodeEditor extends Component {
 
   static iconComponent = Running;
 
-  static description = "Sets a property on the target object on enter and leave.";
+  static description = "Defineix una propietat a l'objecte de destinació en entrar i sortir.";
 
   constructor(props) {
     super(props);
@@ -139,35 +139,35 @@ export default class TriggerVolumeNodeEditor extends Component {
 
     return (
       <NodeEditor description={TriggerVolumeNodeEditor.description} {...this.props}>
-        <InputGroup name="Target">
+        <InputGroup name="Objecte Destí">
           <SelectInput
             error={targetNotFound}
-            placeholder={targetNotFound ? "Error missing node." : "Select node..."}
+            placeholder={targetNotFound ? "Error falta un node." : "Selecciona un node..."}
             value={node.target}
             onChange={this.onChangeTarget}
             options={this.state.options}
             disabled={multiEdit}
           />
         </InputGroup>
-        <InputGroup name="Enter Component">
+        <InputGroup name="Component d'Entrada">
           <SelectInput
-            placeholder={node.enterComponent || "Select component..."}
+            placeholder={node.enterComponent || "Selecciona un component..."}
             value={node.enterComponent}
             onChange={this.onChangeEnterComponent}
             options={filteredComponentOptions}
             disabled={multiEdit || !target}
           />
         </InputGroup>
-        <InputGroup name="Enter Property">
+        <InputGroup name="Propietat d'Entrada">
           <SelectInput
-            placeholder={node.enterProperty || "Select property..."}
+            placeholder={node.enterProperty || "Selecciona una propietat..."}
             value={node.enterProperty}
             onChange={this.onChangeEnterProperty}
             options={filteredEnterPropertyOptions}
             disabled={multiEdit || !enterComponent}
           />
         </InputGroup>
-        <InputGroup name="Enter Value">
+        <InputGroup name="Valor d'Entrada">
           {EnterInput ? (
             <EnterInput
               value={node.enterValue}
@@ -178,25 +178,25 @@ export default class TriggerVolumeNodeEditor extends Component {
             <StringInput disabled />
           )}
         </InputGroup>
-        <InputGroup name="Leave Component">
+        <InputGroup name="Component de Sortida">
           <SelectInput
-            placeholder={node.leaveComponent || "Select component..."}
+            placeholder={node.leaveComponent || "Selecciona un component..."}
             value={node.leaveComponent}
             onChange={this.onChangeLeaveComponent}
             options={filteredComponentOptions}
             disabled={multiEdit || !target}
           />
         </InputGroup>
-        <InputGroup name="Leave Property">
+        <InputGroup name="Propietat de Sortida">
           <SelectInput
-            placeholder={node.leaveProperty || "Select property..."}
+            placeholder={node.leaveProperty || "Selecciona una propietat..."}
             value={node.leaveProperty}
             onChange={this.onChangeLeaveProperty}
             options={filteredLeavePropertyOptions}
             disabled={multiEdit || !leaveComponent}
           />
         </InputGroup>
-        <InputGroup name="Leave Value">
+        <InputGroup name="Valor de Sortida">
           {LeaveInput ? (
             <LeaveInput
               value={node.leaveValue}

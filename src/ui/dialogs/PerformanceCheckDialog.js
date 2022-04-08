@@ -67,7 +67,7 @@ function PerformanceCheckItem({ score, scoreColor, title, description, learnMore
         <p>
           {description}{" "}
           <a rel="noopener noreferrer" target="_blank" href={learnMoreUrl}>
-            Learn More
+            Obtenir M&eacute;s Informaci&oacute;
           </a>
         </p>
       </div>
@@ -108,8 +108,8 @@ export default function PerformanceCheckDialog({ scores, ...rest }) {
     <Dialog {...rest}>
       <ul>
         <PerformanceCheckItem
-          title="Polygon Count"
-          description="We recommend your scene use no more than 50,000 triangles for mobile devices."
+          title="Nombre de Polígons"
+          description="Recomanem que la teva escena no tingui més de 50,000 triangles per dispositius mòbils."
           learnMoreUrl="https://hubs.mozilla.com/docs/spoke-optimization.html"
           score={scores.polygons.score}
           scoreColor={scoreToColor[scores.polygons.score]}
@@ -120,7 +120,7 @@ export default function PerformanceCheckDialog({ scores, ...rest }) {
         </PerformanceCheckItem>
         <PerformanceCheckItem
           title="Materials"
-          description="We recommend using no more than 25 unique materials in your scene to reduce draw calls on mobile devices."
+          description="Recomanem fer servir menys de 25 materials únics a l'escena per dispositius mòbils."
           learnMoreUrl="https://hubs.mozilla.com/docs/spoke-optimization.html"
           score={scores.materials.score}
           scoreColor={scoreToColor[scores.materials.score]}
@@ -131,7 +131,7 @@ export default function PerformanceCheckDialog({ scores, ...rest }) {
         </PerformanceCheckItem>
         <PerformanceCheckItem
           title="Textures"
-          description="We recommend your textures use no more than 256MB of video RAM for mobile devices. We also recommend against using textures larger than 2048 x 2048."
+          description="Recomanem que les textures no utilitzin més de 256MB de RAM de vídeo per dispositius mòbils. També recomanem no utilitzar textures més grans de 2048 x 2048"
           learnMoreUrl="https://hubs.mozilla.com/docs/spoke-optimization.html"
           score={texturesScore}
           scoreColor={scoreToColor[texturesScore]}
@@ -145,8 +145,8 @@ export default function PerformanceCheckDialog({ scores, ...rest }) {
           </ColoredText>
         </PerformanceCheckItem>
         <PerformanceCheckItem
-          title="Lights"
-          description="While dynamic lights are not enabled on mobile devices, we recommend using no more than 3 lights in your scene (excluding ambient and hemisphere lights) for your scene to run on low end PCs."
+          title="Llums"
+          description="Tot i que les llums dinàmiques no estan habilitades als dispositius mòbils, us recomanem que no utilitzeu més de 3 llums a la vostra escena (excepte les llums ambientals i hemisferiques) perquè la vostra escena funcioni en ordinadors de gamma baixa."
           learnMoreUrl="https://hubs.mozilla.com/docs/spoke-optimization.html"
           score={scores.lights.score}
           scoreColor={scoreToColor[scores.lights.score]}
@@ -154,8 +154,8 @@ export default function PerformanceCheckDialog({ scores, ...rest }) {
           <ColoredText color={scoreToColor[scores.lights.score]}>{scores.lights.value} Lights</ColoredText>
         </PerformanceCheckItem>
         <PerformanceCheckItem
-          title="File Size"
-          description="We recommend a final file size of no more than 16MB for low bandwidth connections. Reducing the file size will reduce the time it takes to download your scene."
+          title="Mida Del Fitxer"
+          description="Recomanem una mida final del fitxer de no més de 16 MB per a connexions amb una amplada de banda baixa. Reduir la mida del fitxer reduirà el temps que triga a descarregar la vostra escena."
           learnMoreUrl="https://hubs.mozilla.com/docs/spoke-optimization.html"
           score={scores.fileSize.score}
           scoreColor={scoreToColor[scores.fileSize.score]}
@@ -176,6 +176,6 @@ PerformanceCheckDialog.propTypes = {
 
 PerformanceCheckDialog.defaultProps = {
   tag: "div",
-  title: "Performance Check",
-  confirmLabel: "Publish Scene"
+  title: "Comprovació de Rendiment",
+  confirmLabel: "Publicar Escena"
 };
