@@ -159,13 +159,13 @@ export default class Project extends EventEmitter {
     const value = localStorage.getItem(LOCAL_STORE_KEY);
 
     if (!value) {
-      throw new Error("Not authenticated");
+      throw new Error("No autenticat");
     }
 
     const store = JSON.parse(value);
 
     if (!store || !store.credentials || !store.credentials.token) {
-      throw new Error("Not authenticated");
+      throw new Error("No autenticat");
     }
 
     return store.credentials.token;
@@ -205,7 +205,7 @@ export default class Project extends EventEmitter {
     const json = await response.json();
 
     if (!Array.isArray(json.projects)) {
-      throw new Error(`Error fetching projects: ${json.error || "Unknown error."}`);
+      throw new Error(`Error recuperant projectes: ${json.error || "Error desconegut."}`);
     }
 
     return json.projects;
@@ -241,7 +241,7 @@ export default class Project extends EventEmitter {
     const json = await response.json();
 
     if (!Array.isArray(json.scenes)) {
-      throw new Error(`Error fetching scenes: ${json.error || "Unknown error."}`);
+      throw new Error(`Error recuperant escenes: ${json.error || "Error desconegut."}`);
     }
 
     return json.scenes;
@@ -261,7 +261,7 @@ export default class Project extends EventEmitter {
       body: JSON.stringify({ media: { url, index } })
     }).then(async response => {
       if (!response.ok) {
-        const message = `Error resolving url "${url}":\n  `;
+        const message = `Error trobant la url "${url}":\n  `;
         try {
           const body = await response.text();
           throw new Error(message + body.replace(/\n/g, "\n  "));
@@ -319,7 +319,7 @@ export default class Project extends EventEmitter {
           guessContentType(canonicalUrl) ||
           (await this.fetchContentType(accessibleUrl));
       } catch (error) {
-        throw new RethrownError(`Error resolving media "${absoluteUrl}"`, error);
+        throw new RethrownError(`Error trobant media "${absoluteUrl}"`, error);
       }
 
       try {
@@ -332,7 +332,7 @@ export default class Project extends EventEmitter {
           return { canonicalUrl, accessibleUrl: files["scene.gtlf"].url, contentType, files };
         }
       } catch (error) {
-        throw new RethrownError(`Error loading Sketchfab model "${accessibleUrl}"`, error);
+        throw new RethrownError(`Error carregant el model Sketchfab "${accessibleUrl}"`, error);
       }
 
       return { canonicalUrl, accessibleUrl, contentType, meta };
@@ -409,7 +409,7 @@ export default class Project extends EventEmitter {
     const resp = await this.fetch(url, { headers, signal });
 
     if (signal.aborted) {
-      const error = new Error("Media search aborted");
+      const error = new Error("Cerca de media avortada");
       error.aborted = true;
       throw error;
     }
@@ -417,7 +417,7 @@ export default class Project extends EventEmitter {
     const json = await resp.json();
 
     if (signal.aborted) {
-      const error = new Error("Media search aborted");
+      const error = new Error("Cerca de media avortada");
       error.aborted = true;
       throw error;
     }
@@ -453,7 +453,7 @@ export default class Project extends EventEmitter {
     }
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const {
@@ -462,7 +462,7 @@ export default class Project extends EventEmitter {
     } = await this.upload(thumbnailBlob, undefined, signal);
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const serializedScene = scene.serialize();
@@ -473,7 +473,7 @@ export default class Project extends EventEmitter {
     } = await this.upload(projectBlob, undefined, signal);
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const token = this.getToken();
@@ -502,7 +502,7 @@ export default class Project extends EventEmitter {
     const resp = await this.fetch(projectEndpoint, { method: "POST", headers, body, signal });
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     if (resp.status === 401) {
@@ -528,7 +528,7 @@ export default class Project extends EventEmitter {
     }
 
     if (resp.status !== 200) {
-      throw new Error(`Project creation failed. ${await resp.text()}`);
+      throw new Error(`No s'ha pogut crear el projecte. ${await resp.text()}`);
     }
 
     const json = await resp.json();
@@ -551,11 +551,11 @@ export default class Project extends EventEmitter {
     const resp = await this.fetch(projectEndpoint, { method: "DELETE", headers });
 
     if (resp.status === 401) {
-      throw new Error("Not authenticated");
+      throw new Error("No autenticat");
     }
 
     if (resp.status !== 200) {
-      throw new Error(`Project deletion failed. ${await resp.text()}`);
+      throw new Error(`No s'ha pogut eliminar el projecte. ${await resp.text()}`);
     }
 
     return true;
@@ -574,13 +574,13 @@ export default class Project extends EventEmitter {
     }
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const thumbnailBlob = await editor.takeScreenshot(512, 320);
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const {
@@ -589,7 +589,7 @@ export default class Project extends EventEmitter {
     } = await this.upload(thumbnailBlob, undefined, signal);
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const serializedScene = editor.scene.serialize();
@@ -600,7 +600,7 @@ export default class Project extends EventEmitter {
     } = await this.upload(projectBlob, undefined, signal);
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     const token = this.getToken();
@@ -635,7 +635,7 @@ export default class Project extends EventEmitter {
     const json = await resp.json();
 
     if (signal.aborted) {
-      throw new Error("Save project aborted");
+      throw new Error("Desar el projecte avortat");
     }
 
     if (resp.status === 401) {
@@ -654,7 +654,7 @@ export default class Project extends EventEmitter {
     }
 
     if (resp.status !== 200) {
-      throw new Error(`Saving project failed. ${await resp.text()}`);
+      throw new Error(`No s'ha pogut desar el projecte. ${await resp.text()}`);
     }
 
     this.emit("project-saved");
@@ -696,8 +696,8 @@ export default class Project extends EventEmitter {
       // Save the scene if it has been modified.
       if (editor.sceneModified) {
         showDialog(ProgressDialog, {
-          title: "Saving Project",
-          message: "Saving project...",
+          title: "Desant Projecte",
+          message: "Desant Projecte...",
           cancelable: true,
           onCancel: () => {
             abortController.abort();
@@ -707,7 +707,7 @@ export default class Project extends EventEmitter {
         project = await this.saveProject(project.project_id, editor, signal, showDialog, hideDialog);
 
         if (signal.aborted) {
-          const error = new Error("Publish project aborted");
+          const error = new Error("Publicació de projecte avortat");
           error.aborted = true;
           throw error;
         }
@@ -723,8 +723,8 @@ export default class Project extends EventEmitter {
       }
 
       showDialog(ProgressDialog, {
-        title: "Generating Project Screenshot",
-        message: "Generating project screenshot..."
+        title: "Generant Captura del Projecte",
+        message: "Generant captura del projecte..."
       });
 
       // Wait for 5ms so that the ProgressDialog shows up.
@@ -735,7 +735,7 @@ export default class Project extends EventEmitter {
       screenshotUrl = URL.createObjectURL(screenshotBlob);
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -777,7 +777,7 @@ export default class Project extends EventEmitter {
       if (!publishParams) {
         URL.revokeObjectURL(screenshotUrl);
         hideDialog();
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -794,8 +794,8 @@ export default class Project extends EventEmitter {
       this.setUserInfo({ creatorAttribution: publishParams.creatorAttribution });
 
       showDialog(ProgressDialog, {
-        title: "Publishing Scene",
-        message: "Exporting scene...",
+        title: "Publicant Escena",
+        message: "Exportant escena...",
         cancelable: true,
         onCancel: () => {
           abortController.abort();
@@ -806,7 +806,7 @@ export default class Project extends EventEmitter {
       const { glbBlob, scores } = await editor.exportScene(abortController.signal, { scores: true });
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -820,7 +820,7 @@ export default class Project extends EventEmitter {
       });
 
       if (!performanceCheckResult) {
-        const error = new Error("Publish project canceled");
+        const error = new Error("Publicació de projecte cancel·lat");
         error.aborted = true;
         throw error;
       }
@@ -830,8 +830,8 @@ export default class Project extends EventEmitter {
       const sceneBlob = new Blob([JSON.stringify(serializedScene)], { type: "application/json" });
 
       showDialog(ProgressDialog, {
-        title: "Publishing Scene",
-        message: `Publishing scene`,
+        title: "Publicant Escena",
+        message: "Publicant escena",
         cancelable: true,
         onCancel: () => {
           abortController.abort();
@@ -841,12 +841,14 @@ export default class Project extends EventEmitter {
       const size = glbBlob.size / 1024 / 1024;
       const maxSize = this.maxUploadSize;
       if (size > maxSize) {
-        throw new Error(`Scene is too large (${size.toFixed(2)}MB) to publish. Maximum size is ${maxSize}MB.`);
+        throw new Error(
+          "L'escena és molt gran (" + size.toFixed(2) + "MB) per ser publicada. La mida màxima és " + maxSize + "MB."
+        );
       }
 
       showDialog(ProgressDialog, {
-        title: "Publishing Scene",
-        message: "Uploading thumbnail...",
+        title: "Publicant Escena",
+        message: "Pujant la miniatura",
         cancelable: true,
         onCancel: () => {
           abortController.abort();
@@ -860,7 +862,7 @@ export default class Project extends EventEmitter {
       } = await this.upload(screenshotBlob, undefined, abortController.signal);
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -872,8 +874,8 @@ export default class Project extends EventEmitter {
         showDialog(
           ProgressDialog,
           {
-            title: "Publishing Scene",
-            message: `Uploading scene: ${Math.floor(uploadProgress * 100)}%`,
+            title: "Publicant Escena",
+            message: `Pujant escena: ${Math.floor(uploadProgress * 100)}%`,
             onCancel: () => {
               abortController.abort();
             }
@@ -883,7 +885,7 @@ export default class Project extends EventEmitter {
       });
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -894,7 +896,7 @@ export default class Project extends EventEmitter {
       } = await this.upload(sceneBlob, undefined, abortController.signal);
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -930,7 +932,7 @@ export default class Project extends EventEmitter {
       });
 
       if (signal.aborted) {
-        const error = new Error("Publish project aborted");
+        const error = new Error("Publicació de projecte avortat");
         error.aborted = true;
         throw error;
       }
@@ -951,7 +953,7 @@ export default class Project extends EventEmitter {
       }
 
       if (resp.status !== 200) {
-        throw new Error(`Scene creation failed. ${await resp.text()}`);
+        throw new Error(`Creació de l'escena ha fallat. ${await resp.text()}`);
       }
 
       project = await resp.json();
@@ -1029,7 +1031,7 @@ export default class Project extends EventEmitter {
 
       const onAbort = () => {
         request.abort();
-        const error = new Error("Upload aborted");
+        const error = new Error("Càrrega avortada");
         error.name = "AbortError";
         error.aborted = true;
         reject(error);
@@ -1051,7 +1053,7 @@ export default class Project extends EventEmitter {
         if (signal) {
           signal.removeEventListener("abort", onAbort);
         }
-        reject(new RethrownError("Upload failed", error));
+        reject(new RethrownError("La càrrega ha fallat", error));
       });
 
       request.addEventListener("load", () => {
@@ -1063,7 +1065,7 @@ export default class Project extends EventEmitter {
           const response = JSON.parse(request.responseText);
           resolve(response);
         } else {
-          reject(new Error(`Upload failed ${request.statusText}`));
+          reject(new Error(`La càrrega ha fallat ${request.statusText}`));
         }
       });
 
@@ -1199,11 +1201,11 @@ export default class Project extends EventEmitter {
     const resp = await this.fetch(assetEndpoint, { method: "DELETE", headers });
 
     if (resp.status === 401) {
-      throw new Error("Not authenticated");
+      throw new Error("No autenticat");
     }
 
     if (resp.status !== 200) {
-      throw new Error(`Asset deletion failed. ${await resp.text()}`);
+      throw new Error(`No s'ha pogut suprimir l'asset ${await resp.text()}`);
     }
 
     return true;
@@ -1222,11 +1224,11 @@ export default class Project extends EventEmitter {
     const resp = await this.fetch(projectAssetEndpoint, { method: "DELETE", headers });
 
     if (resp.status === 401) {
-      throw new Error("Not authenticated");
+      throw new Error("No autenticat");
     }
 
     if (resp.status !== 200) {
-      throw new Error(`Project Asset deletion failed. ${await resp.text()}`);
+      throw new Error(`No s'ha pogut suprimir l'asset ${await resp.text()}`);
     }
 
     return true;
@@ -1249,15 +1251,16 @@ export default class Project extends EventEmitter {
       }
 
       const err = new Error(
-        `Network Error: ${res.status || "Unknown Status."} ${res.statusText || "Unknown Error. Possibly a CORS error."}`
+        `Error de Xarxa: ${res.status || "Estat Desconegut."} ${res.statusText ||
+          "Error Desconegut. Possiblement un error CORS"}`
       );
       err.response = res;
       throw err;
     } catch (error) {
-      if (error.message === "Failed to fetch") {
-        error.message += " (Possibly a CORS error)";
+      if (error.message === "No s'ha pogut recuperar") {
+        error.message += " (Possiblement un error CORS)";
       }
-      throw new RethrownError(`Failed to fetch "${url}"`, error);
+      throw new RethrownError(`No s'ha pogut recuperar "${url}"`, error);
     }
   }
 }
