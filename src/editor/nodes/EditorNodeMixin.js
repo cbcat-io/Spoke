@@ -32,7 +32,7 @@ function updateObjectArrayProperty(property, value) {
 
 export default function EditorNodeMixin(Object3DClass) {
   return class extends Object3DClass {
-    static nodeName = "Unknown Node";
+    static nodeName = "Node Desconegut";
 
     static disableTransform = false;
 
@@ -287,7 +287,7 @@ export default function EditorNodeMixin(Object3DClass) {
       }
 
       if (props !== undefined && typeof props !== "object") {
-        throw new Error("glTF component props must be an object or undefined");
+        throw new Error("Els accessoris dels components glTF han de ser un objecte o no estar definits");
       }
 
       const componentProps = {};

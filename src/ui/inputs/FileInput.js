@@ -26,7 +26,7 @@ export default class FileInput extends Component {
   };
 
   static defaultProps = {
-    label: "Upload...",
+    label: "Carrega...",
     showSelectedFile: false
   };
 
@@ -52,7 +52,9 @@ export default class FileInput extends Component {
           {label}
         </Button>
         <StyledInput {...rest} id={this.state.id} type="file" onChange={this.onChange} />
-        {this.props.showSelectedFile && <span>{this.state.filename ? this.state.filename : "No File chosen"}</span>}
+        {this.props.showSelectedFile && (
+          <span>{this.state.filename ? this.state.filename : "No s'ha seleccionat cap fitxer"}</span>
+        )}
       </FileInputContainer>
     );
   }

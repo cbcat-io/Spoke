@@ -15,7 +15,7 @@ export default class SimpleWaterNodeEditor extends Component {
 
   static iconComponent = Water;
 
-  static description = "Renders a water plane.";
+  static description = "Representa un pla d'aigua.";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -66,7 +66,7 @@ export default class SimpleWaterNodeEditor extends Component {
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Opacity"
+          name="Opacitat"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}
@@ -76,7 +76,7 @@ export default class SimpleWaterNodeEditor extends Component {
           onChange={this.onChangeOpacity}
         />
         <NumericInputGroup
-          name="Tide Height"
+          name="Altura de la Marea"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}
@@ -84,7 +84,7 @@ export default class SimpleWaterNodeEditor extends Component {
           value={node.tideHeight}
           onChange={this.onChangeTideHeight}
         />
-        <InputGroup name="Tide Scale">
+        <InputGroup name="Escala de la Marea">
           <Vector2Input
             smallStep={0.01}
             mediumStep={0.1}
@@ -93,7 +93,7 @@ export default class SimpleWaterNodeEditor extends Component {
             onChange={this.onChangeTideScale}
           />
         </InputGroup>
-        <InputGroup name="Tide Speed">
+        <InputGroup name="Velocitat de la Marea">
           <Vector2Input
             smallStep={0.01}
             mediumStep={0.1}
@@ -103,7 +103,7 @@ export default class SimpleWaterNodeEditor extends Component {
           />
         </InputGroup>
         <NumericInputGroup
-          name="Wave Height"
+          name="Alçada de l'Onada"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}
@@ -111,7 +111,7 @@ export default class SimpleWaterNodeEditor extends Component {
           value={node.waveHeight}
           onChange={this.onChangeWaveHeight}
         />
-        <InputGroup name="Wave Scale">
+        <InputGroup name="Escala de l'Onada">
           <Vector2Input
             smallStep={0.01}
             mediumStep={0.1}
@@ -120,7 +120,7 @@ export default class SimpleWaterNodeEditor extends Component {
             onChange={this.onChangeWaveScale}
           />
         </InputGroup>
-        <InputGroup name="Wave Speed">
+        <InputGroup name="Velocitat de l'Onada">
           <Vector2Input
             smallStep={0.01}
             mediumStep={0.1}
@@ -130,7 +130,7 @@ export default class SimpleWaterNodeEditor extends Component {
           />
         </InputGroup>
         <NumericInputGroup
-          name="Ripples Speed"
+          name="Velocitat de les Ondulacions"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}
@@ -138,7 +138,7 @@ export default class SimpleWaterNodeEditor extends Component {
           onChange={this.onChangeRipplesSpeed}
         />
         <NumericInputGroup
-          name="Ripples Scale"
+          name="Escala de les Ondulacions"
           smallStep={0.01}
           mediumStep={0.1}
           largeStep={0.25}

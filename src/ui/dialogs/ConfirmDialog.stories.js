@@ -9,7 +9,7 @@ export default {
 
 export const confirmDialog = () => (
   <ConfirmDialog
-    message="Are you sure you want to continue?"
+    message="Estàs segur que vols continuar?"
     onCancel={action("onCancel")}
     onConfirm={action("onConfirm")}
   />

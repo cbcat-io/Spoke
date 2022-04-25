@@ -181,7 +181,7 @@ function GLTFMeshItem({ item }) {
           <b>Triangles:</b> {item.triangles}
         </li>
         <li>
-          <b>Vertices:</b> {item.vertices}
+          <b>V&egrave;rtexs:</b> {item.vertices}
         </li>
       </ul>
     </MeshItemContainer>
@@ -224,7 +224,7 @@ export function GLTFStats({ node }) {
         <b>Nodes:</b> {stats.nodes}
       </li>
       <li>
-        <b>Meshes:</b> {stats.meshes}
+        <b>Malles:</b> {stats.meshes}
       </li>
       <li>
         <b>Materials:</b> {stats.materials}
@@ -236,7 +236,7 @@ export function GLTFStats({ node }) {
         <b>Triangles:</b> {stats.triangles}
       </li>
       <li>
-        <b>Vertices:</b> {stats.vertices}
+        <b>V&egrave;rtexs:</b> {stats.vertices}
       </li>
     </StatsContainer>
   );
@@ -353,59 +353,59 @@ export function GLTFValidation({ node }) {
             <h3>Info:</h3>
             <ul>
               <li>
-                <b>Version:</b> {validation.info.version}
+                <b>Versi&oacute;:</b> {validation.info.version}
               </li>
               <li>
-                <b>Generator:</b> {validation.info.generator}
+                <b>Generador:</b> {validation.info.generator}
               </li>
               <li>
-                <b>Draw Call Count:</b> {validation.info.drawCallCount}
+                <b>Nombre de Crida de Dibuixos:</b> {validation.info.drawCallCount}
               </li>
               <li>
-                <b>Material Count:</b> {validation.info.materialCount}
+                <b>Recompte de Materials:</b> {validation.info.materialCount}
               </li>
               <li>
-                <b>Total Triangle Count:</b> {validation.info.totalTriangleCount}
+                <b>Recompte Total de Triangles:</b> {validation.info.totalTriangleCount}
               </li>
               <li>
-                <b>Total Vertex Count:</b> {validation.info.totalVertexCount}
+                <b>Recompte Total de V&egrave;rtexs:</b> {validation.info.totalVertexCount}
               </li>
               <li>
-                <b>Animation Count:</b> {validation.info.animationCount}
+                <b>Recompte d&#39;Animacions:</b> {validation.info.animationCount}
               </li>
               <li>
-                <b>Max Attributes:</b> {validation.info.maxAttributes}
+                <b>Atributs M&agrave;xims:</b> {validation.info.maxAttributes}
               </li>
               <li>
-                <b>Max Influences:</b> {validation.info.maxInfluences}
+                <b>Influencies M&agrave;ximes:</b> {validation.info.maxInfluences}
               </li>
               <li>
-                <b>Max UVs:</b> {validation.info.maxUVs}
+                <b>UVs M&agrave;ximes:</b> {validation.info.maxUVs}
               </li>
               <li>
-                <b>Has Default Scene:</b> {validation.info.hasDefaultScene.toString()}
+                <b>T&eacute; Escena Predeterminada:</b> {validation.info.hasDefaultScene.toString()}
               </li>
               <li>
-                <b>Has Morph Targets:</b> {validation.info.hasMorphTargets.toString()}
+                <b>T&eacute; Transformacions:</b> {validation.info.hasMorphTargets.toString()}
               </li>
               <li>
-                <b>Has Skins:</b> {validation.info.hasSkins.toString()}
+                <b>T&eacute; Skins:</b> {validation.info.hasSkins.toString()}
               </li>
               <li>
-                <b>Has Textures:</b> {validation.info.hasTextures.toString()}
+                <b>T&eacute; Textures:</b> {validation.info.hasTextures.toString()}
               </li>
             </ul>
-            {validation.issues.messages.length === 0 && <NoIssues>No issues detected.</NoIssues>}
+            {validation.issues.messages.length === 0 && <NoIssues>No s#39;han detectat problemes.</NoIssues>}
           </ValidationInfoContainer>
           <IssueList label="Errors" severity={0} issues={validation.issues.messages} />
-          <IssueList label="Warnings" severity={1} issues={validation.issues.messages} />
+          <IssueList label="Avisos" severity={1} issues={validation.issues.messages} />
           <IssueList label="Info" severity={2} issues={validation.issues.messages} />
-          <IssueList label="Hints" severity={3} issues={validation.issues.messages} />
+          <IssueList label="Pistes" severity={3} issues={validation.issues.messages} />
         </>
       )}
       {!validation && (
         <PropertiesPanelButton disabled={validating} onClick={onValidate}>
-          Validate glTF
+          Validar glTF
         </PropertiesPanelButton>
       )}
     </>
@@ -419,19 +419,19 @@ GLTFValidation.propTypes = {
 export function GLTFInfo({ node }) {
   return (
     <Collapsible label="glTF Info">
-      <Collapsible open label="Stats">
+      <Collapsible open label="Estadístiques">
         <GLTFStats node={node} />
       </Collapsible>
-      <Collapsible open label="Files">
+      <Collapsible open label="Fitxers">
         <GLTFFileChart node={node} />
       </Collapsible>
       <Collapsible open label="Textures">
         <GLTFTextureList node={node} />
       </Collapsible>
-      <Collapsible open label="Meshes">
+      <Collapsible open label="Malles">
         <GLTFMeshList node={node} />
       </Collapsible>
-      <Collapsible open label="Validation">
+      <Collapsible open label="Validació">
         <GLTFValidation node={node} />
       </Collapsible>
     </Collapsible>

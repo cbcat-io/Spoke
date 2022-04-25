@@ -195,14 +195,14 @@ const rotationSnapOptions = [
 ];
 
 const transformPivotOptions = [
-  { label: "Selection", value: TransformPivot.Selection },
-  { label: "Center", value: TransformPivot.Center },
-  { label: "Bottom", value: TransformPivot.Bottom }
+  { label: "Selecció", value: TransformPivot.Selection },
+  { label: "Centre", value: TransformPivot.Center },
+  { label: "A baix", value: TransformPivot.Bottom }
 ];
 
 const transformSpaceOptions = [
-  { label: "Selection", value: TransformSpace.LocalSelection },
-  { label: "World", value: TransformSpace.World }
+  { label: "Selecció", value: TransformSpace.LocalSelection },
+  { label: "Món", value: TransformSpace.World }
 ];
 
 export default class ToolBar extends Component {
@@ -380,21 +380,21 @@ export default class ToolBar extends Component {
           <ToolButton icon={Bars} onClick={this.onMenuSelected} selected={menuOpen} id="menu" />
           <ToolButton
             id="translate-button"
-            tooltip="[T] Translate"
+            tooltip="[T] Traslladar"
             icon={ArrowsAlt}
             onClick={this.onSelectTranslate}
             selected={transformMode === TransformMode.Translate}
           />
           <ToolButton
             id="rotate-button"
-            tooltip="[R] Rotate"
+            tooltip="[R] Rotar"
             icon={SyncAlt}
             onClick={this.onSelectRotate}
             selected={transformMode === TransformMode.Rotate}
           />
           <ToolButton
             id="scale-button"
-            tooltip="[Y] Scale"
+            tooltip="[Y] Escalar"
             icon={ArrowsAltV}
             onClick={this.onSelectScale}
             selected={transformMode === TransformMode.Scale}
@@ -402,7 +402,7 @@ export default class ToolBar extends Component {
         </ToolButtons>
         <ToolToggles>
           <ToolbarInputGroup id="transform-space">
-            <InfoTooltip info="[Z] Toggle Transform Space" position="bottom">
+            <InfoTooltip info="[Z] Canvia Espai de Moviment" position="bottom">
               <ToggleButton onClick={this.onToggleTransformSpace}>
                 <Globe size={12} />
               </ToggleButton>
@@ -415,7 +415,7 @@ export default class ToolBar extends Component {
             />
           </ToolbarInputGroup>
           <ToolbarInputGroup id="transform-pivot">
-            <ToggleButton onClick={this.onToggleTransformPivot} tooltip="[X] Toggle Transform Pivot">
+            <ToggleButton onClick={this.onToggleTransformPivot} tooltip="[X] Canvia la Posició del Pivot">
               <Bullseye size={12} />
             </ToggleButton>
             <SelectInput
@@ -429,7 +429,7 @@ export default class ToolBar extends Component {
             <ToggleButton
               value={snapMode === SnapMode.Grid}
               onClick={this.onToggleSnapMode}
-              tooltip={"[C] Toggle Snap Mode"}
+              tooltip={"[C] Canvia Mode d'Encaixar"}
             >
               <Magnet size={12} />
             </ToggleButton>
@@ -439,7 +439,7 @@ export default class ToolBar extends Component {
               options={translationSnapOptions}
               value={translationSnap}
               placeholder={translationSnap + "m"}
-              formatCreateLabel={value => "Custom: " + value + "m"}
+              formatCreateLabel={value => "Personalitzat: " + value + "m"}
               isValidNewOption={value => value.trim() !== "" && !isNaN(value)}
               creatable
             />
@@ -449,13 +449,13 @@ export default class ToolBar extends Component {
               options={rotationSnapOptions}
               value={rotationSnap}
               placeholder={rotationSnap + "°"}
-              formatCreateLabel={value => "Custom: " + value + "°"}
+              formatCreateLabel={value => "Personalitzat: " + value + "°"}
               isValidNewOption={value => value.trim() !== "" && !isNaN(value)}
               creatable
             />
           </ToolbarInputGroup>
           <ToolbarInputGroup id="transform-grid">
-            <ToggleButton onClick={this.onToggleGridVisible} tooltip="Toggle Grid Visibility">
+            <ToggleButton onClick={this.onToggleGridVisible} tooltip="Canvia la Visibilitat de la Graella">
               <Grid size={16} />
             </ToggleButton>
             <ToolbarNumericStepperInput
@@ -466,15 +466,15 @@ export default class ToolBar extends Component {
               mediumStep={1.5}
               largeStep={4.5}
               unit="m"
-              incrementTooltip="[-] Increment Grid Height"
-              decrementTooltip="[=] Decrement Grid Height"
+              incrementTooltip="[-] Incrementar Altura de la Graella"
+              decrementTooltip="[=] Disminuir Altura de la Graella"
             />
           </ToolbarInputGroup>
           {this.props.editor.settings.enableExperimentalFeatures && (
             <ToolbarInputGroup id="preview">
               <ToggleButton
                 onClick={this.onTogglePlayMode}
-                tooltip={this.props.editor.playing ? "Stop Previewing Scene" : "Preview Scene"}
+                tooltip={this.props.editor.playing ? "Aturar Vista Prèvia de l'Escena" : "Vista Prèvia de l'Escena"}
               >
                 {this.props.editor.playing ? <Pause size={14} /> : <Play size={14} />}
               </ToggleButton>
@@ -484,11 +484,11 @@ export default class ToolBar extends Component {
         <Spacer />
         {this.props.isPublishedScene && (
           <PublishButton onClick={this.props.onOpenScene}>
-            {configs.isMoz() ? "Open in Hubs" : "Open Scene"}
+            {configs.isMoz() ? "Obrir a Hubs" : "Obrir Escena"}
           </PublishButton>
         )}
         <PublishButton id="publish-button" onClick={this.props.onPublish}>
-          {configs.isMoz() ? "Publish to Hubs..." : "Publish Scene..."}
+          {configs.isMoz() ? "Publicar a Hubs..." : "Publicar Escena..."}
         </PublishButton>
         <ContextMenu id="menu">
           {this.props.menu.map(menu => {

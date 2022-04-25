@@ -58,7 +58,7 @@ export default class NameInputGroup extends Component {
     const name = this.state.focusedNode ? this.state.name : this.props.node.name;
 
     return (
-      <StyledNameInputGroup name="Name">
+      <StyledNameInputGroup name="Nom">
         <StringInput
           value={name}
           onChange={this.onUpdateName}

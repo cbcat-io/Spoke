@@ -4,18 +4,19 @@ import Dialog from "./Dialog";
 
 export default function SupportDialog({ onCancel, ...props }) {
   return (
-    <Dialog {...props} title="Support">
+    <Dialog {...props} title="Ajut">
       <div>
-        <p>Need to report a problem?</p>
+        <p>Necessites informar d&#39;un problema?</p>
         <p>
-          You can file a{" "}
+          Podeu presentar un{" "}
           <a href="https://github.com/mozilla/Spoke/issues/new" target="_blank" rel="noopener noreferrer">
-            GitHub Issue
+            problema de Github
           </a>{" "}
-          or e-mail us for support at <a href="mailto:hubs@mozilla.com">hubs@mozilla.com</a>
+          o enviar-nos un correu electr&ograve;nic per obtenir ajut a{" "}
+          <a href="mailto:hubs@mozilla.com">hubs@mozilla.com</a>
         </p>
         <p>
-          You can also find us on{" "}
+          Tamb&eacute; ens podeu trobar a{" "}
           <a href="https://discord.gg/wHmY4nd" target="_blank" rel="noopener noreferrer">
             Discord
           </a>

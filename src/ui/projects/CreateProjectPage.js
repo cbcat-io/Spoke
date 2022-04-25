@@ -106,27 +106,27 @@ export default function CreateProjectPage({ history, location }) {
         <ProjectsSection>
           <ProjectsContainer>
             <ProjectsHeader>
-              <h1>New Project</h1>
-              <PrimaryLink to="/projects">Back to projects</PrimaryLink>
+              <h1>Nou Projecte</h1>
+              <PrimaryLink to="/projects">Tornar a Projectes</PrimaryLink>
             </ProjectsHeader>
             <ProjectGridContainer>
               <ProjectGridHeader>
                 <ProjectGridHeaderRow>
                   <Filter onClick={onSetFeaturedRemixable} active={params.filter === "featured-remixable"}>
-                    Featured
+                    Destacat
                   </Filter>
                   <Filter onClick={onSetAll} active={params.filter === "remixable"}>
-                    All
+                    Tot
                   </Filter>
                   <Separator />
-                  <SearchInput placeholder="Search scenes..." value={params.q} onChange={onChangeQuery} />
+                  <SearchInput placeholder="Cerca escenes..." value={params.q} onChange={onChangeQuery} />
                 </ProjectGridHeaderRow>
                 <ProjectGridHeaderRow>
                   <Button as={Link} to="/scenes/new">
-                    Import From Blender
+                    Importar des de Blender
                   </Button>
                   <Button as={Link} to="/projects/new">
-                    New Empty Project
+                    Nou Projecte Buit
                   </Button>
                 </ProjectGridHeaderRow>
               </ProjectGridHeader>
@@ -145,7 +145,7 @@ export default function CreateProjectPage({ history, location }) {
                     <ProjectGrid
                       projects={filteredEntries}
                       newProjectPath="/projects/new"
-                      newProjectLabel="New Empty Project"
+                      newProjectLabel="Nou Projecte Buit"
                       onSelectProject={onSelectScene}
                       loading={loading}
                     />

@@ -49,15 +49,15 @@ export default function ExportProjectDialog({ defaultOptions, onConfirm, onCance
       title="Export Project"
       onConfirm={onConfirmCallback}
       onCancel={onCancelCallback}
-      confirmLabel="Export Project"
+      confirmLabel="Exportar Projecte"
     >
       <FormContainer>
         <FormField>
-          <label htmlFor="combineMeshes">Combine Meshes</label>
+          <label htmlFor="combineMeshes">Combinar Malles</label>
           <BooleanInput id="combineMeshes" value={options.combineMeshes} onChange={onChangeCombineMeshes} />
         </FormField>
         <FormField>
-          <label htmlFor="removeUnusedObjects">Remove Unused Objects</label>
+          <label htmlFor="removeUnusedObjects">Eliminar Objectes No Utilitzats</label>
           <BooleanInput
             id="removeUnusedObjects"
             value={options.removeUnusedObjects}

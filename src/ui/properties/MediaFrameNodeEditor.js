@@ -8,12 +8,12 @@ import useSetPropertySelected from "./useSetPropertySelected";
 import { MediaType } from "../../editor/nodes/MediaFrameNode";
 
 const mediaTypeOptions = [
-  { label: "All Media", value: MediaType.ALL },
-  { label: "Only 2D Media", value: MediaType.ALL_2D },
-  { label: "Only 3D Models", value: MediaType.MODEL },
-  { label: "Only Images", value: MediaType.IMAGE },
-  { label: "Only Videos", value: MediaType.VIDEO },
-  { label: "Only PDFs", value: MediaType.PDF }
+  { label: "Tots els Elements", value: MediaType.ALL },
+  { label: "Només Elements 2D", value: MediaType.ALL_2D },
+  { label: "Només Models 3D", value: MediaType.MODEL },
+  { label: "Només Imatges", value: MediaType.IMAGE },
+  { label: "Només Vídeos", value: MediaType.VIDEO },
+  { label: "Només PDFs", value: MediaType.PDF }
 ];
 
 export default function MediaFrameNodeEditor(props) {
@@ -21,7 +21,7 @@ export default function MediaFrameNodeEditor(props) {
   const onChangeMediaType = useSetPropertySelected(editor, "mediaType");
   return (
     <NodeEditor description={MediaFrameNodeEditor.description} {...props}>
-      <InputGroup name="Media Types" info="Limit what type of media this frame will capture">
+      <InputGroup name="Tipus d'Elements" info="Limitar quins tipus d'elements capturarà aquest marc">
         <SelectInput options={mediaTypeOptions} value={node.mediaType} onChange={onChangeMediaType} />
       </InputGroup>
     </NodeEditor>
@@ -29,7 +29,7 @@ export default function MediaFrameNodeEditor(props) {
 }
 
 MediaFrameNodeEditor.iconComponent = ObjectGroup;
-MediaFrameNodeEditor.description = "A frame to capture media objects.\n";
+MediaFrameNodeEditor.description = "Un marc per capturar objectes multimèdia.\n";
 
 MediaFrameNodeEditor.propTypes = {
   editor: PropTypes.object,

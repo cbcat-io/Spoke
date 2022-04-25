@@ -9,7 +9,7 @@ let defaultParticleSprite = null;
 export default class ParticleEmitterNode extends EditorNodeMixin(ParticleEmitter) {
   static componentName = "particle-emitter";
 
-  static nodeName = "Particle Emitter";
+  static nodeName = "Emissor de Partícules";
 
   static initialElementProps = {
     src: new URL(defaultParticleUrl, location).href
@@ -138,7 +138,7 @@ export default class ParticleEmitterNode extends EditorNodeMixin(ParticleEmitter
       const helperIndex = source.children.indexOf(source.helper);
 
       if (helperIndex === -1) {
-        throw new Error("Source helper could not be found.");
+        throw new Error("No s'ha pogut trobar l'ajudant d'origen");
       }
 
       this.helper = this.children[helperIndex];

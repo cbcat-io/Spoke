@@ -51,7 +51,6 @@ export const TooltipContainer = styled.div`
   user-select: none;
   text-align: center;
   white-space: pre-wrap;
-}
 `;
 
 export function InfoTooltip({ info, children, ...rest }) {

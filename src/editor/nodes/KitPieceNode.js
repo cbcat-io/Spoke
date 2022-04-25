@@ -16,7 +16,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
 
   static useMultiplePlacementMode = true;
 
-  static nodeName = "Kit Piece";
+  static nodeName = "Peça del Kit";
 
   static async deserialize(editor, json, loadAsync, onError) {
     const node = await super.deserialize(editor, json);
@@ -78,7 +78,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
   }
 
   set src(value) {
-    throw new Error("Cannot set src directly on a KitPieceNode");
+    throw new Error("No es pot establir src directament en un node de peça del kit");
   }
 
   get kitId() {
@@ -149,11 +149,11 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
     const nodeIndex = json.nodes.findIndex(nodeDef => isKitPieceNode(nodeDef, pieceId));
 
     if (nodeIndex == -1) {
-      throw new Error(`Could not find node definition for piece ${pieceId}`);
+      throw new Error(`No s'ha trobat la definició per la peça ${pieceId}`);
     }
 
     if (nodeIndex === undefined) {
-      throw new Error(`Couldn't find kit piece with id ${pieceId}`);
+      throw new Error(`No s'ha trobat la peça del kit amb id ${pieceId}`);
     }
 
     // Load the default (white) material if we are using alt materials, otherwise load the material defined in the glTF primitive
@@ -171,7 +171,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
     });
 
     if (!piece) {
-      throw new Error(`Could not load node for piece ${pieceId}`);
+      throw new Error(`No s'ha pogut carregar el node per la peça ${pieceId}`);
     }
 
     const clonedPiece = cloneObject3D(piece);
@@ -216,7 +216,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
 
         if (defaultMaterials.length !== altMaterials.length) {
           console.warn(
-            `Kit subPiece ${name} has ${defaultMaterials.length} default materials and ${altMaterials.length} alternate materials. They should be the same.`
+            `La subpeça de kit ${name} té ${defaultMaterials.length} materials predeterminats i ${altMaterials.length} materials alternatius. Haurien de ser els mateixos.`
           );
         }
 
@@ -230,7 +230,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
 
         if (defaultMaterials.length !== primitives.length) {
           console.warn(
-            `Kit subPiece ${name} has ${defaultMaterials.length} default materials and ${primitives.length} primitives. They should be the same.`
+            `La subpeça de kit ${name} té ${defaultMaterials.length} materials predeterminats i ${altMaterials.length} primitives. Haurien de ser els mateixos.`
           );
         }
 
@@ -353,7 +353,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
       this.showErrorIcon();
 
       const kitPieceError = new RethrownError(
-        `Error loading kit piece. Kit Url: "${this._canonicalUrl}" Kit Id: "${this._kitId}" Piece Id: "${this.pieceId}"`,
+        `Error carregant peça del kit. Url del kit: "${this._canonicalUrl}" Id del kit: "${this._kitId}" Id de la peça: "${this.pieceId}"`,
         error
       );
 
@@ -395,7 +395,7 @@ export default class KitPieceNode extends EditorNodeMixin(Model) {
           const animatedNode = this.model.getObjectByProperty("uuid", uuid);
 
           if (!animatedNode) {
-            throw new Error(`Model.updateStaticModes: Couldn't find object with uuid: "${uuid}"`);
+            throw new Error(`Model.updateStaticModes: No s'ha trobat capobjecte amb la uuid: "${uuid}"`);
           }
 
           setStaticMode(animatedNode, StaticModes.Dynamic);

@@ -82,8 +82,8 @@ export default class AuthForm extends Component {
     return (
       <StyledAuthForm onSubmit={this.onSubmit}>
         {this.props.error && <ErrorMessage>{this.props.error}</ErrorMessage>}
-        <h3>Register or Login</h3>
-        <h4>Login to save projects and publish scenes{configs.isMoz() && " to Hubs"}.</h4>
+        <h3>Registra&#39;t o Inicia Sessi&oacute;</h3>
+        <h4>Inicia Sessi&oacute; per desar projectes i publicar escenes{configs.isMoz() && " a Hubs"}.</h4>
         <FormInput
           type="email"
           name="email"
@@ -92,17 +92,17 @@ export default class AuthForm extends Component {
           onChange={this.onEmailChange}
         />
         <LegalText>
-          By proceeding, you agree to the{" "}
+          En procedir, accepteu les{" "}
           <a rel="noopener noreferrer" target="_blank" href="https://github.com/mozilla/hubs/blob/master/TERMS.md">
-            terms of use
+            condicions d&#39;&uacute;s
           </a>{" "}
-          and{" "}
+          i{" "}
           <a rel="noopener noreferrer" target="_blank" href="https://github.com/mozilla/hubs/blob/master/PRIVACY.md">
-            privacy notice
+            l&#39;av&iacute;s de privacitat
           </a>
           .
         </LegalText>
-        <button type="submit">Send Magic Link</button>
+        <button type="submit">Enviar Enlla&ccedil;</button>
       </StyledAuthForm>
     );
   }

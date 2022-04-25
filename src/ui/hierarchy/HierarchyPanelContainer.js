@@ -847,7 +847,7 @@ export default function HierarchyPanel() {
   }, [expandedNodes, updateNodeHierarchy]);
 
   return (
-    <Panel id="hierarchy-panel" title="Hierarchy" icon={ProjectDiagram}>
+    <Panel id="hierarchy-panel" title="Jerarquia" icon={ProjectDiagram}>
       <PanelContainer>
         {editor.scene && (
           <AutoSizer>
@@ -881,11 +881,11 @@ export default function HierarchyPanel() {
       <ContextMenu id="hierarchy-node-menu">
         <MenuItem onClick={onRenameNode}>Rename</MenuItem>
         <MenuItem onClick={onDuplicateNode}>
-          Duplicate
+          Duplicar
           <div>{cmdOrCtrlString + "+ D"}</div>
         </MenuItem>
         <MenuItem onClick={onGroupNodes}>
-          Group
+          Grup
           <div>{cmdOrCtrlString + "+ G"}</div>
         </MenuItem>
         <MenuItem onClick={onDeleteNode}>Delete</MenuItem>

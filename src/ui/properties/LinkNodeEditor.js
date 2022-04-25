@@ -14,7 +14,7 @@ export default class LinkNodeEditor extends Component {
 
   static iconComponent = Link;
 
-  static description = `Link to a ${configs.isMoz() ? "Hubs " : ""}room or a website.`;
+  static description = `Enllaç a una ${configs.isMoz() ? "Hubs " : ""}sala o pàgina web.`;
 
   onChangeHref = href => {
     this.props.editor.setPropertySelected("href", href);
