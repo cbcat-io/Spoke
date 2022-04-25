@@ -5,7 +5,7 @@ import GroundPlane from "../objects/GroundPlane";
 export default class GroundPlaneNode extends EditorNodeMixin(GroundPlane) {
   static componentName = "ground-plane";
 
-  static nodeName = "Ground Plane";
+  static nodeName = "Pla de Terra";
 
   static canAddNode(editor) {
     return editor.scene.findNodeByType(GroundPlaneNode) === null;

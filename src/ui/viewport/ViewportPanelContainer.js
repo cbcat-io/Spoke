@@ -153,7 +153,7 @@ function ViewportToolbar({ onToggleStats, showStats }) {
 
   return (
     <ViewportToolbarContainer>
-      <IconToggle onClick={onToggleStats} value={showStats} tooltip="Toggle Stats" icon={ChartArea} />
+      <IconToggle onClick={onToggleStats} value={showStats} tooltip="Commuta Estadístiques" icon={ChartArea} />
       <SelectInput value={renderMode} options={options} onChange={onChangeRenderMode} styles={selectInputStyles} />
     </ViewportToolbarContainer>
   );
@@ -250,28 +250,28 @@ export default function ViewportPanelContainer() {
   let controlsText;
 
   if (flyModeEnabled) {
-    controlsText = "[W][A][S][D] Move Camera | [Shift] Fly faster";
+    controlsText = "[W][A][S][D] Moure la Càmera | [Shift] Volar Més Ràpid";
   } else {
-    controlsText = "[LMB] Orbit / Select | [MMB] Pan | [RMB] Fly";
+    controlsText = "[LMB] Orbitar / Seleccionar | [MMB] Panoràmica | [RMB] Volar";
   }
 
   if (objectSelected) {
-    controlsText += " | [F] Focus | [Q] Rotate Left | [E] Rotate Right";
+    controlsText += " | [F] Enfocar | [Q] Rotar a l'Esquerra | [E] Rotar a la Dreta";
   }
 
   if (transformMode === TransformMode.Placement) {
-    controlsText += " | [ESC / G] Cancel Placement";
+    controlsText += " | [ESC / G] Cancel·lar Col·locació";
   } else if (transformMode === TransformMode.Grab) {
-    controlsText += " | [Shift + Click] Place Duplicate | [ESC / G] Cancel Grab";
+    controlsText += " | [Shift + Click] Col·locar Duplicat | [ESC / G] Cancel·lar Captura";
   } else if (objectSelected) {
-    controlsText += "| [G] Grab | [ESC] Deselect All";
+    controlsText += "| [G] Capturar | [ESC] Desseleccionar-ho Tot";
   }
 
   // id used in onboarding
   return (
     <Panel
       id="viewport-panel"
-      title="Viewport"
+      title="Panell Informatiu"
       icon={WindowMaximize}
       toolbarContent={<ViewportToolbar onToggleStats={setShowStats} showStats={showStats} />}
     >

@@ -18,5 +18,5 @@ ConfirmDialog.propTypes = {
 };
 
 ConfirmDialog.defaultProps = {
-  title: "Confirm"
+  title: "Confirmar"
 };

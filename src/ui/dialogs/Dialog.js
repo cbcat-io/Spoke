@@ -135,6 +135,6 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   tag: "form",
-  confirmLabel: "Ok",
-  cancelLabel: "Cancel"
+  confirmLabel: "D'acord",
+  cancelLabel: "Cancel·lar"
 };

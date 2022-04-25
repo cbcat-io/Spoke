@@ -16,7 +16,7 @@ export default class SpawnerNodeEditor extends Component {
 
   static iconComponent = Magic;
 
-  static description = "Spawns a model as an interactable object.";
+  static description = "Genera un model com a objecte interactuable.";
 
   onChangeSrc = (src, initialProps) => {
     this.props.editor.setPropertiesSelected({ ...initialProps, src });
@@ -31,14 +31,14 @@ export default class SpawnerNodeEditor extends Component {
 
     return (
       <NodeEditor {...this.props} description={SpawnerNodeEditor.description}>
-        <InputGroup name="Model Url">
+        <InputGroup name="Url del Model">
           <ModelInput value={node.src} onChange={this.onChangeSrc} />
         </InputGroup>
-        <InputGroup name="Apply gravity to spawned object">
+        <InputGroup name="Aplicar gravetat a l'objecte generat">
           <BooleanInput value={node.applyGravity} onChange={this.onChangeApplyGravity} />
         </InputGroup>
         {node.model && <GLTFInfo node={node} />}
-        <AttributionNodeEditor name="Attribution" {...this.props} />
+        <AttributionNodeEditor name="Atribució" {...this.props} />
       </NodeEditor>
     );
   }

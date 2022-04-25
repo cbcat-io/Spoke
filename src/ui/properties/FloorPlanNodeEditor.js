@@ -16,11 +16,11 @@ import ModelInput from "../inputs/ModelInput";
 
 const NavMeshModeOptions = [
   {
-    label: "Automatic",
+    label: "Automàtic",
     value: NavMeshMode.Automatic
   },
   {
-    label: "Custom",
+    label: "Personalitzat",
     value: NavMeshMode.Custom
   }
 ];
@@ -36,7 +36,7 @@ class FloorPlanNodeEditor extends Component {
 
   static iconComponent = ShoePrints;
 
-  static description = "Sets the walkable surface area in your scene.";
+  static description = "Defineix la superfície caminable a la teva escena";
 
   constructor(props) {
     super(props);
@@ -59,8 +59,8 @@ class FloorPlanNodeEditor extends Component {
     const abortController = new AbortController();
 
     this.props.showDialog(ProgressDialog, {
-      title: "Generating Floor Plan",
-      message: "Generating floor plan...",
+      title: "Generant la Quadrícula de Navegació",
+      message: "Generant quadrícula de navegació...",
       cancelable: true,
       onCancel: () => abortController.abort()
     });
@@ -76,8 +76,8 @@ class FloorPlanNodeEditor extends Component {
 
       console.error(error);
       this.props.showDialog(ErrorDialog, {
-        title: "Error Generating Floor Plan",
-        message: error.message || "There was an unknown error.",
+        title: "Error generant la quadrícula de navegació",
+        message: error.message || "Hi ha hagut un error desconegut.",
         error
       });
     }
@@ -88,17 +88,17 @@ class FloorPlanNodeEditor extends Component {
 
     return (
       <NodeEditor {...this.props} description={FloorPlanNodeEditor.description}>
-        <InputGroup name="Nav Mesh Mode">
+        <InputGroup name="Mode Malla de Navegació">
           <SelectInput options={NavMeshModeOptions} value={node.navMeshMode} onChange={this.onChangeNavMeshMode} />
         </InputGroup>
         {node.navMeshMode === NavMeshMode.Automatic ? (
           <>
-            <InputGroup name="Auto Cell Size">
+            <InputGroup name="Mida de Cel·la Automàtica">
               <BooleanInput value={node.autoCellSize} onChange={this.onChangeAutoCellSize} />
             </InputGroup>
             {!node.autoCellSize && (
               <NumericInputGroup
-                name="Cell Size"
+                name="Mida de la Cel·la"
                 value={node.cellSize}
                 smallStep={0.001}
                 mediumStep={0.01}
@@ -109,7 +109,7 @@ class FloorPlanNodeEditor extends Component {
               />
             )}
             <NumericInputGroup
-              name="Cell Height"
+              name="Altura de la Cel·la"
               value={node.cellHeight}
               smallStep={0.001}
               mediumStep={0.01}
@@ -119,7 +119,7 @@ class FloorPlanNodeEditor extends Component {
               unit="m"
             />
             <NumericInputGroup
-              name="Agent Height"
+              name="Altura de l'Agent"
               value={node.agentHeight}
               smallStep={0.001}
               mediumStep={0.01}
@@ -129,7 +129,7 @@ class FloorPlanNodeEditor extends Component {
               unit="m"
             />
             <NumericInputGroup
-              name="Agent Radius"
+              name="Radi de l'Agent"
               value={node.agentRadius}
               min={0}
               smallStep={0.001}
@@ -139,7 +139,7 @@ class FloorPlanNodeEditor extends Component {
               unit="m"
             />
             <NumericInputGroup
-              name="Maximum Step Height"
+              name="Màxima Altura del Pas"
               value={node.agentMaxClimb}
               min={0}
               smallStep={0.001}
@@ -149,7 +149,7 @@ class FloorPlanNodeEditor extends Component {
               unit="m"
             />
             <NumericInputGroup
-              name="Maximum Slope"
+              name="Pendent Màxima"
               value={node.agentMaxSlope}
               min={0.00001}
               max={90}
@@ -160,7 +160,7 @@ class FloorPlanNodeEditor extends Component {
               unit="°"
             />
             <NumericInputGroup
-              name="Minimum Region Area"
+              name="Regió Mínima d'Àrea"
               value={node.regionMinSize}
               min={0.1}
               smallStep={0.1}
@@ -171,16 +171,16 @@ class FloorPlanNodeEditor extends Component {
             />
           </>
         ) : (
-          <InputGroup name="Custom Navmesh Url">
+          <InputGroup name="Url de la Malla de Navegació Personalitzada">
             <ModelInput value={node.navMeshSrc} onChange={this.onChangeNavMeshSrc} />
           </InputGroup>
         )}
-        <InputGroup name="Force Trimesh">
+        <InputGroup name="Forçar Malla">
           <BooleanInput value={node.forceTrimesh} onChange={this.onChangeForceTrimesh} />
         </InputGroup>
         {!node.forceTrimesh && settings.enableExperimentalFeatures && (
           <NumericInputGroup
-            name="Collision Geo Triangle Threshold"
+            name="Llindar del Triangle Geo de Col·lisió"
             value={node.maxTriangles}
             min={10}
             max={10000}
@@ -191,7 +191,7 @@ class FloorPlanNodeEditor extends Component {
             onChange={this.onChangeMaxTriangles}
           />
         )}
-        <PropertiesPanelButton onClick={this.onRegenerate}>Regenerate</PropertiesPanelButton>
+        <PropertiesPanelButton onClick={this.onRegenerate}>Regenerar</PropertiesPanelButton>
       </NodeEditor>
     );
   }

@@ -35,13 +35,13 @@ export default class AuthEmailSentMessage extends Component {
   render() {
     return (
       <StyledAuthEmailSentMessage>
-        <h2>Email sent!</h2>
-        <p>Waiting for you to click on the link sent to {this.props.email}</p>
-        <strong>Don&#39;t close this browser tab or you may lose your work!</strong>
+        <h2>Correu enviat!</h2>
+        <p>Esperant que feu clic a l&#39;enlla&ccedil; enviat a {this.props.email}</p>
+        <strong>No tanqueu aquesta pestanya del navegador perqu&egrave; podeu perdre la vostra feina!</strong>
         <ProgressBar />
         <div>
           <a href="" onClick={this.onCancel}>
-            Cancel
+            Cancel&#183;lar
           </a>
         </div>
       </StyledAuthEmailSentMessage>

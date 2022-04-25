@@ -6,24 +6,25 @@ import InputGroup from "../inputs/InputGroup";
 import BooleanInput from "../inputs/BooleanInput";
 
 const messages = {
-  "waypoint.label-canBeSpawnPoint": "Spawn Point",
-  "waypoint.label-canBeOccupied": "Can be occupied",
-  "waypoint.label-canBeClicked": "Clickable",
-  "waypoint.label-willDisableMotion": "Disable Motion",
-  "waypoint.label-willDisableTeleporting": "Disable Teleporting",
-  "waypoint.label-snapToNavMesh": "Snap to floor plan",
-  "waypoint.label-willMaintainInitialOrientation": "Maintain initial orientation",
-  "waypoint.description-canBeSpawnPoint": "Avatars may be teleported to this waypoint when entering the scene",
+  "waypoint.label-canBeSpawnPoint": "Punt de Generació",
+  "waypoint.label-canBeOccupied": "Pot ser ocupat",
+  "waypoint.label-canBeClicked": "Clicable",
+  "waypoint.label-willDisableMotion": "Desactivar Moviment",
+  "waypoint.label-willDisableTeleporting": "Desactivar Teletransport",
+  "waypoint.label-snapToNavMesh": "Enganxar al terra",
+  "waypoint.label-willMaintainInitialOrientation": "Mantenir orientació inicial",
+  "waypoint.description-canBeSpawnPoint": "Els avatars seran teletransportats a aquest punt quan entrin a l'escena",
   "waypoint.description-canBeOccupied":
-    "After each use, this waypoint will be disabled until the previous user moves away from it",
+    "Després de cada ús, aquest punt estarà deshabilitat fins que l'usuari anterior s'allunyi d'aquest",
   "waypoint.description-canBeClicked":
-    "This waypoint will be visible in pause mode and clicking on it will teleport you to it",
-  "waypoint.description-willDisableMotion": "Avatars will not be able to move after using this waypoint",
-  "waypoint.description-willDisableTeleporting": "Avatars will not be able to teleport after using this waypoint",
+    "Aquest punt estarà visible al mode de pausa i clicant-lo t'hi teletransportaràs.",
+  "waypoint.description-willDisableMotion": "Els avatars no es podran moure després de fer servir aquest punt",
+  "waypoint.description-willDisableTeleporting":
+    "El avatars no es podran teletransportar després de fer servir aquest punt",
   "waypoint.description-snapToNavMesh":
-    "Avatars will move as close as they can to this waypoint but will not leave the ground",
+    "Els avatars es mouran el més a prop possible d'aquest punt però no sortiran del terra",
   "waypoint.description-willMaintainInitialOrientation":
-    "Instead of rotating to face the same direction as the waypoint, users will maintain the orientation they started with before they teleported"
+    "En comptes de rotar per estar en la mateixa direcció que el punt, els usuaris mantindran la mateixa orientació que tenien abans de ser teletransportats"
 };
 
 const propertyNames = [
@@ -44,7 +45,7 @@ export default class WayPointNodeEditor extends Component {
 
   static iconComponent = StreetView;
 
-  static description = "A point people can teleport to.\n";
+  static description = "Un punt on la gent s'hi pot teletransportar.\n";
 
   constructor(props) {
     super(props);

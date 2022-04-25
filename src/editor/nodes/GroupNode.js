@@ -4,7 +4,7 @@ import EditorNodeMixin from "./EditorNodeMixin";
 export default class GroupNode extends EditorNodeMixin(Group) {
   static componentName = "group";
 
-  static nodeName = "Group";
+  static nodeName = "Grup";
 
   serialize() {
     return super.serialize({

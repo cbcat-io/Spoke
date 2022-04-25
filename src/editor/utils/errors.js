@@ -4,15 +4,15 @@ export default function eventToMessage(event) {
   const target = event.target;
   if (target) {
     if (event.target.error && event.target.error.message) return target.error.message;
-    if (event.target.src) return `Failed to load "${target.src}"`;
+    if (event.target.src) return `No s'ha pogut carregar "${target.src}"`;
     if (target instanceof XMLHttpRequest) {
-      return `Network Error: ${target.status || "Unknown Status."} ${target.statusText ||
-        "Unknown Error. Possibly a CORS error."}`;
+      return `Error de xarxa: ${target.status || "Estat Desconegut."} ${target.statusText ||
+        "Error Desconegut. Possiblement error CORS"}`;
     }
 
-    return `Unknown error on ${target}.`;
+    return `Error desconegut a ${target}.`;
   }
-  return `Unknown error: "${JSON.stringify(event)}"`;
+  return `Error desconegut: "${JSON.stringify(event)}"`;
 }
 
 // Base error class to be used for all custom errors.
@@ -34,7 +34,7 @@ export class BaseError extends Error {
 // Override the message of an error but append the existing stack trace.
 export class RethrownError extends BaseError {
   constructor(message, error) {
-    super(`${message}:\n  Cause:\n    ${eventToMessage(error).replace(/\n/g, "\n    ")}`);
+    super(`${message}:\n  Causa:\n    ${eventToMessage(error).replace(/\n/g, "\n    ")}`);
     this.originalError = error;
     this.stack += "\n" + error.stack;
   }
@@ -57,7 +57,7 @@ export class MultiError extends BaseError {
     let finalMessage = `${message}:\n\n${errors.length} Error${errors.length > 1 ? "s" : ""}:`;
 
     for (const error of errors) {
-      const errorMessage = error.message ? error.message.replace(/\n/g, "\n  ") : "Unknown Error";
+      const errorMessage = error.message ? error.message.replace(/\n/g, "\n  ") : "Error Desconegut";
       finalMessage += "\n  " + errorMessage;
     }
 
