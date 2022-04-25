@@ -16,7 +16,7 @@ export default class TriggerVolumeNode extends EditorNodeMixin(Object3D) {
 
   static experimental = true;
 
-  static nodeName = "Disparador";
+  static nodeName = "Trigger Volume";
 
   static _geometry = new BoxBufferGeometry();
 
@@ -101,7 +101,7 @@ export default class TriggerVolumeNode extends EditorNodeMixin(Object3D) {
 
     for (const prop of requiredProperties) {
       if (this[prop] === null || this[prop] === undefined) {
-        console.warn(`TriggerVolumeNode: es requereix la propietat "${prop}". Saltant...`);
+        console.warn(`TriggerVolumeNode: property "${prop}" is required. Skipping...`);
         return;
       }
     }

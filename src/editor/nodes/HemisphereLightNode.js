@@ -6,7 +6,7 @@ export default class HemisphereLightNode extends EditorNodeMixin(PhysicalHemisph
 
   static disableTransform = true;
 
-  static nodeName = "Llum d'Hemisferi";
+  static nodeName = "Hemisphere Light";
 
   static canAddNode(editor) {
     return editor.scene.findNodeByType(HemisphereLightNode) === null;

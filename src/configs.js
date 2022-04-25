@@ -43,8 +43,8 @@ function fixBaseAssetsPath(path) {
 }
 
 configs.isMoz = () => configs.IS_MOZ === "true";
-configs.name = () => (configs.isMoz() ? "Spoke" : "Editor d'Escena");
-configs.longName = () => (configs.isMoz() ? "Spoke de Mozilla" : "Editor d'Escena");
+configs.name = () => (configs.isMoz() ? "Spoke" : "Scene Editor");
+configs.longName = () => (configs.isMoz() ? "Spoke by Mozilla" : "Scene Editor");
 configs.icon = () => (configs.isMoz() ? fixBaseAssetsPath(spokeIcon) : fixBaseAssetsPath(editorIcon));
 
 export default configs;

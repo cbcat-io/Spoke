@@ -6,9 +6,9 @@ export default class TenorSource extends VideoMediaSource {
   constructor(api) {
     super(api);
     this.id = "tenor";
-    this.name = "GIFs";
-    this.searchPlaceholder = "Cerca GIFs...";
-    this.searchLegalCopy = "Cerca a Tenor";
+    this.name = "Tenor GIFs";
+    this.searchPlaceholder = "Search GIFs...";
+    this.searchLegalCopy = "Search by Tenor";
     this.privacyPolicyUrl = "https://tenor.com/legal-privacy";
   }
 

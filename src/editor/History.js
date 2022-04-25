@@ -60,7 +60,7 @@ export default class History {
     const lastCmd = this.undos[this.undos.length - 1];
 
     if (lastCmd && checkpointId > lastCmd.id) {
-      console.warn("S'ha provat de tornar a una acció de desfer amb un identificador superior a l'última acció");
+      console.warn("Tried to revert back to an undo action with an id greater than the last action");
       return;
     }
 

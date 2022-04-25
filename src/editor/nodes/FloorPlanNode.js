@@ -21,7 +21,7 @@ export const NavMeshMode = {
 };
 
 export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
-  static nodeName = "Quadrícula de Navegació";
+  static nodeName = "Floor Plan";
 
   static componentName = "floor-plan";
 
@@ -153,10 +153,7 @@ export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
         this.navMesh.visible = this.editor.selected.indexOf(this) !== -1;
       }
     } catch (error) {
-      const modelError = new RethrownError(
-        `S'ha produït un error en carregar la malla de navegació personalitzada "${this._navMeshSrc}"`,
-        error
-      );
+      const modelError = new RethrownError(`Error loading custom navmesh "${this._navMeshSrc}"`, error);
 
       if (onError) {
         onError(this, modelError);
@@ -164,10 +161,7 @@ export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
 
       console.error(modelError);
 
-      this.issues.push({
-        severity: "error",
-        message: "S'ha produït un error en carregar la malla de navegació personalitzada."
-      });
+      this.issues.push({ severity: "error", message: "Error loading custom navmesh." });
     }
 
     this.editor.emit("objectsChanged", [this]);
@@ -252,9 +246,9 @@ export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
       box.getSize(size);
       if (Math.max(size.x, size.y, size.z) > 2000) {
         throw new Error(
-          `L'escena és massa gran (${size.x.toFixed(3)} x ${size.y.toFixed(3)} x ${size.z.toFixed(3)}) ` +
-            `per generar un plànol.\n` +
-            `Podeu desmarcar la casella de selecció "caminable" als models per excloure'ls de la planta.`
+          `Scene is too large (${size.x.toFixed(3)} x ${size.y.toFixed(3)} x ${size.z.toFixed(3)}) ` +
+            `to generate a floor plan.\n` +
+            `You can un-check the "walkable" checkbox on models to exclude them from the floor plan.`
         );
       }
 
@@ -424,9 +418,7 @@ export default class FloorPlanNode extends EditorNodeMixin(FloorPlan) {
     }
 
     if (!this.navMesh && this.navMeshMode === NavMeshMode.Custom) {
-      throw new Error(
-        "El node Plànol de Terra està configurat per utilitzar una malla de navegació personalitzada, però no se n'ha proporcionat cap."
-      );
+      throw new Error("The FloorPlan Node is set to use a custom navigation mesh but none was provided.");
     }
 
     const navMeshMaterial = this.navMesh.material.clone();

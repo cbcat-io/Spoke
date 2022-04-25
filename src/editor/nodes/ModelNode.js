@@ -250,7 +250,7 @@ export default class ModelNode extends EditorNodeMixin(Model) {
     } catch (error) {
       this.showErrorIcon();
 
-      const modelError = new RethrownError(`Error carregant el model "${this._canonicalUrl}"`, error);
+      const modelError = new RethrownError(`Error loading model "${this._canonicalUrl}"`, error);
 
       if (onError) {
         onError(this, modelError);
@@ -258,7 +258,7 @@ export default class ModelNode extends EditorNodeMixin(Model) {
 
       console.error(modelError);
 
-      this.issues.push({ severity: "error", message: "Error carregant el model." });
+      this.issues.push({ severity: "error", message: "Error loading model." });
     }
 
     this.editor.emit("objectsChanged", [this]);
@@ -326,7 +326,7 @@ export default class ModelNode extends EditorNodeMixin(Model) {
 
           if (!animatedNode) {
             throw new Error(
-              `Model.updateStaticModes: El model amb la url "${this._canonicalUrl}" té una animació incompatible "${animation.name}"`
+              `Model.updateStaticModes: model with url "${this._canonicalUrl}" has an invalid animation "${animation.name}"`
             );
           }
 

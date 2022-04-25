@@ -330,7 +330,7 @@ export default class Editor extends EventEmitter {
     this.addListener("sceneGraphChanged", this.onEmitSceneModified);
 
     if (errors.length > 0) {
-      const error = new MultiError("Errors carregant el projecte", errors);
+      const error = new MultiError("Errors loading project", errors);
       this.emit("error", error);
       throw error;
     }
@@ -369,13 +369,9 @@ export default class Editor extends EventEmitter {
           const originalSceneObject = scene.getObjectByProperty("uuid", uuid);
 
           if (originalSceneObject) {
-            console.log(
-              `No s'ha pogut trobar l'objecte amb la uuid: "${uuid}" a l'escena clonada però s'ha trobat a l'escena original!`
-            );
+            console.log(`Couldn't find object with uuid: "${uuid}" in cloned scene but was found in original scene!`);
           } else {
-            console.log(
-              `No s'ha pogut trobar l'objecte amb la uuid: "${uuid}" ni a l'escnea clonada ni a la original!`
-            );
+            console.log(`Couldn't find object with uuid: "${uuid}" in cloned or original scene!`);
           }
         }
       }
@@ -405,7 +401,7 @@ export default class Editor extends EventEmitter {
     try {
       chunks = await exporter.exportChunks(clonedScene);
     } catch (error) {
-      throw new RethrownError(`Error exportant escena`, error);
+      throw new RethrownError(`Error exporting scene`, error);
     }
 
     const json = chunks.json;
@@ -549,9 +545,7 @@ export default class Editor extends EventEmitter {
     URL.revokeObjectURL(url);
 
     if (!blob) {
-      throw new Error(
-        `Tipus de fitxer incompatible pel fitxer: "${file.name}". El fitxer ha de ser una imatge, vídeo o model glb.`
-      );
+      throw new Error(`Unsupported file type for file: "${file.name}". File must be an image, video, or glb model.`);
     }
 
     return blob;
@@ -1591,7 +1585,7 @@ export default class Editor extends EventEmitter {
     }
 
     if (space === TransformSpace.World && (scale.x !== scale.y || scale.x !== scale.z || scale.y !== scale.z)) {
-      console.warn("No s'admet escalar un objecte a l'espai global amb una escala no uniforme");
+      console.warn("Scaling an object in world space with a non-uniform scale is not supported");
     }
 
     object.scale.multiply(scale);
@@ -1924,7 +1918,7 @@ export default class Editor extends EventEmitter {
         const url = new URL(data);
         this.addMedia(url.href).catch(error => this.emit("error", error));
       } catch (e) {
-        console.warn("El contingut del porta-retalls no contenia cap URL vàlida");
+        console.warn("Clipboard contents did not contain a valid url");
       }
     }
   };
@@ -1937,7 +1931,7 @@ export default class Editor extends EventEmitter {
     try {
       contentType = (await this.api.getContentType(url)) || "";
     } catch (error) {
-      console.warn(`No s'ha pogut obtenir el tipus de contingut per a l'URL ${url}. Utilitzeu el node d'Enllaç.`);
+      console.warn(`Couldn't fetch content type for url ${url}. Using LinkNode instead.`);
     }
 
     let node;

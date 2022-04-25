@@ -24,7 +24,7 @@ export default class LoadingCube extends Object3D {
     this.type = "LoadingCube";
 
     if (!cubeGltf) {
-      throw new Error("LoadingCube ha d'estar carregat abans de poder-lo utilitzar. Espera LoadingCube.load()");
+      throw new Error("LoadingCube must be loaded before it can be used. Await LoadingCube.load()");
     }
 
     this.model = cloneObject3D(cubeGltf.scene);

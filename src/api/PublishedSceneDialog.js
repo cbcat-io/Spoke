@@ -6,11 +6,11 @@ import { Button } from "../ui/inputs/Button";
 
 export default function PublishedSceneDialog({ onCancel, sceneName, sceneUrl, screenshotUrl, ...props }) {
   return (
-    <PreviewDialog imageSrc={screenshotUrl} title="Escena Publicada" {...props}>
+    <PreviewDialog imageSrc={screenshotUrl} title="Scene Published" {...props}>
       <h1>{sceneName}</h1>
-      <p>La teva escena ha estat publicada{configs.isMoz() && " a Hubs"}.</p>
+      <p>Your scene has been published{configs.isMoz() && " to Hubs"}.</p>
       <Button as="a" href={sceneUrl} target="_blank">
-        Visualitza la teva Escena
+        View Your Scene
       </Button>
     </PreviewDialog>
   );

@@ -11,7 +11,7 @@ let audioHelperTexture = null;
 export default class AudioNode extends AudioParamsNode(AudioSource) {
   static componentName = "audio";
 
-  static nodeName = "Àudio";
+  static nodeName = "Audio";
 
   static async load() {
     audioHelperTexture = await loadTexture(audioIconUrl);
@@ -98,7 +98,7 @@ export default class AudioNode extends AudioParamsNode(AudioSource) {
     } catch (error) {
       this.showErrorIcon();
 
-      const audioError = new RethrownError(`Error carregant audio ${this._canonicalUrl}`, error);
+      const audioError = new RethrownError(`Error loading audio ${this._canonicalUrl}`, error);
 
       if (onError) {
         onError(this, audioError);

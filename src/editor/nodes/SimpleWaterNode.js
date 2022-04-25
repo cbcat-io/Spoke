@@ -9,7 +9,7 @@ let waterNormalMap = null;
 export default class SimpleWaterNode extends EditorNodeMixin(SimpleWater) {
   static componentName = "simple-water";
 
-  static nodeName = "Aigua Simple";
+  static nodeName = "Simple Water";
 
   static async deserialize(editor, json) {
     const node = await super.deserialize(editor, json);
@@ -47,7 +47,7 @@ export default class SimpleWaterNode extends EditorNodeMixin(SimpleWater) {
 
   constructor(editor) {
     if (!waterNormalMap) {
-      console.warn("SimpleWaterNode: El mapa normal de l'aigua no s'ha carregat abans de crear un nou node d'aigua");
+      console.warn("SimpleWaterNode: water normal map was not loaded before creating a new SimpleWaterNode");
     }
 
     super(editor, waterNormalMap || new Texture());

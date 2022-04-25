@@ -9,4 +9,4 @@ export default function GroupNodeEditor(props) {
 GroupNodeEditor.iconComponent = Cubes;
 
 GroupNodeEditor.description =
-  "Un grup de diversos objectes que es poden moure o duplicar junts.\n Arrossegueu i deixeu anar objectes al Grup a la Jerarquia.";
+  "A group of multiple objects that can be moved or duplicated together.\nDrag and drop objects into the Group in the Hierarchy.";

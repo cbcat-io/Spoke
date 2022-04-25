@@ -16,8 +16,7 @@ export default class AudioZoneNodeEditor extends Component {
 
   static iconComponent = DiceD6;
 
-  static description =
-    "Defineix una àrea 3D on els paràmetres d'àudio es substitueixen per a les fonts d'àudio contingudes.";
+  static description = "Defines a 3D area where audio parameters are overriden for contained audio sources.";
 
   constructor(props) {
     super(props);
@@ -58,18 +57,18 @@ export default class AudioZoneNodeEditor extends Component {
 
     return (
       <NodeEditor description={AudioZoneNodeEditor.description} {...this.props}>
-        <InputGroup name="Habilitada" info="Si està activada, aquesta zona d'àudio s'habilitarà a l'inici">
+        <InputGroup name="Enabled" info="If enabled this audio zone will be enable at start">
           <BooleanInput value={node.enabled} onChange={this.onChangeEnabled} />
         </InputGroup>
         <InputGroup
-          name="Dins-Fora"
-          info="Si està activada aquesta zona d'àudio, els paràmetres d'àudio s'aplicaran a l'àudio que hi ha dins quan l'oient estigui fora"
+          name="In-Out"
+          info="If enabled this audio zone audio parameters will be applied to audio inside it when the listener is outside"
         >
           <BooleanInput value={node.inOut} onChange={this.onChangeInOut} />
         </InputGroup>
         <InputGroup
-          name="Fora-Dins"
-          info="Si està activada aquesta zona d'àudio, els paràmetres d'àudio s'aplicaran als àudios fora d'ella quan l'oient estigui dins"
+          name="Out-In"
+          info="If enabled this audio zone audio parameters will be applied to audios outside it when the listener is inside"
         >
           <BooleanInput value={node.outIn} onChange={this.onChangeOutIn} />
         </InputGroup>

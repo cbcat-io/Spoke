@@ -516,7 +516,7 @@ class GLTFExporter {
     } else if (attribute.array.constructor === Uint8Array) {
       componentType = WEBGL_CONSTANTS.UNSIGNED_BYTE;
     } else {
-      throw new Error("THREE.GLTFExporter: Tipus de component bufferAttribute no compatible");
+      throw new Error("THREE.GLTFExporter: Unsupported bufferAttribute component type.");
     }
 
     if (start === undefined) start = 0;
@@ -587,7 +587,7 @@ class GLTFExporter {
     canvas.height = image.height;
 
     if (shouldResize) {
-      console.warn("GLTFExporter: Canviada la mida d'una imatge que no és potència de dos.", image);
+      console.warn("GLTFExporter: Resized non-power-of-two image.", image);
 
       canvas.width = _Math.floorPowerOfTwo(canvas.width);
       canvas.height = _Math.floorPowerOfTwo(canvas.height);
@@ -729,7 +729,7 @@ class GLTFExporter {
     }
 
     if (material.isShaderMaterial) {
-      console.warn("GLTFExporter: THREE.ShaderMaterial no compatible.");
+      console.warn("GLTFExporter: THREE.ShaderMaterial not supported.");
       return null;
     }
 
@@ -743,7 +743,7 @@ class GLTFExporter {
 
       this.extensionsUsed["KHR_materials_unlit"] = true;
     } else if (!material.isMeshStandardMaterial) {
-      console.warn("GLTFExporter: Fes servir MeshStandardMaterial o MeshBasicMaterial per obtenir millors resultats.");
+      console.warn("GLTFExporter: Use MeshStandardMaterial or MeshBasicMaterial for best results.");
     }
 
     // pbrMetallicRoughness.baseColorFactor
@@ -771,7 +771,9 @@ class GLTFExporter {
         this.applyTextureTransform(metalRoughMapDef, material.metalnessMap);
         gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture = metalRoughMapDef;
       } else {
-        console.warn("THREE.GLTFExporter: Ignorant metalnessMap i roughnessMap perquè no són la mateixa Textura.");
+        console.warn(
+          "THREE.GLTFExporter: Ignoring metalnessMap and roughnessMap because they are not the same Texture."
+        );
       }
     }
 
@@ -807,7 +809,7 @@ class GLTFExporter {
 
       if (material.normalScale.x !== -1) {
         if (material.normalScale.x !== material.normalScale.y) {
-          console.warn("THREE.GLTFExporter: Els components normals d'escala són diferents, ignorant Y i exportant X.");
+          console.warn("THREE.GLTFExporter: Normal scale components are different, ignoring Y and exporting X.");
         }
 
         normalMapDef.scale = material.normalScale.x;
@@ -889,7 +891,7 @@ class GLTFExporter {
       mode = WEBGL_CONSTANTS.POINTS;
     } else {
       if (!geometry.isBufferGeometry) {
-        console.warn("GLTFExporter: Exportant THREE.Geometry augmentarà la mida del fitxer. Utilitzeu BufferGeometry.");
+        console.warn("GLTFExporter: Exporting THREE.Geometry will increase file size. Use BufferGeometry instead.");
 
         const geometryTemp = new BufferGeometry();
         geometryTemp.fromGeometry(geometry);
@@ -897,7 +899,7 @@ class GLTFExporter {
       }
 
       if (mesh.drawMode === TriangleFanDrawMode) {
-        console.warn("GLTFExporter: TriangleFanDrawMode i wireframe incompatibles.");
+        console.warn("GLTFExporter: TriangleFanDrawMode and wireframe incompatible.");
         mode = WEBGL_CONSTANTS.TRIANGLE_FAN;
       } else if (mesh.drawMode === TriangleStripDrawMode) {
         mode = mesh.material.wireframe ? WEBGL_CONSTANTS.LINE_STRIP : WEBGL_CONSTANTS.TRIANGLE_STRIP;
@@ -924,7 +926,7 @@ class GLTFExporter {
     const originalNormal = geometry.getAttribute("normal");
 
     if (originalNormal !== undefined && !this.isNormalizedNormalAttribute(originalNormal)) {
-      console.warn("THREE.GLTFExporter: Es crea un atribut normal normalitzat a partir de l'atribut no normalitzat.");
+      console.warn("THREE.GLTFExporter: Creating normalized normal attribute from the non-normalized one.");
 
       geometry.addAttribute("normal", this.createNormalizedNormalAttribute(originalNormal));
     }
@@ -1002,7 +1004,7 @@ class GLTFExporter {
 
           if (attributeName !== "position" && attributeName !== "normal") {
             if (!warned) {
-              console.warn("GLTFExporter: Només s'admeten transformacions de POSICIÓ i NORMAL");
+              console.warn("GLTFExporter: Only POSITION and NORMAL morph are supported.");
               warned = true;
             }
 
@@ -1061,7 +1063,7 @@ class GLTFExporter {
 
     if (!forceIndices && geometry.index === null && isMultiMaterial) {
       // temporal workaround.
-      console.warn("THREE.GLTFExporter: Creació d'índex per a malla multimaterial no indexada.");
+      console.warn("THREE.GLTFExporter: Creating index for non-indexed multi-material mesh.");
       forceIndices = true;
     }
 
@@ -1500,7 +1502,7 @@ class GLTFExporter {
    */
   async exportGLBBlob(chunks) {
     if (chunks.buffers.length > 1) {
-      throw new Error("GLTFExporter: exportGLB espera 0 o 1 buffers.");
+      throw new Error("GLTFExporter: exportGLB expects 0 or 1 buffers.");
     }
 
     // https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#glb-file-format-specification
@@ -1794,12 +1796,10 @@ GLTFExporter.Utils = {
         if (sourceTrack.createInterpolant.isInterpolantFactoryMethodGLTFCubicSpline) {
           // This should never happen, because glTF morph target animations
           // affect all targets already.
-          throw new Error("THREE.GLTFExporter: no es poden combinar pistes amb la interpolació glTF CUBICSPLINE.");
+          throw new Error("THREE.GLTFExporter: Cannot merge tracks with glTF CUBICSPLINE interpolation.");
         }
 
-        console.warn(
-          "THREE.GLTFExporter: El mode d'interpolació d'objectius de transformació encara no és compatible. S'utilitza LINEAR al seu lloc."
-        );
+        console.warn("THREE.GLTFExporter: Morph target interpolation mode not yet supported. Using LINEAR instead.");
 
         sourceTrack = sourceTrack.clone();
         sourceTrack.setInterpolation(InterpolateLinear);
@@ -1809,10 +1809,7 @@ GLTFExporter.Utils = {
       const targetIndex = sourceTrackNode.morphTargetDictionary[sourceTrackBinding.propertyIndex];
 
       if (targetIndex === undefined) {
-        throw new Error(
-          "THREE.GLTFExporter: No s'ha trobat el nom de destinació de la transformació: " +
-            sourceTrackBinding.propertyIndex
-        );
+        throw new Error("THREE.GLTFExporter: Morph target name not found: " + sourceTrackBinding.propertyIndex);
       }
 
       let mergedTrack;

@@ -5,7 +5,7 @@ import SpokeSpotLightHelper from "../helpers/SpokeSpotLightHelper";
 export default class SpotLightNode extends EditorNodeMixin(PhysicalSpotLight) {
   static componentName = "spot-light";
 
-  static nodeName = "Llum Posicional";
+  static nodeName = "Spot Light";
 
   static ignoreRaycast = true;
 

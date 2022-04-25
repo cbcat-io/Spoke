@@ -10,7 +10,7 @@ import { AudioElementType } from "../objects/AudioParams";
 export default class VideoNode extends AudioParamsNode(Video) {
   static componentName = "video";
 
-  static nodeName = "Vídeo";
+  static nodeName = "Video";
 
   static initialElementProps = {
     src: new URL(spokeLandingVideo, location).href
@@ -133,7 +133,7 @@ export default class VideoNode extends AudioParamsNode(Video) {
     } catch (error) {
       this.showErrorIcon();
 
-      const videoError = new RethrownError(`Error carregant el vídeo ${this._canonicalUrl}`, error);
+      const videoError = new RethrownError(`Error loading video ${this._canonicalUrl}`, error);
 
       if (onError) {
         onError(this, videoError);
@@ -141,7 +141,7 @@ export default class VideoNode extends AudioParamsNode(Video) {
 
       console.error(videoError);
 
-      this.issues.push({ severity: "error", message: "Error carregant el vídeo." });
+      this.issues.push({ severity: "error", message: "Error loading video." });
     }
 
     this.editor.emit("objectsChanged", [this]);

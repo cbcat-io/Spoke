@@ -24,7 +24,7 @@ const ShadowMapResolutionOptions = [
     value: new Vector2(2048, 2048)
   },
   {
-    label: "4096px (no es recomana)",
+    label: "4096px (not recommended)",
     value: new Vector2(4096, 4096)
   }
 ];
@@ -56,10 +56,10 @@ export default class LightShadowProperties extends Component {
 
     return (
       <Fragment>
-        <InputGroup name="Emetre Ombra">
+        <InputGroup name="Cast Shadow">
           <BooleanInput value={node.castShadow} onChange={this.onChangeCastShadow} />
         </InputGroup>
-        <InputGroup name="Resolució del mapa d'ombres">
+        <InputGroup name="Shadow Map Resolution">
           <SelectInput
             options={ShadowMapResolutionOptions}
             value={node.shadowMapResolution}
@@ -67,7 +67,7 @@ export default class LightShadowProperties extends Component {
           />
         </InputGroup>
         <NumericInputGroup
-          name="Biaix de l'Ombra"
+          name="Shadow Bias"
           mediumStep={0.00001}
           smallStep={0.0001}
           largeStep={0.001}
@@ -76,7 +76,7 @@ export default class LightShadowProperties extends Component {
           onChange={this.onChangeShadowBias}
         />
         <NumericInputGroup
-          name="Radi de l'Ombra"
+          name="Shadow Radius"
           mediumStep={0.01}
           smallStep={0.1}
           largeStep={1}
