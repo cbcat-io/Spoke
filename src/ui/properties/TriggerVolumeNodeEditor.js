@@ -33,7 +33,7 @@ export default class TriggerVolumeNodeEditor extends Component {
 
   static iconComponent = Running;
 
-  static description = "Sets a property on the target object on enter and leave.";
+  static description = "Defineix una propietat a l'objecte de destinació en entrar i sortir.";
 
   constructor(props) {
     super(props);

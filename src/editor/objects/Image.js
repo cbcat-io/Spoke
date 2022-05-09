@@ -11,7 +11,7 @@ import {
 import loadTexture from "../utils/loadTexture";
 
 export const ImageProjection = {
-  Flat: "plana",
+  Flat: "flat",
   Equirectangular360: "360-equirectangular"
 };
 
@@ -25,7 +25,7 @@ export default class Image extends Object3D {
   constructor() {
     super();
     this._src = null;
-    this._projection = "plana";
+    this._projection = "flat";
     this._alphaMode = ImageAlphaMode.Opaque;
     this._alphaCutoff = 0.5;
 

@@ -252,7 +252,7 @@ export default function ViewportPanelContainer() {
   if (flyModeEnabled) {
     controlsText = "[W][A][S][D] Moure la Càmera | [Shift] Volar Més Ràpid";
   } else {
-    controlsText = "[LMB] Orbitar / Seleccionar | [MMB] Panoràmica | [RMB] Volar";
+    controlsText = "[Botó Esquerre del Ratolí] Orbitar / Seleccionar | [Botó del Mig del Ratolí] Panoràmica | [Botó Dret del Ratolí] Volar";
   }
 
   if (objectSelected) {
