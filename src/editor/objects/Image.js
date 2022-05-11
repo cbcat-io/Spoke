@@ -11,7 +11,7 @@ import {
 import loadTexture from "../utils/loadTexture";
 
 export const ImageProjection = {
-  Flat: "flat",
+  Flat: "plana",
   Equirectangular360: "360-equirectangular"
 };
 
