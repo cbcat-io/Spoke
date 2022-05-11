@@ -38,13 +38,13 @@ class AuthContainer extends Component {
       this.props.onChange(nextState);
     }
 
-    trackEvent("Inici de Sessió Enviat");
+    trackEvent("Login Submitted");
 
     this.setState(nextState);
   };
 
   onSuccess = (...args) => {
-    trackEvent("Inici de Sessió amb Èxit");
+    trackEvent("Login Successful");
 
     if (this.props.onSuccess) {
       this.props.onSuccess(...args);
@@ -55,7 +55,7 @@ class AuthContainer extends Component {
     const nextState = {
       emailSent: false,
       email: null,
-      error: err.message || "Error registrant-se. Si us plau torneu-ho a intentar.",
+      error: err.message || "Error signing in. Please try again.",
       abortController: null
     };
 
@@ -63,7 +63,7 @@ class AuthContainer extends Component {
       this.props.onChange(nextState);
     }
 
-    trackEvent("Error a Iniciant de Sessió");
+    trackEvent("Login Error");
 
     this.setState(nextState);
   };
@@ -81,7 +81,7 @@ class AuthContainer extends Component {
 
     this.setState(nextState);
 
-    trackEvent("Inici de Sessió Cancel·lat");
+    trackEvent("Login Canceled");
   };
 
   render() {

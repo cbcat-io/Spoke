@@ -14,7 +14,7 @@ import ScenePreviewCameraNode from "../nodes/ScenePreviewCameraNode";
 
 class RenderMode {
   constructor(renderer, editor) {
-    this.name = "Predeterminat";
+    this.name = "Default";
     this.renderer = renderer;
     this.editor = editor;
     this.passes = [];
@@ -27,7 +27,7 @@ class RenderMode {
 class UnlitRenderMode extends RenderMode {
   constructor(renderer, editor, spokeRenderer) {
     super(renderer, editor);
-    this.name = "Apagat";
+    this.name = "Unlit";
     this.effectComposer = new EffectComposer(renderer);
     this.renderPass = new RenderPass(editor.scene, editor.camera);
     this.effectComposer.addPass(this.renderPass);
@@ -110,7 +110,7 @@ class UnlitRenderMode extends RenderMode {
 class LitRenderMode extends UnlitRenderMode {
   constructor(renderer, editor, spokeRenderer) {
     super(renderer, editor, spokeRenderer);
-    this.name = "Il·luminat";
+    this.name = "Lit";
     this.enableShadows = false;
     this.disableBatching = true;
   }
@@ -119,7 +119,7 @@ class LitRenderMode extends UnlitRenderMode {
 class ShadowsRenderMode extends UnlitRenderMode {
   constructor(renderer, editor, spokeRenderer) {
     super(renderer, editor, spokeRenderer);
-    this.name = "Ombres";
+    this.name = "Shadows";
     this.disableBatching = true;
     this.enableShadows = true;
   }
@@ -128,7 +128,7 @@ class ShadowsRenderMode extends UnlitRenderMode {
 class WireframeRenderMode extends UnlitRenderMode {
   constructor(renderer, editor, spokeRenderer) {
     super(renderer, editor, spokeRenderer);
-    this.name = "Estructura";
+    this.name = "Wireframe";
     this.enableShadows = false;
     this.disableBatching = true;
     this.renderPass.overrideMaterial = new MeshBasicMaterial({ wireframe: true });

@@ -130,7 +130,7 @@ export default function SelectInput({
 
 SelectInput.defaultProps = {
   value: null,
-  placeholder: "Selecciona...",
+  placeholder: "Select...",
   optionNotFoundPlaceholder: "Error",
   onChange: () => {}
 };

@@ -116,7 +116,7 @@ export default function AssetsPanel() {
   return (
     <AssetsPanelContainer id="assets-panel">
       <AssetsPanelColumn flex>
-        <AssetsPanelToolbar title="Recursos" />
+        <AssetsPanelToolbar title="Assets" />
         <List>
           {sources.map(source => (
             <ListItem key={source.id} onClick={() => setSelectedSource(source)} selected={selectedSource === source}>

@@ -30,7 +30,7 @@ export default function getDetachedObjectRoots(objects, target = []) {
       const index = target.indexOf(object);
 
       if (index === -1) {
-        throw new Error("Objecte no trobat");
+        throw new Error("Object not found");
       }
 
       target.splice(index, 1);

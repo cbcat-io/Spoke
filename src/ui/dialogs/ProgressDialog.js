@@ -40,8 +40,8 @@ ProgressDialog.propTypes = {
 };
 
 ProgressDialog.defaultProps = {
-  title: "Carregant",
-  message: "Carregant",
+  title: "Loading...",
+  message: "Loading...",
   cancelable: false,
-  cancelLabel: "Cancel·lar"
+  cancelLabel: "Cancel"
 };

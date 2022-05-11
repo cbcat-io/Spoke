@@ -20,7 +20,7 @@ export default function useUpload(options = {}) {
 
       try {
         if (!multiple && files.length > 1) {
-          throw new Error("L'entrada no accepta diversos fitxers.");
+          throw new Error("Input does not accept multiple files.");
         }
 
         if (accepts) {
@@ -41,7 +41,7 @@ export default function useUpload(options = {}) {
 
             if (!accepted) {
               throw new Error(
-                `"${file.name}" no coincideix amb els tipus o extensions següents:: ${accepts.join(", ")}`
+                `"${file.name}" does not match the following mime types or extensions: ${accepts.join(", ")}`
               );
             }
           }
@@ -65,8 +65,8 @@ export default function useUpload(options = {}) {
         const abortController = new AbortController();
 
         showDialog(ProgressDialog, {
-          title: "Pujant Fitxers",
-          message: `Pujant fitxer 1 de ${files.length}: 0%`,
+          title: "Uploading Files",
+          message: `Uploading files 1 of ${files.length}: 0%`,
           cancelable: true,
           onCancel: () => {
             abortController.abort();
@@ -78,8 +78,8 @@ export default function useUpload(options = {}) {
           files,
           (item, total, progress) => {
             showDialog(ProgressDialog, {
-              title: "Pujant Fitxers",
-              message: `Pujant fitxers: ${item} de ${total}: ${Math.round(progress * 100)}%`,
+              title: "Uploading Files",
+              message: `Uploading files: ${item} of ${total}: ${Math.round(progress * 100)}%`,
               cancelable: true,
               onCancel: () => {
                 abortController.abort();
@@ -94,8 +94,8 @@ export default function useUpload(options = {}) {
       } catch (error) {
         console.error(error);
         showDialog(ErrorDialog, {
-          title: "Error de Càrrega",
-          message: `Error pujant el fitxer: ${error.message || "Hi ha hagut un error desonegut."}`,
+          title: "Upload Error",
+          message: `Error uploading file: ${error.message || "There was an unknown error."}`,
           error
         });
 

@@ -153,13 +153,13 @@ class ProjectsPage extends Component {
           {!isAuthenticated || (projects.length === 0 && !loading) ? (
             <ProjectsSection flex={0}>
               <WelcomeContainer>
-                <h1>Benvinguts{configs.isMoz() ? " a Spoke" : ""}</h1>
+                <h1>Welcome{configs.isMoz() ? " to Spoke" : ""}</h1>
                 <h2>
-                  Si sou nous aqu&iacute; us recomanem que aneu al tutorial. En cas contrari, podeu entrar directament i
-                  crear un projecte des de zero o des d&#39;una de les nostres plantilles.
+                  If you&#39;re new here we recommend going through the tutorial. Otherwise, jump right in and create a
+                  project from scratch or from one of our templates.
                 </h2>
                 <MediumButton as={Link} to="/projects/tutorial">
-                  Comen&ccedil;ar Tutorial
+                  Start Tutorial
                 </MediumButton>
               </WelcomeContainer>
             </ProjectsSection>
@@ -169,14 +169,14 @@ class ProjectsPage extends Component {
           <ProjectsSection>
             <ProjectsContainer>
               <ProjectsHeader>
-                <h1>Projectes</h1>
+                <h1>Projects</h1>
               </ProjectsHeader>
               <ProjectGridContainer>
                 <ProjectGridHeader>
                   <ProjectGridHeaderRow></ProjectGridHeaderRow>
                   <ProjectGridHeaderRow>
                     <Button as={Link} to="/projects/create">
-                      Nou Projecte
+                      New Project
                     </Button>
                   </ProjectGridHeaderRow>
                 </ProjectGridHeader>

@@ -64,17 +64,17 @@ export default class Footer extends Component {
         <nav>
           <NavList>
             <NavListItem mobileOnly>
-              <Link to="/whats-new">Novetats</Link>
+              <Link to="/whats-new">What&apos;s New</Link>
             </NavListItem>
             <NavListItem mobileOnly>
               <a href="https://github.com/mozilla/Spoke" rel="noopener noreferrer">
-                Font
+                Source
               </a>
             </NavListItem>
             {configs.isMoz() && (
               <NavListItem mobileOnly>
                 <a href="https://discord.gg/wHmY4nd" rel="noopener noreferrer">
-                  Comunitat
+                  Community
                 </a>
               </NavListItem>
             )}
@@ -88,14 +88,14 @@ export default class Footer extends Component {
             {configs.isMoz() && (
               <NavListItem>
                 <a href="https://github.com/mozilla/hubs/blob/master/TERMS.md" rel="noopener noreferrer">
-                  Condicions d&#39;&Uacute;s
+                  Terms of Use
                 </a>
               </NavListItem>
             )}
             {configs.isMoz() && (
               <NavListItem>
                 <a href="https://github.com/mozilla/hubs/blob/master/PRIVACY.md" rel="noopener noreferrer">
-                  Av&iacute;s de Privacitat
+                  Privacy Notice
                 </a>
               </NavListItem>
             )}

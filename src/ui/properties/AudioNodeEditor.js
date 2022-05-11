@@ -18,16 +18,16 @@ export default function AudioNodeEditor(props) {
 
   return (
     <NodeEditor description={AudioNodeEditor.description} {...props}>
-      <InputGroup name="Enllaç de l'Àudio">
+      <InputGroup name="Audio Url">
         <AudioInput value={node.src} onChange={onChangeSrc} />
       </InputGroup>
-      <InputGroup name="Controls" info="Canvia la visibilitat dels controls multimèdia a Hubs.">
+      <InputGroup name="Controls" info="Toggle the visibility of the media controls in Hubs.">
         <BooleanInput value={node.controls} onChange={onChangeControls} />
       </InputGroup>
-      <InputGroup name="Inici Automàtic" info="Si està habilitat, s'iniciarà l'àudio quan algú entri a l'escena.">
+      <InputGroup name="Auto Play" info="If true, the media will play when first entering the scene.">
         <BooleanInput value={node.autoPlay} onChange={onChangeAutoPlay} />
       </InputGroup>
-      <InputGroup name="Bucle" info="Si està habilitat l'àudio sonarà en bucle indefinidament.">
+      <InputGroup name="Loop" info="If true the media will loop indefinitely.">
         <BooleanInput value={node.loop} onChange={onChangeLoop} />
       </InputGroup>
       <AudioParamsProperties sourceType={SourceType.MEDIA_VIDEO} {...props} />
@@ -43,4 +43,4 @@ AudioNodeEditor.propTypes = {
 
 AudioNodeEditor.iconComponent = VolumeUp;
 
-AudioNodeEditor.description = "Carrega àudio dinàmicament";
+AudioNodeEditor.description = "Dynamically loads audio.";

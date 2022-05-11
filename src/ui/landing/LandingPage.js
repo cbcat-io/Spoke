@@ -102,16 +102,16 @@ export default class LandingPage extends Component {
               <HeroLeft>
                 <LogoContainer>
                   <img src={spokeLogo} alt="Spoke by Mozilla" />
-                  <h2>crea el teu espai</h2>
+                  <h2>make your space</h2>
                 </LogoContainer>
                 <h3>
-                  Crea escenes socials 3D per{" "}
+                  Create 3D social scenes for{" "}
                   <a href="https://hubs.mozilla.com" rel="noopener noreferrer">
                     Hubs
                   </a>
                 </h3>
                 <LargeButton as={Link} to="/new">
-                  Comen&ccedil;ar
+                  Get Started
                 </LargeButton>
               </HeroLeft>
               <HeroRight>
@@ -125,27 +125,25 @@ export default class LandingPage extends Component {
           <Section>
             <CalloutContainer>
               <Callout imageSrc={benches}>
-                <h3>Descobrir</h3>
+                <h3>Discover</h3>
                 <p>
-                  Exploreu imatges, v&iacute;deos i models 3D de la web, tot sense obrir una pestanya nova. Amb
-                  integracions multim&egrave;dia d&#39;Sketchfab, podr&agrave;s crear una escena en molt poc temps.
+                  Explore images, videos, and 3D models from around the web, all without opening up a new tab. With
+                  media integrations from Sketchfab, you&#39;ll be on your way to creating a scene in no time.
                 </p>
               </Callout>
               <Callout imageSrc={editor}>
-                <h3>Crear</h3>
+                <h3>Create</h3>
                 <p>
-                  No cal cap programari extern ni experi&egrave;ncia en modelatge 3D: creeu escenes en 3D amb
-                  l&#39;editor web de Spoke podent disposar d&#39;un espai totalment personalitzat segons les teves
-                  necessitats. Des d&#39;una sala de juntes fins a l&#39;espai exterior i m&eacute;s enll&agrave;, el
-                  teu espai est&agrave; sota el teu control.
+                  No external software or 3D modeling experience required - build 3D scenes using the Spoke web editor
+                  so you can have a space that&#39;s entirely custom to your needs. From a board room to outer space and
+                  beyond, your space is in your control.
                 </p>
               </Callout>
               <Callout imageSrc={meeting}>
-                <h3>Compartir</h3>
+                <h3>Share</h3>
                 <p>
-                  Convida persones i que es puguin con&egrave;ixer al teu nou espai publicant el teu contingut a Hubs
-                  immediatament. Amb nom&eacute;s uns clics, tindreu un m&oacute;n propi per experimentar i compartir -
-                  tot des del vostre navegador.
+                  Invite people to meet in your new space by publishing your content to Hubs immediately. With just a
+                  few clicks, you&#39;ll have a world of your own to experience and share - all from your browser.
                 </p>
               </Callout>
             </CalloutContainer>

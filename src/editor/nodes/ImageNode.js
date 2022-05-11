@@ -7,7 +7,7 @@ import { getObjectPerfIssues, maybeAddLargeFileIssue } from "../utils/performanc
 export default class ImageNode extends EditorNodeMixin(Image) {
   static componentName = "image";
 
-  static nodeName = "Imatge";
+  static nodeName = "Image";
 
   static initialElementProps = {
     src: new URL(spokeLogoSrc, location).href
@@ -100,7 +100,7 @@ export default class ImageNode extends EditorNodeMixin(Image) {
     } catch (error) {
       this.showErrorIcon();
 
-      const imageError = new RethrownError(`Error carregnt la imatge ${this._canonicalUrl}`, error);
+      const imageError = new RethrownError(`Error loading image ${this._canonicalUrl}`, error);
 
       if (onError) {
         onError(this, imageError);
@@ -108,7 +108,7 @@ export default class ImageNode extends EditorNodeMixin(Image) {
 
       console.error(imageError);
 
-      this.issues.push({ severity: "error", message: "Error carregant la imatge." });
+      this.issues.push({ severity: "error", message: "Error loading image." });
     }
 
     this.editor.emit("objectsChanged", [this]);

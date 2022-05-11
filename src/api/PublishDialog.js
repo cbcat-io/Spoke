@@ -51,37 +51,37 @@ export default class PublishDialog extends Component {
     return (
       <PreviewDialog
         imageSrc={screenshotUrl}
-        title={configs.isMoz() ? "Publicar a Hubs" : "Publicar Escena"}
+        title={configs.isMoz() ? "Publish to Hubs" : "Publish Scene"}
         onConfirm={this.onConfirm}
         onCancel={onCancel}
-        confirmLabel="Desar i Publicar"
+        confirmLabel="Save and Publish"
       >
         <FormField>
-          <label htmlFor="sceneName">Nom de l&#39;Escena</label>
+          <label htmlFor="sceneName">Scene Name</label>
           <StringInput
             id="sceneName"
             required
             pattern={"[A-Za-z0-9-':\"!@#$%^&*(),.?~ ]{4,64}"}
-            title="El nom ha de tenir entre 4 i 64 caràcters i no pot contenir guions baixos"
+            title="Name must be between 4 and 64 characters and cannot contain underscores"
             value={name}
             onChange={this.onChangeName}
           />
         </FormField>
         <FormField>
-          <label htmlFor="creatorAttribution">La teva Atribuci&oacute; (opcional):</label>
+          <label htmlFor="creatorAttribution">Your Attribution (optional):</label>
           <StringInput id="creatorAttribution" value={creatorAttribution} onChange={this.onChangeCreatorAttribution} />
         </FormField>
         <FormField inline>
           <label htmlFor="allowRemixing">
-            Permetre{" "}
+            Allow{" "}
             <a
               href="https://github.com/mozilla/Spoke/blob/master/REMIXING.md"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Remescla
+              Remixing
             </a>
-            &nbsp;amb
+            &nbsp;with
             <br />
             Creative Commons&nbsp;
             <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
@@ -92,21 +92,21 @@ export default class PublishDialog extends Component {
         </FormField>
         <FormField inline>
           <label htmlFor="allowPromotion">
-            Permetre {configs.isMoz() ? "Mozilla a " : ""}
+            Allow {configs.isMoz() ? "Mozilla to " : ""}
             <a
               href="https://github.com/mozilla/Spoke/blob/master/PROMOTION.md"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {configs.isMoz() ? "promoure" : "promoció"}
+              {configs.isMoz() ? "promote" : "promotion"}
             </a>{" "}
-            {configs.isMoz() ? "" : "de la "}meva escena
+            {configs.isMoz() ? "" : "of "}my scene
           </label>
           <BooleanInput id="allowPromotion" value={allowPromotion} onChange={this.onChangeAllowPromotion} />
         </FormField>
         {contentAttributions && (
           <FormField>
-            <label>Atribuci&oacute; del model:</label>
+            <label>Model Attribution:</label>
             <ul>
               {contentAttributions.map(
                 (a, i) =>

@@ -20,7 +20,7 @@ export default class SpotLightNodeEditor extends Component {
 
   static iconComponent = Bullseye;
 
-  static description = "Una llum que emet al llarg d'una direcció, il·luminant objectes dins d'un con.";
+  static description = "A light which emits along a direction, illuminating objects within a cone.";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -51,7 +51,7 @@ export default class SpotLightNodeEditor extends Component {
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Intensitat"
+          name="Intensity"
           min={0}
           smallStep={0.001}
           mediumStep={0.01}
@@ -61,7 +61,7 @@ export default class SpotLightNodeEditor extends Component {
           unit="cd"
         />
         <RadianNumericInputGroup
-          name="Angle Interior del Con"
+          name="Inner Cone Angle"
           min={0}
           max={radToDeg(node.outerConeAngle)}
           smallStep={0.1}
@@ -72,7 +72,7 @@ export default class SpotLightNodeEditor extends Component {
           unit="°"
         />
         <RadianNumericInputGroup
-          name="Angle Exterior del Con"
+          name="Outer Cone Angle"
           min={radToDeg(node.innerConeAngle + 0.00001)}
           max={radToDeg(node.maxOuterConeAngle)}
           smallStep={0.1}
@@ -83,7 +83,7 @@ export default class SpotLightNodeEditor extends Component {
           unit="°"
         />
         <NumericInputGroup
-          name="Rang"
+          name="Range"
           min={0}
           smallStep={0.1}
           mediumStep={1}

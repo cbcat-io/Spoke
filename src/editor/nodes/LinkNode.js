@@ -8,7 +8,7 @@ let linkHelperTexture = null;
 export default class LinkNode extends EditorNodeMixin(Object3D) {
   static componentName = "link";
 
-  static nodeName = "Enllaç";
+  static nodeName = "Link";
 
   static async load() {
     linkHelperTexture = await loadTexture(linkIconUrl);

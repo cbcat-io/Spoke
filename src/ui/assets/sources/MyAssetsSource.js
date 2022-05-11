@@ -27,14 +27,14 @@ export default class MyAssetsSource extends BaseSource {
     this.component = UploadSourcePanel;
     this.editor = editor;
     this.id = "assets";
-    this.name = "Els Meus Recursos";
+    this.name = "My Assets";
     this.tags = [
       { label: "Models", value: "model" },
-      { label: "Imatges", value: "image" },
-      { label: "Vídeos", value: "video" },
-      { label: "Àudio", value: "audio" }
+      { label: "Images", value: "image" },
+      { label: "Videos", value: "video" },
+      { label: "Audio", value: "audio" }
     ];
-    this.searchLegalCopy = "Cerca a Mozilla Hubs";
+    this.searchLegalCopy = "Search by Mozilla Hubs";
     this.privacyPolicyUrl = "https://github.com/mozilla/hubs/blob/master/PRIVACY.md";
     this.uploadSource = true;
     this.uploadMultiple = true;

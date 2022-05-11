@@ -19,7 +19,7 @@ export default class SkyboxNodeEditor extends Component {
   static iconComponent = Cloud;
 
   static description =
-    "Crea una visualització d'un cel obert i una atmosfera al voltant de la teva escena. També s'utilitza com a mapa de l'entorn per a la teva escena.";
+    "Creates a visualization of an open sky and atmosphere around your scene. Also used as the environment map for your scene.";
 
   onChangeTurbidity = turbidity => {
     this.props.editor.setPropertySelected("turbidity", turbidity);
@@ -59,7 +59,7 @@ export default class SkyboxNodeEditor extends Component {
     return (
       <NodeEditor description={SkyboxNodeEditor.description} {...this.props}>
         <NumericInputGroup
-          name="Hora del Dia"
+          name="Time of Day"
           smallStep={0.1}
           mediumStep={0.5}
           largeStep={1}
@@ -72,7 +72,7 @@ export default class SkyboxNodeEditor extends Component {
           unit="h"
         />
         <RadianNumericInputGroup
-          name="Latitud"
+          name="Latitude"
           min={-90}
           max={90}
           smallStep={0.1}
@@ -81,7 +81,7 @@ export default class SkyboxNodeEditor extends Component {
           value={node.inclination}
           onChange={this.onChangeInclination}
         />
-        <InputGroup name="Luminància">
+        <InputGroup name="Luminance">
           <CompoundNumericInput
             min={0.001}
             max={1.189}
@@ -90,7 +90,7 @@ export default class SkyboxNodeEditor extends Component {
             onChange={this.onChangeLuminance}
           />
         </InputGroup>
-        <InputGroup name="Quantitat de Dispersió">
+        <InputGroup name="Scattering Amount">
           <CompoundNumericInput
             min={0}
             max={0.1}
@@ -99,7 +99,7 @@ export default class SkyboxNodeEditor extends Component {
             onChange={this.onChangeMieCoefficient}
           />
         </InputGroup>
-        <InputGroup name="Distància de Dispersió">
+        <InputGroup name="Scattering Distance">
           <CompoundNumericInput
             min={0}
             max={1}
@@ -108,10 +108,10 @@ export default class SkyboxNodeEditor extends Component {
             onChange={this.onChangeMieDirectionalG}
           />
         </InputGroup>
-        <InputGroup name="Inici de l'Horitzó">
+        <InputGroup name="Horizon Start">
           <CompoundNumericInput min={1} max={20} value={node.turbidity} onChange={this.onChangeTurbidity} />
         </InputGroup>
-        <InputGroup name="Final de l'Horitzó">
+        <InputGroup name="Horizon End">
           <CompoundNumericInput min={0} max={4} value={node.rayleigh} onChange={this.onChangeRayleigh} />
         </InputGroup>
       </NodeEditor>

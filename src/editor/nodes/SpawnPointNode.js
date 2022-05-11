@@ -8,7 +8,7 @@ let spawnPointHelperModel = null;
 export default class SpawnPointNode extends EditorNodeMixin(Object3D) {
   static componentName = "spawn-point";
 
-  static nodeName = "Punt de Generació";
+  static nodeName = "Spawn Point";
 
   static async load() {
     const { scene } = await new GLTFLoader(spawnPointModelUrl).loadGLTF();
@@ -29,7 +29,7 @@ export default class SpawnPointNode extends EditorNodeMixin(Object3D) {
       this.helper = spawnPointHelperModel.clone();
       this.add(this.helper);
     } else {
-      console.warn("SpawnPointNode: el model d'ajuda no s'ha carregat abans de crear un nou node de Punt de Generació");
+      console.warn("SpawnPointNode: helper model was not loaded before creating a new SpawnPointNode");
       this.helper = null;
     }
   }

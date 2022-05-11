@@ -14,7 +14,7 @@ export default class BoxColliderNodeEditor extends Component {
   static iconComponent = HandPaper;
 
   static description =
-    "Una caixa invisible de la qual els objectes rebotaran o descansaran a sobre.\nSense col·lisionadors, els objectes cauran per terra i travessaran parets.";
+    "An invisible box that objects will bounce off of or rest on top of.\nWithout colliders, objects will fall through floors and go through walls.";
 
   onChangeWalkable = walkable => {
     this.props.editor.setPropertySelected("walkable", walkable);
@@ -23,7 +23,7 @@ export default class BoxColliderNodeEditor extends Component {
   render() {
     return (
       <NodeEditor {...this.props} description={BoxColliderNodeEditor.description}>
-        <InputGroup name="Caminable">
+        <InputGroup name="Walkable">
           <BooleanInput value={this.props.node.walkable} onChange={this.onChangeWalkable} />
         </InputGroup>
       </NodeEditor>

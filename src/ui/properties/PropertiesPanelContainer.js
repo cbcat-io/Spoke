@@ -112,7 +112,7 @@ class PropertiesPanelContainer extends Component {
     let content;
 
     if (selected.length === 0) {
-      content = <NoNodeSelectedMessage>No s&#39;ha seleccionat cap node</NoNodeSelectedMessage>;
+      content = <NoNodeSelectedMessage>No node selected</NoNodeSelectedMessage>;
     } else {
       const activeNode = selected[selected.length - 1];
       const NodeEditor = editor.getNodeEditor(activeNode) || DefaultNodeEditor;
@@ -133,9 +133,7 @@ class PropertiesPanelContainer extends Component {
       if (showNodeEditor) {
         nodeEditor = <NodeEditor multiEdit={multiEdit} node={activeNode} editor={editor} />;
       } else {
-        nodeEditor = (
-          <NoNodeSelectedMessage>S&#39;han seleccionat varis nodes de diferents tipus</NoNodeSelectedMessage>
-        );
+        nodeEditor = <NoNodeSelectedMessage>Multiple Nodes of different types selected</NoNodeSelectedMessage>;
       }
 
       const disableTransform = selected.some(node => node.disableTransform);
@@ -150,7 +148,7 @@ class PropertiesPanelContainer extends Component {
                   <VisibleInputGroup name="Visible">
                     <BooleanInput value={activeNode._visible} onChange={this.onChangeVisible} />
                   </VisibleInputGroup>
-                  <VisibleInputGroup name="Habilitat">
+                  <VisibleInputGroup name="Enabled">
                     <BooleanInput value={activeNode.enabled} onChange={this.onChangeEnabled} />
                   </VisibleInputGroup>
                 </>
@@ -166,7 +164,7 @@ class PropertiesPanelContainer extends Component {
     // id used in onboarding
 
     return (
-      <Panel id="properties-panel" title="Propietats" icon={SlidersH}>
+      <Panel id="properties-panel" title="Properties" icon={SlidersH}>
         <PropertiesPanelContent>{content}</PropertiesPanelContent>
       </Panel>
     );

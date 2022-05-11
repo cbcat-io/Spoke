@@ -45,13 +45,13 @@ NewProjectGridItem.propTypes = {
 };
 
 NewProjectGridItem.defaultProps = {
-  label: "Nou Projecte"
+  label: "New Project"
 };
 
 export function LoadingProjectGridItem() {
   return (
     <ProjectGridItemContainer>
-      <h3>Carregant...</h3>
+      <h3>Loading...</h3>
     </ProjectGridItemContainer>
   );
 }

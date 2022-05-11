@@ -25,7 +25,7 @@ export default class ParticleEmitterNodeEditor extends Component {
 
   static iconComponent = SprayCan;
 
-  static description = "Emissor de partícules per crear partícules.";
+  static description = "Particle emitter to create particles.";
 
   updateParticles() {
     for (const node of this.props.editor.selected) {
@@ -124,7 +124,7 @@ export default class ParticleEmitterNodeEditor extends Component {
     return (
       <NodeEditor {...this.props} description={ParticleEmitterNodeEditor.description}>
         <NumericInputGroup
-          name="Nombre de Partícules"
+          name="Particle Count"
           min={1}
           smallStep={1}
           mediumStep={1}
@@ -133,13 +133,13 @@ export default class ParticleEmitterNodeEditor extends Component {
           onChange={this.onChangeParticleCount}
         />
 
-        <InputGroup name="Imatge">
+        <InputGroup name="Image">
           <ImageInput value={this.props.node.src} onChange={this.onChangeSrc} />
         </InputGroup>
 
         <NumericInputGroup
-          name="Atzar de Generació"
-          info="La quantitat de variació entre quan es generen les partícules."
+          name="Age Randomness"
+          info="The amount of variation between when particles are spawned."
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -150,8 +150,8 @@ export default class ParticleEmitterNodeEditor extends Component {
         />
 
         <NumericInputGroup
-          name="Durada Màxima"
-          info="El temps que durarà com a màxim una partícula abans de que sigui emesa."
+          name="Lifetime"
+          info="The maximum age of a particle before it is respawned."
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -162,8 +162,8 @@ export default class ParticleEmitterNodeEditor extends Component {
         />
 
         <NumericInputGroup
-          name="Atzar de Durada"
-          info="La quantitat de variació entre les durades de les partícules."
+          name="Lifetime Randomness"
+          info="The amount of variation between particle lifetimes."
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -173,12 +173,12 @@ export default class ParticleEmitterNodeEditor extends Component {
           unit="s"
         />
 
-        <InputGroup name="Corba de la Mida">
+        <InputGroup name="Size Curve">
           <SelectInput options={CurveOptions} value={this.props.node.sizeCurve} onChange={this.onChangeSizeCurve} />
         </InputGroup>
 
         <NumericInputGroup
-          name="Mida Inicial de la Partícula"
+          name="Start Particle Size"
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -189,7 +189,7 @@ export default class ParticleEmitterNodeEditor extends Component {
         />
 
         <NumericInputGroup
-          name="Mida Final de la Partícula"
+          name="End Particle Size"
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -200,8 +200,8 @@ export default class ParticleEmitterNodeEditor extends Component {
         />
 
         <NumericInputGroup
-          name="Atzar de la Mida"
-          info="La quantitat de variació entre les mides inicials de les partícules."
+          name="Size Randomness"
+          info="The amount of variation between particle starting sizes."
           min={0}
           smallStep={0.01}
           mediumStep={0.1}
@@ -211,15 +211,15 @@ export default class ParticleEmitterNodeEditor extends Component {
           unit="m"
         />
 
-        <InputGroup name="Corba del Color">
+        <InputGroup name="Color Curve">
           <SelectInput options={CurveOptions} value={this.props.node.colorCurve} onChange={this.onChangeColorCurve} />
         </InputGroup>
 
-        <InputGroup name="Color Inicial">
+        <InputGroup name="Start Color">
           <ColorInput value={this.props.node.startColor} onChange={this.onChangeStartColor} />
         </InputGroup>
 
-        <InputGroup name="Opacitat Inicial">
+        <InputGroup name="Start Opacity">
           <CompoundNumericInput
             min={0}
             max={1}
@@ -229,11 +229,11 @@ export default class ParticleEmitterNodeEditor extends Component {
           />
         </InputGroup>
 
-        <InputGroup name="Color Intermig">
+        <InputGroup name="Middle Color">
           <ColorInput value={this.props.node.middleColor} onChange={this.onChangeMiddleColor} />
         </InputGroup>
 
-        <InputGroup name="Opacitat Intermitja">
+        <InputGroup name="Middle Opacity">
           <CompoundNumericInput
             min={0}
             max={1}
@@ -243,11 +243,11 @@ export default class ParticleEmitterNodeEditor extends Component {
           />
         </InputGroup>
 
-        <InputGroup name="Color Final">
+        <InputGroup name="End Color">
           <ColorInput value={this.props.node.endColor} onChange={this.onChangeEndColor} />
         </InputGroup>
 
-        <InputGroup name="Opacitat Final">
+        <InputGroup name="End Opacity">
           <CompoundNumericInput
             min={0}
             max={1}
@@ -257,7 +257,7 @@ export default class ParticleEmitterNodeEditor extends Component {
           />
         </InputGroup>
 
-        <InputGroup name="Corba de la Velocitat">
+        <InputGroup name="Velocity Curve">
           <SelectInput
             options={CurveOptions}
             value={this.props.node.velocityCurve}
@@ -265,7 +265,7 @@ export default class ParticleEmitterNodeEditor extends Component {
           />
         </InputGroup>
 
-        <InputGroup name="Velocitat Inicial">
+        <InputGroup name="Start Velocity">
           <Vector3Input
             value={this.props.node.startVelocity}
             smallStep={0.01}
@@ -275,7 +275,7 @@ export default class ParticleEmitterNodeEditor extends Component {
           />
         </InputGroup>
 
-        <InputGroup name="Velocitat Final">
+        <InputGroup name="End Velocity">
           <Vector3Input
             value={this.props.node.endVelocity}
             smallStep={0.01}
@@ -286,7 +286,7 @@ export default class ParticleEmitterNodeEditor extends Component {
         </InputGroup>
 
         <NumericInputGroup
-          name="Velocitat Angular"
+          name="Angular Velocity"
           min={-100}
           smallStep={1}
           mediumStep={1}

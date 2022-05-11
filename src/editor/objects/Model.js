@@ -66,7 +66,7 @@ export default class Model extends Object3D {
         ? this.model.animations.map((clip, index) => ({ label: clip.name, value: index }))
         : [];
     if (clipOptions.length == 0) {
-      clipOptions.unshift({ label: "Cap", value: -1 });
+      clipOptions.unshift({ label: "None", value: -1 });
     }
     return clipOptions;
   }
@@ -88,7 +88,7 @@ export default class Model extends Object3D {
       const index = this.model.animations.indexOf(clip);
       if (index === -1) {
         throw new Error(
-          `Error exportant el model "${this.name}" amb la url "${this._canonicalUrl}". No s'ha pogut trobar l'animació.`
+          `Error exporting model "${this.name}" with url "${this._canonicalUrl}". Animation could not be found.`
         );
       }
       return index;

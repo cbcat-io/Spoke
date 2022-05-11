@@ -51,7 +51,7 @@ export default function PackageKitPage() {
       el.click();
       document.body.removeChild(el);
 
-      setMessage(`Descarregant ${fileName}`);
+      setMessage(`Downloading ${fileName}`);
     } catch (error) {
       console.error(error);
       setMessage(error.message);
@@ -70,7 +70,7 @@ export default function PackageKitPage() {
           {isGenerating ? (
             <ProgressBar />
           ) : (
-            <FileInput label="Pujar Kit (.glb)" accept=".glb,model/gltf-binary" onChange={onUpload} />
+            <FileInput label="Upload Kit (.glb)" accept=".glb,model/gltf-binary" onChange={onUpload} />
           )}
         </Container>
       </main>

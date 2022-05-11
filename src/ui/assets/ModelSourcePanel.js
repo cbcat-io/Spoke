@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MediaSourcePanel from "./MediaSourcePanel";
 
 export default function ModelSourcePanel(props) {
-  return <MediaSourcePanel {...props} searchPlaceholder={props.source.searchPlaceholder || "Cerca models..."} />;
+  return <MediaSourcePanel {...props} searchPlaceholder={props.source.searchPlaceholder || "Search models..."} />;
 }
 
 ModelSourcePanel.propTypes = {

@@ -25,7 +25,7 @@ export default function mergeMeshGeometries(meshes) {
     }
 
     if (attributes.position.itemSize !== 3) {
-      throw new Error("S'ha intentat combinar la geometria amb un nombre no vàlid de posicions");
+      throw new Error("Tried to merge geometry with an invalid number of positions");
     }
 
     if (geometry.index) geometry = geometry.toNonIndexed();

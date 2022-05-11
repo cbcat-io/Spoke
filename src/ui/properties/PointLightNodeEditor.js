@@ -15,7 +15,7 @@ export default class PointLightNodeEditor extends Component {
 
   static iconComponent = Lightbulb;
 
-  static description = "Una llum que s'emet en totes les direccions des d'un punt.";
+  static description = "A light which emits in all directions from a single point.";
 
   onChangeColor = color => {
     this.props.editor.setPropertySelected("color", color);
@@ -38,7 +38,7 @@ export default class PointLightNodeEditor extends Component {
           <ColorInput value={node.color} onChange={this.onChangeColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Intensitat"
+          name="Intensity"
           min={0}
           smallStep={0.001}
           mediumStep={0.01}
@@ -48,7 +48,7 @@ export default class PointLightNodeEditor extends Component {
           unit="cd"
         />
         <NumericInputGroup
-          name="Rang"
+          name="Range"
           min={0}
           smallStep={0.1}
           mediumStep={1}
