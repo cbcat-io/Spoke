@@ -15,7 +15,7 @@ import isHLS from "../utils/isHLS";
 import AudioSource from "./AudioSource";
 
 export const VideoProjection = {
-  Flat: "flat",
+  Flat: "plana",
   Equirectangular360: "360-equirectangular"
 };
 
