@@ -156,8 +156,8 @@ class EditorContainer extends Component {
     });
 
     this.showDialog(ProgressDialog, {
-      title: "Loading Project",
-      message: "Loading project..."
+      title: "Carregant Projecte",
+      message: "Carregant projecte..."
     });
 
     const editor = this.state.editor;
@@ -182,8 +182,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error loading project.",
-        message: error.message || "There was an error when loading the project.",
+        title: "Error carregant el projecte.",
+        message: error.message || "Hi ha hagut un error carregant el projecte.",
         error
       });
     }
@@ -200,8 +200,8 @@ class EditorContainer extends Component {
     });
 
     this.showDialog(ProgressDialog, {
-      title: "Loading Project",
-      message: "Loading project..."
+      title: "Carregant Projecte",
+      message: "Carregant projecte..."
     });
 
     const editor = this.state.editor;
@@ -227,8 +227,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error loading project.",
-        message: error.message || "There was an error when loading the project.",
+        title: "Error carregant el projecte.",
+        message: error.message || "Hi ha hagut un error carregant el projecte.",
         error
       });
     }
@@ -245,8 +245,8 @@ class EditorContainer extends Component {
     });
 
     this.showDialog(ProgressDialog, {
-      title: "Loading Project",
-      message: "Loading project..."
+      title: "Carregant Projecte",
+      message: "Carregant projecte..."
     });
 
     const editor = this.state.editor;
@@ -264,8 +264,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error loading project.",
-        message: error.message || "There was an error when loading the project.",
+        title: "Error carregant el projecte.",
+        message: error.message || "Hi ha hagut un error carregant el projecte.",
         error
       });
     } finally {
@@ -286,8 +286,8 @@ class EditorContainer extends Component {
     });
 
     this.showDialog(ProgressDialog, {
-      title: "Loading Project",
-      message: "Loading project..."
+      title: "Carregant Projecte",
+      message: "Carregant projecte..."
     });
 
     const editor = this.state.editor;
@@ -308,8 +308,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error loading project.",
-        message: error.message || "There was an error when loading the project.",
+        title: "Error carregant el projecte.",
+        message: error.message || "Hi ha hagut un error carregant el projecte.",
         error
       });
     } finally {
@@ -334,45 +334,45 @@ class EditorContainer extends Component {
   generateToolbarMenu = () => {
     return [
       {
-        name: "Back to Projects",
+        name: "Tornar als Projectes",
         action: this.onOpenProject
       },
       {
-        name: "File",
+        name: "Fitxer",
         items: [
           {
-            name: "New Project",
+            name: "Nou Projecte",
             action: this.onNewProject
           },
           {
-            name: "Save Project",
+            name: "Desar Projecte",
             hotkey: `${cmdOrCtrlString} + S`,
             action: this.onSaveProject
           },
           {
-            name: "Save As",
+            name: "Anomena i Desa",
             action: this.onDuplicateProject
           },
           {
-            name: configs.isMoz() ? "Publish to Hubs..." : "Publish Scene...",
+            name: configs.isMoz() ? "Publicar a Hubs..." : "Publicar Escena...",
             action: this.onPublishProject
           },
           {
-            name: "Export as binary glTF (.glb) ...",
+            name: "Exportar com un glTF binari (.glb) ...",
             action: this.onExportProject
           },
           {
-            name: "Import legacy .spoke project",
+            name: "Importar el projecte .spoke heretat",
             action: this.onImportLegacyProject
           },
           {
-            name: "Export legacy .spoke project",
+            name: "Exportar el projecte .spoke heretat",
             action: this.onExportLegacyProject
           }
         ]
       },
       {
-        name: "Help",
+        name: "Ajuda",
         items: [
           {
             name: "Tutorial",
@@ -388,42 +388,42 @@ class EditorContainer extends Component {
             }
           },
           {
-            name: "Keyboard and Mouse Controls",
+            name: "Controls del Teclat i del Ratolí",
             action: () => window.open("https://hubs.mozilla.com/docs/spoke-controls.html")
           },
           {
-            name: "Get Support",
+            name: "Obtenir Suport",
             action: () => this.showDialog(SupportDialog)
           },
           {
-            name: "Submit Feedback",
+            name: "Enviar Comentaris",
             action: () => window.open("https://forms.gle/2PAFXKwW1SXdfSK17")
           },
           {
-            name: "Report an Issue",
+            name: "Informar d'un Problema",
             action: () => window.open("https://github.com/mozilla/Spoke/issues/new")
           },
           {
-            name: "Join us on Discord",
+            name: "Uneix-te a nosaltres a Discord",
             action: () => window.open("https://discord.gg/wHmY4nd")
           },
           {
-            name: "Terms of Use",
+            name: "Condicions d'ús",
             action: () => window.open("https://github.com/mozilla/hubs/blob/master/TERMS.md")
           },
           {
-            name: "Privacy Notice",
+            name: "Avís de Privacitat",
             action: () => window.open("https://github.com/mozilla/hubs/blob/master/PRIVACY.md")
           }
         ]
       },
       {
-        name: "Developer",
+        name: "Desenvolupador",
         items: [
           {
             name: this.state.settingsContext.settings.enableExperimentalFeatures
-              ? "Disable Experimental Features"
-              : "Enable Experimental Features",
+              ? "Desactivar les Funcions Experimentals"
+              : "Activar les Funcions Experimentals",
             action: () =>
               this.updateSetting(
                 "enableExperimentalFeatures",
@@ -433,7 +433,7 @@ class EditorContainer extends Component {
         ]
       },
       {
-        name: "Submit Feedback",
+        name: "Enviar Comentaris",
         action: () => window.open("https://forms.gle/2PAFXKwW1SXdfSK17")
       }
     ];
@@ -446,8 +446,8 @@ class EditorContainer extends Component {
 
     const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
 
-    let webglVendor = "Unknown";
-    let webglRenderer = "Unknown";
+    let webglVendor = "Desconegut";
+    let webglRenderer = "Desconegut";
 
     if (debugInfo) {
       webglVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
@@ -520,7 +520,7 @@ class EditorContainer extends Component {
 
     this.showDialog(ErrorDialog, {
       title: error.title || "Error",
-      message: error.message || "There was an unknown error.",
+      message: error.message || "Hi ha hagut un error desconegut.",
       error
     });
   };
@@ -559,8 +559,8 @@ class EditorContainer extends Component {
     const { editor, parentSceneId } = this.state;
 
     this.showDialog(ProgressDialog, {
-      title: "Generating Project Screenshot",
-      message: "Generating project screenshot..."
+      title: "Generant Captura del Projecte",
+      message: "Generant captura del projecte..."
     });
 
     // Wait for 5ms so that the ProgressDialog shows up.
@@ -585,8 +585,8 @@ class EditorContainer extends Component {
     const abortController = new AbortController();
 
     this.showDialog(ProgressDialog, {
-      title: "Saving Project",
-      message: "Saving project...",
+      title: "Desant Projecte",
+      message: "Desant projecte...",
       cancelable: true,
       onCancel: () => {
         abortController.abort();
@@ -632,8 +632,8 @@ class EditorContainer extends Component {
     const abortController = new AbortController();
 
     this.showDialog(ProgressDialog, {
-      title: "Saving Project",
-      message: "Saving project...",
+      title: "Desant Projecte",
+      message: "Desant projecte...",
       cancelable: true,
       onCancel: () => {
         abortController.abort();
@@ -671,8 +671,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error Saving Project",
-        message: error.message || "There was an error when saving the project."
+        title: "Error Desant el Projecte",
+        message: error.message || "Hi ha hagut un error desant el projecte."
       });
 
       trackEvent("Project Save Error");
@@ -682,8 +682,8 @@ class EditorContainer extends Component {
   onDuplicateProject = async () => {
     const abortController = new AbortController();
     this.showDialog(ProgressDialog, {
-      title: "Duplicating Project",
-      message: "Duplicating project...",
+      title: "Duplicant Projecte",
+      message: "Duplicant projecte...",
       cancelable: true,
       onCancel: () => {
         abortController.abort();
@@ -702,8 +702,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error Saving Project",
-        message: error.message || "There was an error when saving the project."
+        title: "Error Desant el Projecte",
+        message: error.message || "Hi ha hagut un error desant el projecte."
       });
     }
   };
@@ -725,8 +725,8 @@ class EditorContainer extends Component {
     const abortController = new AbortController();
 
     this.showDialog(ProgressDialog, {
-      title: "Exporting Project",
-      message: "Exporting project...",
+      title: "Exportant Projecte",
+      message: "Exportant projecte...",
       cancelable: true,
       onCancel: () => abortController.abort()
     });
@@ -755,8 +755,8 @@ class EditorContainer extends Component {
       console.error(error);
 
       this.showDialog(ErrorDialog, {
-        title: "Error Exporting Project",
-        message: error.message || "There was an error when exporting the project.",
+        title: "Error Exportant el Projecte",
+        message: error.message || "Hi ha hagut un error exportant el projecte.",
         error
       });
     }
@@ -765,8 +765,8 @@ class EditorContainer extends Component {
   onImportLegacyProject = async () => {
     const confirm = await new Promise(resolve => {
       this.showDialog(ConfirmDialog, {
-        title: "Import Legacy Spoke Project",
-        message: "Warning! This will overwrite your existing scene! Are you sure you wish to continue?",
+        title: "Importar Projecte de Spoke Heretat",
+        message: "Avís! Això sobreescriurà la teva escena existent! Estàs segur que vols continuar?",
         onConfirm: () => resolve(true),
         onCancel: () => resolve(false)
       });
@@ -859,8 +859,8 @@ class EditorContainer extends Component {
 
       console.error(error);
       this.showDialog(ErrorDialog, {
-        title: "Error Publishing Project",
-        message: error.message || "There was an unknown error.",
+        title: "Error Publicant Projecte",
+        message: error.message || "Hi ha hagut un error desconegut.",
         error
       });
 
@@ -942,7 +942,7 @@ class EditorContainer extends Component {
                   </Helmet>
                   {this.state.modified && (
                     <BrowserPrompt
-                      message={`${editor.scene.name} has unsaved changes, are you sure you wish to navigate away from the page?`}
+                      message={`${editor.scene.name} té canvis sense desar, estàs segur que desitges navegar fora d'aquesta pàgina?`}
                     />
                   )}
                   {onboardingContext.enabled && (

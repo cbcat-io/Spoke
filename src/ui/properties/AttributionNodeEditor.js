@@ -28,13 +28,13 @@ export default class AttributionNodeEditor extends Component {
 
     return (
       <Collapsible label={name}>
-        <InputGroup name="Title">
+        <InputGroup name="Títol">
           <StringInput
             value={(node.attribution && node.attribution.title) || ""}
             onChange={title => this.onChangeAttribution(node.attribution, "title", title)}
           />
         </InputGroup>
-        <InputGroup name="Author">
+        <InputGroup name="Autor">
           <StringInput
             value={(node.attribution && node.attribution.author) || ""}
             onChange={author => this.onChangeAttribution(node.attribution, "author", author)}

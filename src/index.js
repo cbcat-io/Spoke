@@ -20,7 +20,7 @@ if (configs.SENTRY_DSN) {
 initTelemetry();
 
 // eslint-disable-next-line no-undef
-console.info(`Spoke version: ${process.env.BUILD_VERSION}`);
+console.info(`Versió d'Spoke: ${process.env.BUILD_VERSION}`);
 
 const api = new Api();
 

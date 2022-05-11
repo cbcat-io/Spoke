@@ -5,7 +5,7 @@ import SpokeDirectionalLightHelper from "../helpers/SpokeDirectionalLightHelper"
 export default class DirectionalLightNode extends EditorNodeMixin(PhysicalDirectionalLight) {
   static componentName = "directional-light";
 
-  static nodeName = "Directional Light";
+  static nodeName = "Llum Direccional";
 
   static async deserialize(editor, json) {
     const node = await super.deserialize(editor, json);

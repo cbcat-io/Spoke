@@ -7,7 +7,7 @@ const requiredProperties = ["enabled", "inOut", "outIn"];
 export default class AudioZoneNode extends AudioParamsNode(AudioParams) {
   static componentName = "audio-zone";
 
-  static nodeName = "Audio Zone";
+  static nodeName = "Zona d'Àudio";
 
   static _geometry = new BoxBufferGeometry();
 
@@ -90,7 +90,7 @@ export default class AudioZoneNode extends AudioParamsNode(AudioParams) {
 
     for (const prop of requiredProperties) {
       if (this[prop] === null || this[prop] === undefined) {
-        console.warn(`AudioZone: property "${prop}" is required. Skipping...`);
+        console.warn(`Zona d'Audio: es requereix la propietat "${prop}" . Saltant...`);
         return;
       }
     }

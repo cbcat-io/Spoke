@@ -173,7 +173,7 @@ export default class KitPieceNodeEditor extends Component {
             </SubPiecesContainer>
           </>
         )}
-        <InputGroup name="Loop Animation">
+        <InputGroup name="Animació en Bucle">
           <SelectInput
             disabled={this.isAnimationPropertyDisabled()}
             options={node.getClipOptions()}
@@ -184,19 +184,19 @@ export default class KitPieceNodeEditor extends Component {
             isMulti
           />
         </InputGroup>
-        <InputGroup name="Collidable">
+        <InputGroup name="Col·lidable">
           <BooleanInput value={node.collidable} onChange={this.onChangeCollidable} />
         </InputGroup>
-        <InputGroup name="Walkable">
+        <InputGroup name="Caminable">
           <BooleanInput value={node.walkable} onChange={this.onChangeWalkable} />
         </InputGroup>
-        <InputGroup name="Cast Shadow">
+        <InputGroup name="Emetre Ombra">
           <BooleanInput value={node.castShadow} onChange={this.onChangeCastShadow} />
         </InputGroup>
-        <InputGroup name="Receive Shadow">
+        <InputGroup name="Rebre Ombra">
           <BooleanInput value={node.receiveShadow} onChange={this.onChangeReceiveShadow} />
         </InputGroup>
-        <InputGroup name="Combine">
+        <InputGroup name="Combinar">
           <BooleanInput value={node.combine} onChange={this.onChangeCombine} />
         </InputGroup>
       </NodeEditor>

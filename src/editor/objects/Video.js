@@ -35,7 +35,7 @@ export default class Video extends AudioSource {
     this._mesh = new Mesh(geometry, material);
     this._mesh.name = "VideoMesh";
     this.add(this._mesh);
-    this._projection = "flat";
+    this._projection = "plana";
 
     this.hls = null;
   }
@@ -67,7 +67,7 @@ export default class Video extends AudioSource {
 
       const onError = error => {
         cleanup();
-        reject(new RethrownError(`Error loading video "${this.el.src}"`, error));
+        reject(new RethrownError(`Error carregant el vídeo "${this.el.src}"`, error));
       };
 
       cleanup = () => {

@@ -4,7 +4,7 @@ import EditorNodeMixin from "./EditorNodeMixin";
 export default class ScenePreviewCameraNode extends EditorNodeMixin(PerspectiveCamera) {
   static componentName = "scene-preview-camera";
 
-  static nodeName = "Scene Preview Camera";
+  static nodeName = "Vista prèvia de l'escena";
 
   static canAddNode(editor) {
     return editor.scene.findNodeByType(ScenePreviewCameraNode) === null;

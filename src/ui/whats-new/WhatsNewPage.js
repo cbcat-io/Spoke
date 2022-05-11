@@ -96,6 +96,7 @@ export default class WhatsNewPage extends Component {
 
     this.state = {
       updates: [],
+      loading: false,
       hasMore: true
     };
 
@@ -103,6 +104,8 @@ export default class WhatsNewPage extends Component {
   }
 
   onLoadMore = async () => {
+    this.setState({ loading: true });
+
     const { value: updates, done } = await this.updatesIterator.next();
 
     let nextUpdates;
@@ -124,13 +127,13 @@ export default class WhatsNewPage extends Component {
       nextUpdates = this.state.updates;
     }
 
-    this.setState({ updates: nextUpdates, hasMore: !done });
+    this.setState({ updates: nextUpdates, loading: false, hasMore: !done });
   };
 
   render() {
     const loader = (
       <div key="loader">
-        <Loading message="Loading Updates..." />
+        <Loading message="Carregant Actualitzacions..." />
       </div>
     );
     return (
@@ -139,7 +142,12 @@ export default class WhatsNewPage extends Component {
         <WhatsNewContainer>
           <WhatsNewContent>
             <WhatsNewTitle>What&apos;s New</WhatsNewTitle>
-            <InfiniteScroll loadMore={this.onLoadMore} hasMore={this.state.hasMore} loader={loader}>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={this.onLoadMore}
+              hasMore={!this.state.loading && this.state.hasMore}
+              loader={loader}
+            >
               {this.state.updates.map((update, i) => {
                 return (
                   <Update key={i}>

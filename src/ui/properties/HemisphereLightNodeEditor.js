@@ -14,7 +14,7 @@ export default class HemisphereLightNodeEditor extends Component {
 
   static iconComponent = Certificate;
 
-  static description = "A light which illuminates the scene from directly overhead.";
+  static description = "Una llum que il·lumina l'escena directament des de dalt.";
 
   onChangeSkyColor = skyColor => {
     this.props.editor.setPropertySelected("skyColor", skyColor);
@@ -33,14 +33,14 @@ export default class HemisphereLightNodeEditor extends Component {
 
     return (
       <NodeEditor {...this.props} description={HemisphereLightNodeEditor.description}>
-        <InputGroup name="Sky Color">
+        <InputGroup name="Color del Cel">
           <ColorInput value={node.skyColor} onChange={this.onChangeSkyColor} />
         </InputGroup>
-        <InputGroup name="Ground Color">
+        <InputGroup name="Color del Terra">
           <ColorInput value={node.groundColor} onChange={this.onChangeGroundColor} />
         </InputGroup>
         <NumericInputGroup
-          name="Intensity"
+          name="Intensitat"
           min={0}
           smallStep={0.001}
           mediumStep={0.01}

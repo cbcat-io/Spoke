@@ -62,8 +62,8 @@ export default class TransformPropertyGroup extends Component {
     const { node } = this.props;
 
     return (
-      <PropertyGroup name="Transform">
-        <InputGroup name="Position">
+      <PropertyGroup name="Propietats">
+        <InputGroup name="Posició">
           <Vector3Input
             value={node.position}
             smallStep={0.01}
@@ -72,10 +72,10 @@ export default class TransformPropertyGroup extends Component {
             onChange={this.onChangePosition}
           />
         </InputGroup>
-        <InputGroup name="Rotation">
+        <InputGroup name="Rotació">
           <EulerInput value={node.rotation} onChange={this.onChangeRotation} unit="°" />
         </InputGroup>
-        <InputGroup name="Scale">
+        <InputGroup name="Escala">
           <Vector3Input
             uniformScaling
             smallStep={0.01}

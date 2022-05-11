@@ -27,31 +27,34 @@ export default function VideoNodeEditor(props) {
 
   return (
     <NodeEditor description={VideoNodeEditor.description} {...props}>
-      <InputGroup name="Video">
+      <InputGroup name="Vídeo">
         <VideoInput value={node.src} onChange={onChangeSrc} />
       </InputGroup>
-      <InputGroup name="Billboard" info="Video always faces user in Hubs. Does not billboard in Spoke.">
+      <InputGroup
+        name="Mostrar Frontalment"
+        info="El vídeo sempre es mostra frontalment a l'usuari a Hubs. No es mostra a Spoke."
+      >
         <BooleanInput value={node.billboard} onChange={onChangeBillboard} />
       </InputGroup>
       {node.projection === VideoProjection.Flat && (
-        <InputGroup name="Link Href" info="Allows the video to function as a link for the given url.">
+        <InputGroup name="Enllaç" info="Permet al vídeo funcionar com un enllaç amb la url donada.">
           <StringInput value={node.href} onChange={onChangeHref} />
         </InputGroup>
       )}
-      <InputGroup name="Projection">
+      <InputGroup name="Projecció">
         <SelectInput options={videoProjectionOptions} value={node.projection} onChange={onChangeProjection} />
       </InputGroup>
-      <InputGroup name="Controls" info="Toggle the visibility of the media controls in Hubs.">
+      <InputGroup name="Controls" info="Canvia la visibilitat dels controls multimèdia a Hubs.">
         <BooleanInput value={node.controls} onChange={onChangeControls} />
       </InputGroup>
-      <InputGroup name="Auto Play" info="If true, the media will play when first entering the scene.">
+      <InputGroup name="Inici Automàtic" info="Si està habilitat, s'iniciarà el vídeo quan algú entri a l'escena.">
         <BooleanInput value={node.autoPlay} onChange={onChangeAutoPlay} />
       </InputGroup>
-      <InputGroup name="Loop" info="If true the media will loop indefinitely.">
+      <InputGroup name="Bucle" info="Si està habilitat el vídeo es mostrarà en bucle indefinidament.">
         <BooleanInput value={node.loop} onChange={onChangeLoop} />
       </InputGroup>
       <AudioParamsProperties sourceType={SourceType.MEDIA_VIDEO} {...props} />
-      <AttributionNodeEditor name="Attribution" {...props} />
+      <AttributionNodeEditor name="Atribució" {...props} />
     </NodeEditor>
   );
 }
@@ -64,4 +67,4 @@ VideoNodeEditor.propTypes = {
 
 VideoNodeEditor.iconComponent = Video;
 
-VideoNodeEditor.description = "Dynamically loads a video.";
+VideoNodeEditor.description = "Carrega un vídeo dinàmicament.";
